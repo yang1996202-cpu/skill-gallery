@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { Skill } from '../types/skill';
 
-defineProps<{ skill: Skill }>();
+defineProps<{ skill: Skill; version?: number }>();
+
+const isV2 = (version?: number) => version === 2;
 
 function getTierColor(tier: number): string {
   const colors = {
@@ -40,14 +42,22 @@ function getCategoryColor(category: string): string {
       <code>{{ skill.slashCommand }}</code>
     </h3>
 
-    <p class="skill-description-cn">{{ skill.shortDescriptionCn }}</p>
-    <p class="skill-description-en">{{ skill.shortDescription }}</p>
+    <!-- v1: 纯描述 -->
+    <template v-if="!isV2(version)">
+      <p class="skill-description-cn">{{ skill.descriptionCn }}</p>
+    </template>
 
-    <div class="tags-list" v-if="skill.tags?.length">
-      <span v-for="tag in skill.tags.slice(0, 3)" :key="tag" class="tag-badge">
-        {{ tag }}
-      </span>
-    </div>
+    <!-- v2: 场景+标签 -->
+    <template v-else>
+      <p class="skill-scenario" v-if="skill.scenarios?.length">
+        {{ skill.scenarios[0] }}
+      </p>
+      <div class="tags-list" v-if="skill.tags?.length">
+        <span v-for="tag in skill.tags.slice(0, 3)" :key="tag" class="tag-badge">
+          {{ tag }}
+        </span>
+      </div>
+    </template>
 
     <div class="skill-meta">
       <span class="version">v{{ skill.version }}</span>
@@ -148,6 +158,16 @@ function getCategoryColor(category: string): string {
   flex-wrap: wrap;
   gap: 0.25rem;
   margin-top: 0.5rem;
+}
+
+.skill-scenario {
+  color: #1f2937;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #f0f9ff;
+  border-radius: 6px;
 }
 
 .tag-badge {

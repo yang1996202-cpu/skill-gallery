@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { Skill } from '../types/skill';
 
-defineProps<{ skill: Skill }>();
+defineProps<{ skill: Skill; version?: number }>();
 const emit = defineEmits<{ close: [] }>();
+
+const isV2 = (version?: number) => version === 2;
 
 function copyCommand(cmd: string) {
   navigator.clipboard.writeText(cmd);
@@ -43,28 +45,31 @@ function getTierColor(tier: number): string {
         <p class="desc-en">{{ skill.description }}</p>
       </section>
 
-      <section class="section">
-        <h3>适用场景</h3>
-        <ul class="scenarios-list">
-          <li v-for="scenario in skill.scenarios" :key="scenario" class="scenario-item">
-            {{ scenario }}
-          </li>
-        </ul>
-      </section>
+      <!-- v2: 场景+标签 -->
+      <template v-if="isV2(version)">
+        <section class="section">
+          <h3>适用场景</h3>
+          <ul class="scenarios-list">
+            <li v-for="scenario in skill.scenarios" :key="scenario" class="scenario-item">
+              {{ scenario }}
+            </li>
+          </ul>
+        </section>
 
-      <section class="section">
-        <h3>适合人群</h3>
-        <p class="target-users">{{ skill.targetUsers }}</p>
-      </section>
+        <section class="section">
+          <h3>适合人群</h3>
+          <p class="target-users">{{ skill.targetUsers }}</p>
+        </section>
 
-      <section class="section">
-        <h3>搜索标签</h3>
-        <div class="tags-list">
-          <span v-for="tag in skill.tags" :key="tag" class="tag-badge">
-            {{ tag }}
-          </span>
-        </div>
-      </section>
+        <section class="section tags-section">
+          <h3>搜索标签</h3>
+          <div class="tags-list">
+            <span v-for="tag in skill.tags" :key="tag" class="tag-badge">
+              {{ tag }}
+            </span>
+          </div>
+        </section>
+      </template>
 
       <section class="section invoke-section">
         <h3>如何调用</h3>

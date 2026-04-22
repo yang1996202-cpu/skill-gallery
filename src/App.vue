@@ -12,6 +12,22 @@ const searchQuery = ref('');
 const selectedCategory = ref<SkillCategory | null>(null);
 const selectedSkill = ref<Skill | null>(null);
 
+// URL参数版本控制: v1=纯描述, v2=场景+标签(默认)
+const urlParams = new URLSearchParams(window.location.search);
+const viewVersion = ref(urlParams.get('v') === '1' ? 1 : 2);
+
+function toggleVersion() {
+  viewVersion.value = viewVersion.value === 1 ? 2 : 1;
+  // 更新URL参数但不刷新页面
+  const newUrl = new URL(window.location.href);
+  if (viewVersion.value === 1) {
+    newUrl.searchParams.set('v', '1');
+  } else {
+    newUrl.searchParams.delete('v');
+  }
+  window.history.replaceState({}, '', newUrl.toString());
+}
+
 // 最后更新时间（使用构建时间）
 const lastUpdated = computed(() => {
   const now = new Date();
@@ -96,6 +112,22 @@ function closeDetail() {
       <h1>GStack 技能目录 Skill Gallery</h1>
       <p class="subtitle">36 个技能 · 点击查看详情 · 学习如何使用</p>
       <SearchBar v-model="searchQuery" />
+      <div class="version-toggle">
+        <button
+          class="toggle-btn"
+          :class="{ active: viewVersion === 2 }"
+          @click="viewVersion = 1; toggleVersion()"
+        >
+          v1 简洁版
+        </button>
+        <button
+          class="toggle-btn"
+          :class="{ active: viewVersion === 2 }"
+          @click="viewVersion = 2; toggleVersion()"
+        >
+          v2 场景版
+        </button>
+      </div>
     </header>
 
     <CategoryFilter
@@ -109,6 +141,7 @@ function closeDetail() {
         v-for="skill in filteredSkills"
         :key="skill.name"
         :skill="skill"
+        :version="viewVersion"
         @click="openDetail(skill)"
       />
     </main>
@@ -121,6 +154,7 @@ function closeDetail() {
     <SkillDetail
       v-if="selectedSkill"
       :skill="selectedSkill"
+      :version="viewVersion"
       @close="closeDetail"
     />
   </div>
@@ -151,6 +185,32 @@ function closeDetail() {
   padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.version-toggle {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.toggle-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: #1e3a8a;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .footer {
