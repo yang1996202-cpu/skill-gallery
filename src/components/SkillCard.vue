@@ -42,9 +42,10 @@ function getCategoryColor(category: string): string {
       <code>{{ skill.slashCommand }}</code>
     </h3>
 
-    <!-- v1: 纯描述 -->
+    <!-- v1: 纯描述（旧版） -->
     <template v-if="!isV2(version)">
-      <p class="skill-description-cn">{{ skill.descriptionCn }}</p>
+      <p class="skill-description-cn">{{ skill.shortDescriptionCn }}</p>
+      <p class="skill-description-en">{{ skill.shortDescription }}</p>
     </template>
 
     <!-- v2: 场景+标签 -->
