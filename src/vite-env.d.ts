@@ -10,3 +10,6 @@ declare module '*.vue' {
 interface ImportMeta {
   dirname: string
 }
+
+// Vite 构建时注入的构建时间
+declare const __BUILD_TIME__: string
