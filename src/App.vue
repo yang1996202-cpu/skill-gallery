@@ -30,17 +30,8 @@ function switchToNewVersion() {
   window.history.replaceState({}, '', newUrl.toString());
 }
 
-// 最后更新时间（使用构建时间）
-const lastUpdated = computed(() => {
-  const now = new Date();
-  return now.toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-});
+// 最后更新时间（构建时生成，保持不变）
+const lastUpdated = __BUILD_TIME__;
 
 const categories: SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities'];
 
