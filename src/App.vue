@@ -118,18 +118,18 @@ function closeDetail() {
       <SearchBar v-model="searchQuery" />
       <div class="version-toggle">
         <button
-          class="toggle-btn"
-          :class="{ active: viewVersion === 1 }"
+          v-if="viewVersion === 2"
+          class="toggle-btn old-version-link"
           @click="viewVersion = 1; toggleVersion()"
         >
-          v1 简洁版（旧版）
+          切换旧版
         </button>
         <button
-          class="toggle-btn"
-          :class="{ active: viewVersion === 2 }"
+          v-else
+          class="toggle-btn old-version-link"
           @click="viewVersion = 2; toggleVersion()"
         >
-          v2 场景版（默认）
+          返回新版
         </button>
       </div>
     </header>
@@ -170,6 +170,7 @@ function closeDetail() {
   padding: 2rem 1rem;
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
+  position: relative;
 }
 
 .header h1 {
@@ -192,29 +193,29 @@ function closeDetail() {
 }
 
 .version-toggle {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-top: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .toggle-btn {
-  padding: 6px 16px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.1);
   color: white;
   cursor: pointer;
+  font-size: 0.85rem;
   transition: all 0.2s;
 }
 
-.toggle-btn.active {
-  background: white;
-  color: #1e3a8a;
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-.toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.old-version-link {
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 .footer {
