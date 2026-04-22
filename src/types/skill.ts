@@ -20,6 +20,9 @@ export interface Skill {
   category: SkillCategory;
   categoryCn: string;
   sourcePath: string;
+  scenarios: string[];
+  tags: string[];
+  targetUsers: string;
 }
 
 export interface CategoryInfo {

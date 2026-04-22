@@ -43,6 +43,29 @@ function getTierColor(tier: number): string {
         <p class="desc-en">{{ skill.description }}</p>
       </section>
 
+      <section class="section">
+        <h3>适用场景</h3>
+        <ul class="scenarios-list">
+          <li v-for="scenario in skill.scenarios" :key="scenario" class="scenario-item">
+            {{ scenario }}
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>适合人群</h3>
+        <p class="target-users">{{ skill.targetUsers }}</p>
+      </section>
+
+      <section class="section">
+        <h3>搜索标签</h3>
+        <div class="tags-list">
+          <span v-for="tag in skill.tags" :key="tag" class="tag-badge">
+            {{ tag }}
+          </span>
+        </div>
+      </section>
+
       <section class="section invoke-section">
         <h3>如何调用</h3>
         <div class="invoke-box">
@@ -228,5 +251,50 @@ function getTierColor(tier: number): string {
   font-size: 0.8rem;
   color: #6b7280;
   word-break: break-all;
+}
+
+.scenarios-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.scenario-item {
+  padding: 0.5rem 0;
+  color: #374151;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.scenario-item:last-child {
+  border-bottom: none;
+}
+
+.scenario-item::before {
+  content: "💡 ";
+  margin-right: 0.25rem;
+}
+
+.target-users {
+  color: #1e40af;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  background: #eff6ff;
+  border-radius: 6px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-badge {
+  padding: 4px 10px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #4b5563;
 }
 </style>

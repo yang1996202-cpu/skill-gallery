@@ -38,12 +38,24 @@ const categoryNames: Record<SkillCategory, string> = {
 
 const filteredSkills = computed(() => {
   return skills.value.filter(skill => {
-    const matchesSearch = !searchQuery.value ||
-      skill.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      skill.description.toLowerCase().includes(searchQuery.value.toLowerCase());
+    const query = searchQuery.value.toLowerCase().trim();
+    if (!query) return true;
+
+    // 搜索名称、描述
+    const matchesBasic = skill.name.toLowerCase().includes(query) ||
+      skill.description.toLowerCase().includes(query) ||
+      skill.descriptionCn.toLowerCase().includes(query);
+
+    // 搜索标签
+    const matchesTags = skill.tags?.some(tag => tag.toLowerCase().includes(query)) || false;
+
+    // 搜索场景
+    const matchesScenarios = skill.scenarios?.some(scene => scene.toLowerCase().includes(query)) || false;
+
     const matchesCategory = !selectedCategory.value ||
       skill.category === selectedCategory.value;
-    return matchesSearch && matchesCategory;
+
+    return (matchesBasic || matchesTags || matchesScenarios) && matchesCategory;
   });
 });
 

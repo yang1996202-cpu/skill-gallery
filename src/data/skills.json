@@ -6,8 +6,8 @@
     "preambleTier": 1,
     "description": "Performance regression detection using the browse daemon. Establishes\nbaselines for page load times, Core Web Vitals, and resource sizes.\nCompares before/after on every PR. Tracks performance trends over time.\nUse when: \"performance\", \"benchmark\", \"page speed\", \"lighthouse\", \"web vitals\",\n\"bundle size\", \"load time\". (gstack)\nVoice triggers (speech-to-text aliases): \"speed test\", \"check performance\".",
     "shortDescription": "Performance regression detection using the browse daemon. Establishes",
-    "descriptionCn": "性能回归检测。使用 browse 守护进程建立页面加载时间、Core Web Vitals 和资源大小的基线。在每个 PR 上对比前后性能。追踪性能趋势。",
-    "shortDescriptionCn": "性能回归检测。使用 browse 守护进程建立页面加载时间、Core Web V...",
+    "descriptionCn": "性能回归检测",
+    "shortDescriptionCn": "性能回归检测",
     "allowedTools": [
       "Bash",
       "Read",
@@ -17,7 +17,23 @@
     ],
     "category": "Testing",
     "categoryCn": "测试",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/benchmark/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/benchmark/SKILL.md",
+    "scenarios": [
+      "当你觉得网站变慢了时",
+      "当你想对比新旧版本性能时",
+      "当你想建立性能基线时"
+    ],
+    "tags": [
+      "性能",
+      "速度",
+      "测试",
+      "Core Web Vitals",
+      "基线",
+      "对比",
+      "优化",
+      "加载时间"
+    ],
+    "targetUsers": "关注性能的开发者"
   },
   {
     "name": "browse",
@@ -26,8 +42,8 @@
     "preambleTier": 1,
     "description": "Fast headless browser for QA testing and site dogfooding. Navigate any URL, interact with\nelements, verify page state, diff before/after actions, take annotated screenshots, check\nresponsive layouts, test forms and uploads, handle dialogs, and assert element states.\n~100ms per command. Use when you need to test a feature, verify a deployment, dogfood a\nuser flow, or file a bug with evidence. Use when asked to \"open in browser\", \"test the\nsite\", \"take a screenshot\", or \"dogfood this\". (gstack)",
     "shortDescription": "Fast headless browser for QA testing and site dogfooding. Navigate any URL, inte...",
-    "descriptionCn": "无头浏览器浏览，用于测试网站和截图。支持导航任意 URL、与元素交互、验证页面状态、对比操作前后的差异、生成带注释的截图、检查响应式布局、测试表单和上传、处理对话框、断言元素状态。每个命令约 100ms。用于测试功能、验证部署、体验用户流程或提交带证据的 bug 报告。",
-    "shortDescriptionCn": "无头浏览器浏览，用于测试网站和截图。支持导航任意 URL、与元素交互、验证页面状...",
+    "descriptionCn": "无头浏览器浏览，用于测试网站和截图",
+    "shortDescriptionCn": "无头浏览器浏览，用于测试网站和截图",
     "allowedTools": [
       "Bash",
       "Read",
@@ -35,7 +51,26 @@
     ],
     "category": "Building",
     "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/browse/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/browse/SKILL.md",
+    "scenarios": [
+      "当你想测试刚部署的网站是否正常工作时",
+      "当你需要截图向同事展示 bug 时",
+      "当你想验证登录流程是否顺畅时",
+      "当你需要检查页面在不同设备上的显示效果时"
+    ],
+    "tags": [
+      "测试",
+      "截图",
+      "浏览器",
+      "QA",
+      "验证",
+      "部署检查",
+      "网站测试",
+      "无头浏览器",
+      "交互测试",
+      "响应式"
+    ],
+    "targetUsers": "需要测试网站、截图验证的前端开发者和 QA"
   },
   {
     "name": "setup-browser-cookies",
@@ -44,8 +79,8 @@
     "preambleTier": 1,
     "description": "Import cookies from your real Chromium browser into the headless browse session.\nOpens an interactive picker UI where you select which cookie domains to import.\nUse before QA testing authenticated pages. Use when asked to \"import cookies\",\n\"login to the site\", or \"authenticate the browser\". (gstack)",
     "shortDescription": "Import cookies from your real Chromium browser into the headless browse session.",
-    "descriptionCn": "导入浏览器 cookies。从你的真实 Chromium 浏览器导入 cookies 到无头浏览会话。",
-    "shortDescriptionCn": "导入浏览器 cookies。从你的真实 Chromium 浏览器导入 cooki...",
+    "descriptionCn": "导入浏览器 cookies",
+    "shortDescriptionCn": "导入浏览器 cookies",
     "allowedTools": [
       "Bash",
       "Read",
@@ -53,7 +88,19 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-browser-cookies/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-browser-cookies/SKILL.md",
+    "scenarios": [
+      "当你需要登录态测试网站时",
+      "当你想导入浏览器 cookies 时"
+    ],
+    "tags": [
+      "cookies",
+      "登录",
+      "浏览器",
+      "认证",
+      "导入"
+    ],
+    "targetUsers": "需要登录态测试的开发者"
   },
   {
     "name": "canary",
@@ -62,8 +109,8 @@
     "preambleTier": 2,
     "description": "Post-deploy canary monitoring. Watches the live app for console errors,\nperformance regressions, and page failures using the browse daemon. Takes\nperiodic screenshots, compares against pre-deploy baselines, and alerts\non anomalies. Use when: \"monitor deploy\", \"canary\", \"post-deploy check\",\n\"watch production\", \"verify deploy\". (gstack)",
     "shortDescription": "Post-deploy canary monitoring. Watches the live app for console errors,",
-    "descriptionCn": "发布后监控：检查错误和性能。金丝雀监控模式，监控线上应用的 console 错误、网络请求失败、性能指标异常。",
-    "shortDescriptionCn": "发布后监控：检查错误和性能。金丝雀监控模式，监控线上应用的 console 错误...",
+    "descriptionCn": "发布后监控：检查错误和性能",
+    "shortDescriptionCn": "发布后监控：检查错误和性能",
     "allowedTools": [
       "Bash",
       "Read",
@@ -73,7 +120,23 @@
     ],
     "category": "Testing",
     "categoryCn": "测试",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/canary/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/canary/SKILL.md",
+    "scenarios": [
+      "当你刚部署完想确认是否正常时",
+      "当你想监控线上错误时",
+      "当你担心部署有副作用时"
+    ],
+    "tags": [
+      "监控",
+      "线上",
+      "错误",
+      "部署",
+      "金丝雀",
+      "预警",
+      "日志",
+      "稳定性"
+    ],
+    "targetUsers": "负责线上稳定性的开发者"
   },
   {
     "name": "checkpoint",
@@ -82,8 +145,8 @@
     "preambleTier": 2,
     "description": "Save and resume working state checkpoints. Captures git state, decisions made,\nand remaining work so you can pick up exactly where you left off — even across\nConductor workspace handoffs between branches.\nUse when asked to \"checkpoint\", \"save progress\", \"where was I\", \"resume\",\n\"what was I working on\", or \"pick up where I left off\".\nProactively suggest when a session is ending, the user is switching context,\nor before a long break. (gstack)",
     "shortDescription": "Save and resume working state checkpoints. Captures git state, decisions made,",
-    "descriptionCn": "保存和恢复工作状态。保存和恢复工作状态检查点，捕获 git 状态、已做决策、当前上下文。",
-    "shortDescriptionCn": "保存和恢复工作状态。保存和恢复工作状态检查点，捕获 git 状态、已做决策、当前...",
+    "descriptionCn": "保存和恢复工作状态",
+    "shortDescriptionCn": "保存和恢复工作状态",
     "allowedTools": [
       "Bash",
       "Read",
@@ -94,7 +157,22 @@
     ],
     "category": "Safety",
     "categoryCn": "安全",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/checkpoint/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/checkpoint/SKILL.md",
+    "scenarios": [
+      "当你想保存当前工作状态时",
+      "当你需要中断工作稍后再继续时",
+      "当你想备份 git 状态和工作进度时"
+    ],
+    "tags": [
+      "保存",
+      "恢复",
+      "状态",
+      "中断",
+      "继续",
+      "备份",
+      "快照"
+    ],
+    "targetUsers": "需要保存工作状态的开发者"
   },
   {
     "name": "cso",
@@ -103,8 +181,8 @@
     "preambleTier": 2,
     "description": "Chief Security Officer mode. Infrastructure-first security audit: secrets archaeology,\ndependency supply chain, CI/CD pipeline security, LLM/AI security, skill supply chain\nscanning, plus OWASP Top 10, STRIDE threat modeling, and active verification.\nTwo modes: daily (zero-noise, 8/10 confidence gate) and comprehensive (monthly deep\nscan, 2/10 bar). Trend tracking across audit runs.\nUse when: \"security audit\", \"threat model\", \"pentest review\", \"OWASP\", \"CSO review\". (gstack)\nVoice triggers (speech-to-text aliases): \"see-so\", \"see so\", \"security review\", \"security check\", \"vulnerability scan\", \"run security\".",
     "shortDescription": "Chief Security Officer mode. Infrastructure-first security audit: secrets archae...",
-    "descriptionCn": "安全审计：基础设施、供应链、OWASP。首席安全官模式，优先进行基础设施安全审计，包括密钥考古、依赖项漏洞扫描、OWASP 合规检查。",
-    "shortDescriptionCn": "安全审计：基础设施、供应链、OWASP。首席安全官模式，优先进行基础设施安全审计...",
+    "descriptionCn": "安全审计：基础设施、供应链、OWASP",
+    "shortDescriptionCn": "安全审计：基础设施、供应链、OWASP",
     "allowedTools": [
       "Bash",
       "Read",
@@ -117,7 +195,23 @@
     ],
     "category": "Review",
     "categoryCn": "评审",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/cso/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/cso/SKILL.md",
+    "scenarios": [
+      "当你想检查项目是否有安全隐患时",
+      "当你担心密钥或密码泄露时",
+      "当你需要安全合规审计时"
+    ],
+    "tags": [
+      "安全",
+      "审计",
+      "OWASP",
+      "密钥",
+      "漏洞",
+      "合规",
+      "供应链",
+      "基础设施"
+    ],
+    "targetUsers": "关注安全的开发者和技术负责人"
   },
   {
     "name": "design-html",
@@ -126,8 +220,8 @@
     "preambleTier": 2,
     "description": "Design finalization: generates production-quality Pretext-native HTML/CSS.\nWorks with approved mockups from /design-shotgun, CEO plans from /plan-ceo-review,\ndesign review context from /plan-design-review, or from scratch with a user\ndescription. Text actually reflows, heights are computed, layouts are dynamic.\n30KB overhead, zero deps. Smart API routing: picks the right Pretext patterns\nfor each design type. Use when: \"finalize this design\", \"turn this into HTML\",\n\"build me a page\", \"implement this design\", or after any planning skill.\nProactively suggest when user has approved a design or has a plan ready. (gstack)\nVoice triggers (speech-to-text aliases): \"build the design\", \"code the mockup\", \"make it real\".",
     "shortDescription": "Design finalization: generates production-quality Pretext-native HTML/CSS.",
-    "descriptionCn": "生成生产级 HTML/CSS 设计。生成符合生产标准的高质量 HTML/CSS 代码，遵循 Pretext 设计系统规范。",
-    "shortDescriptionCn": "生成生产级 HTML/CSS 设计。生成符合生产标准的高质量 HTML/CSS ...",
+    "descriptionCn": "生成生产级 HTML/CSS 设计",
+    "shortDescriptionCn": "生成生产级 HTML/CSS 设计",
     "allowedTools": [
       "Bash",
       "Read",
@@ -140,7 +234,22 @@
     ],
     "category": "Building",
     "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/design-html/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-html/SKILL.md",
+    "scenarios": [
+      "当你需要把设计稿变成可运行的网页时",
+      "当你想要高质量的前端代码时",
+      "当你需要快速迭代设计时"
+    ],
+    "tags": [
+      "设计",
+      "HTML",
+      "CSS",
+      "前端",
+      "生产代码",
+      "响应式",
+      "Pretext"
+    ],
+    "targetUsers": "需要高质量前端代码的开发者"
   },
   {
     "name": "design-shotgun",
@@ -149,8 +258,8 @@
     "preambleTier": 2,
     "description": "Design shotgun: generate multiple AI design variants, open a comparison board,\ncollect structured feedback, and iterate. Standalone design exploration you can\nrun anytime. Use when: \"explore designs\", \"show me options\", \"design variants\",\n\"visual brainstorm\", or \"I don't like how this looks\".\nProactively suggest when the user describes a UI feature but hasn't seen\nwhat it could look like. (gstack)",
     "shortDescription": "Design shotgun: generate multiple AI design variants, open a comparison board,",
-    "descriptionCn": "生成多个设计变体并对比。快速生成多个 AI 设计变体，打开对比面板供用户选择，加速设计迭代过程。",
-    "shortDescriptionCn": "生成多个设计变体并对比。快速生成多个 AI 设计变体，打开对比面板供用户选择，加...",
+    "descriptionCn": "生成多个设计变体并对比",
+    "shortDescriptionCn": "生成多个设计变体并对比",
     "allowedTools": [
       "Bash",
       "Read",
@@ -161,7 +270,22 @@
     ],
     "category": "Building",
     "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/design-shotgun/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-shotgun/SKILL.md",
+    "scenarios": [
+      "当你不确定哪种设计方案最好时",
+      "当你想快速看到多个设计方向时",
+      "当你需要对比不同设计风格时"
+    ],
+    "tags": [
+      "设计",
+      "探索",
+      "对比",
+      "多方案",
+      "创意",
+      "视觉方向",
+      "迭代"
+    ],
+    "targetUsers": "探索设计方案的产品设计师"
   },
   {
     "name": "document-release",
@@ -170,8 +294,8 @@
     "preambleTier": 2,
     "description": "Post-ship documentation update. Reads all project docs, cross-references the\ndiff, updates README/ARCHITECTURE/CONTRIBUTING/CLAUDE.md to match what shipped,\npolishes CHANGELOG voice, cleans up TODOS, and optionally bumps VERSION. Use when\nasked to \"update the docs\", \"sync documentation\", or \"post-ship docs\".\nProactively suggest after a PR is merged or code is shipped. (gstack)",
     "shortDescription": "Post-ship documentation update. Reads all project docs, cross-references the",
-    "descriptionCn": "发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。",
-    "shortDescriptionCn": "发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。",
+    "descriptionCn": "发布后文档更新",
+    "shortDescriptionCn": "发布后文档更新",
     "allowedTools": [
       "Bash",
       "Read",
@@ -183,7 +307,20 @@
     ],
     "category": "Shipping",
     "categoryCn": "发布",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/document-release/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/document-release/SKILL.md",
+    "scenarios": [
+      "当你部署完需要更新文档时",
+      "当你想自动生成发布说明时"
+    ],
+    "tags": [
+      "文档",
+      "发布",
+      "更新",
+      "说明",
+      "变更日志",
+      "同步"
+    ],
+    "targetUsers": "需要维护文档的开发者"
   },
   {
     "name": "health",
@@ -192,8 +329,8 @@
     "preambleTier": 2,
     "description": "Code quality dashboard. Wraps existing project tools (type checker, linter,\ntest runner, dead code detector, shell linter), computes a weighted composite\n0-10 score, and tracks trends over time. Use when: \"health check\",\n\"code quality\", \"how healthy is the codebase\", \"run all checks\",\n\"quality score\". (gstack)",
     "shortDescription": "Code quality dashboard. Wraps existing project tools (type checker, linter,",
-    "descriptionCn": "代码质量仪表板。封装现有项目工具（类型检查器、linter、测试运行器），生成代码健康度评分和趋势报告。",
-    "shortDescriptionCn": "代码质量仪表板。封装现有项目工具（类型检查器、linter、测试运行器），生成代...",
+    "descriptionCn": "代码质量仪表板",
+    "shortDescriptionCn": "代码质量仪表板",
     "allowedTools": [
       "Bash",
       "Read",
@@ -205,7 +342,22 @@
     ],
     "category": "Testing",
     "categoryCn": "测试",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/health/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/health/SKILL.md",
+    "scenarios": [
+      "当你想了解代码库整体健康状况时",
+      "当你想查看测试、类型检查覆盖率时",
+      "当你想追踪代码质量趋势时"
+    ],
+    "tags": [
+      "代码质量",
+      "仪表板",
+      "类型检查",
+      "lint",
+      "测试覆盖",
+      "趋势",
+      "报告"
+    ],
+    "targetUsers": "关注代码质量的团队负责人"
   },
   {
     "name": "investigate",
@@ -214,8 +366,8 @@
     "preambleTier": 2,
     "description": "Systematic debugging with root cause investigation. Four phases: investigate,\nanalyze, hypothesize, implement. Iron Law: no fixes without root cause.\nUse when asked to \"debug this\", \"fix this bug\", \"why is this broken\",\n\"investigate this error\", or \"root cause analysis\".\nProactively invoke this skill (do NOT debug directly) when the user reports\nerrors, 500 errors, stack traces, unexpected behavior, \"it was working\nyesterday\", or is troubleshooting why something stopped working. (gstack)",
     "shortDescription": "Systematic debugging with root cause investigation. Four phases: investigate,",
-    "descriptionCn": "系统化调试，根因分析。四阶段调试流程：调查、假设、验证、修复，深入定位问题根本原因。",
-    "shortDescriptionCn": "系统化调试，根因分析。四阶段调试流程：调查、假设、验证、修复，深入定位问题根本原...",
+    "descriptionCn": "系统化调试，根因分析",
+    "shortDescriptionCn": "系统化调试，根因分析",
     "allowedTools": [
       "Bash",
       "Read",
@@ -228,7 +380,22 @@
     ],
     "category": "Building",
     "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/investigate/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/investigate/SKILL.md",
+    "scenarios": [
+      "当你遇到 bug 但不知道原因时",
+      "当错误信息很模糊时",
+      "当你想系统化地排查问题时"
+    ],
+    "tags": [
+      "调试",
+      "bug",
+      "根因",
+      "排查",
+      "错误",
+      "问题定位",
+      "系统化"
+    ],
+    "targetUsers": "遇到复杂 bug 的开发者"
   },
   {
     "name": "learn",
@@ -237,8 +404,8 @@
     "preambleTier": 2,
     "description": "Manage project learnings. Review, search, prune, and export what gstack\nhas learned across sessions. Use when asked to \"what have we learned\",\n\"show learnings\", \"prune stale learnings\", or \"export learnings\".\nProactively suggest when the user asks about past patterns or wonders\n\"didn't we fix this before?\"",
     "shortDescription": "Manage project learnings. Review, search, prune, and export what gstack",
-    "descriptionCn": "管理项目学习记录。查看、搜索、清理和导出 gstack 积累的项目学习记录。",
-    "shortDescriptionCn": "管理项目学习记录。查看、搜索、清理和导出 gstack 积累的项目学习记录。",
+    "descriptionCn": "管理项目学习记录",
+    "shortDescriptionCn": "管理项目学习记录",
     "allowedTools": [
       "Bash",
       "Read",
@@ -250,7 +417,20 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/learn/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/learn/SKILL.md",
+    "scenarios": [
+      "当你想回顾项目中学到的东西时",
+      "当你想整理项目经验时"
+    ],
+    "tags": [
+      "学习",
+      "记录",
+      "经验",
+      "知识管理",
+      "搜索",
+      "导出"
+    ],
+    "targetUsers": "注重知识积累的开发者"
   },
   {
     "name": "retro",
@@ -259,8 +439,8 @@
     "preambleTier": 2,
     "description": "Weekly engineering retrospective. Analyzes commit history, work patterns,\nand code quality metrics with persistent history and trend tracking.\nTeam-aware: breaks down per-person contributions with praise and growth areas.\nUse when asked to \"weekly retro\", \"what did we ship\", or \"engineering retrospective\".\nProactively suggest at the end of a work week or sprint. (gstack)",
     "shortDescription": "Weekly engineering retrospective. Analyzes commit history, work patterns,",
-    "descriptionCn": "周回顾：分析提交历史和工作模式。工程周回顾，分析提交历史、工作模式、代码变更趋势。",
-    "shortDescriptionCn": "周回顾：分析提交历史和工作模式。工程周回顾，分析提交历史、工作模式、代码变更趋势...",
+    "descriptionCn": "周回顾：分析提交历史和工作模式",
+    "shortDescriptionCn": "周回顾：分析提交历史和工作模式",
     "allowedTools": [
       "Bash",
       "Read",
@@ -270,7 +450,21 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/retro/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/retro/SKILL.md",
+    "scenarios": [
+      "当你想做周回顾总结时",
+      "当你想分析团队工作模式时"
+    ],
+    "tags": [
+      "回顾",
+      "总结",
+      "周会",
+      "提交历史",
+      "工作模式",
+      "团队",
+      "效率"
+    ],
+    "targetUsers": "做周回顾的团队成员"
   },
   {
     "name": "setup-deploy",
@@ -279,8 +473,8 @@
     "preambleTier": 2,
     "description": "Configure deployment settings for /land-and-deploy. Detects your deploy\nplatform (Fly.io, Render, Vercel, Netlify, Heroku, GitHub Actions, custom),\nproduction URL, health check endpoints, and deploy status commands. Writes\nthe configuration to CLAUDE.md so all future deploys are automatic.\nUse when: \"setup deploy\", \"configure deployment\", \"set up land-and-deploy\",\n\"how do I deploy with gstack\", \"add deploy config\".",
     "shortDescription": "Configure deployment settings for /land-and-deploy. Detects your deploy",
-    "descriptionCn": "配置部署设置。为 /land-and-deploy 配置部署设置，检测你的部署目标（Vercel、Netlify、AWS 等）。",
-    "shortDescriptionCn": "配置部署设置。为 /land-and-deploy 配置部署设置，检测你的部署目...",
+    "descriptionCn": "配置部署设置",
+    "shortDescriptionCn": "配置部署设置",
     "allowedTools": [
       "Bash",
       "Read",
@@ -292,7 +486,20 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md",
+    "scenarios": [
+      "当你第一次配置部署环境时",
+      "当你想自动化部署流程时"
+    ],
+    "tags": [
+      "配置",
+      "部署",
+      "初始化",
+      "Vercel",
+      "Netlify",
+      "AWS"
+    ],
+    "targetUsers": "初次配置部署的开发者"
   },
   {
     "name": "autoplan",
@@ -301,8 +508,8 @@
     "preambleTier": 3,
     "description": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk\nand runs them sequentially with auto-decisions using 6 decision principles. Surfaces\ntaste decisions (close approaches, borderline scope, codex disagreements) at a final\napproval gate. One command, fully reviewed plan out.\nUse when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan\nautomatically\", or \"make the decisions for me\".\nProactively suggest when the user has a plan file and wants to run the full review\ngauntlet without answering 15-30 intermediate questions. (gstack)\nVoice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\".",
     "shortDescription": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills fro...",
-    "descriptionCn": "自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，自动生成全面的评审计划。",
-    "shortDescriptionCn": "自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，自动生成全面的评...",
+    "descriptionCn": "自动评审管道",
+    "shortDescriptionCn": "自动评审管道",
     "allowedTools": [
       "Bash",
       "Read",
@@ -315,7 +522,22 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/autoplan/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/autoplan/SKILL.md",
+    "scenarios": [
+      "当你想要全面的项目评审时",
+      "当你想自动跑完所有评审流程时"
+    ],
+    "tags": [
+      "评审",
+      "自动化",
+      "管道",
+      "全面",
+      "CEO",
+      "设计",
+      "工程",
+      "DX"
+    ],
+    "targetUsers": "需要全面项目评审的负责人"
   },
   {
     "name": "codex",
@@ -324,8 +546,8 @@
     "preambleTier": 3,
     "description": "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via\ncodex review with pass/fail gate. Challenge: adversarial mode that tries to break\nyour code. Consult: ask codex anything with session continuity for follow-ups.\nThe \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\",\n\"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". (gstack)\nVoice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\".",
     "shortDescription": "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via",
-    "descriptionCn": "OpenAI Codex CLI 包装器。三种模式：代码评审（通过 API 的独立 diff 评审）、代码生成、代码解释。",
-    "shortDescriptionCn": "OpenAI Codex CLI 包装器。三种模式：代码评审（通过 API 的独...",
+    "descriptionCn": "OpenAI Codex CLI 包装器",
+    "shortDescriptionCn": "OpenAI Codex CLI 包装器",
     "allowedTools": [
       "Bash",
       "Read",
@@ -336,7 +558,20 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/codex/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/codex/SKILL.md",
+    "scenarios": [
+      "当你想用 OpenAI Codex 时",
+      "当你需要第二意见评审代码时"
+    ],
+    "tags": [
+      "Codex",
+      "OpenAI",
+      "代码生成",
+      "代码评审",
+      "第二意见",
+      "AI"
+    ],
+    "targetUsers": "使用多种 AI 工具的开发者"
   },
   {
     "name": "design-consultation",
@@ -345,8 +580,8 @@
     "preambleTier": 3,
     "description": "Design consultation: understands your product, researches the landscape, proposes a\ncomplete design system (aesthetic, typography, color, layout, spacing, motion), and\ngenerates font+color preview pages. Creates DESIGN.md as your project's design source\nof truth. For existing sites, use /plan-design-review to infer the system instead.\nUse when asked to \"design system\", \"brand guidelines\", or \"create DESIGN.md\".\nProactively suggest when starting a new project's UI with no existing\ndesign system or DESIGN.md. (gstack)",
     "shortDescription": "Design consultation: understands your product, researches the landscape, propose...",
-    "descriptionCn": "设计咨询：创建设计系统。理解你的产品，研究行业最佳实践，提出适合你的设计系统方案。",
-    "shortDescriptionCn": "设计咨询：创建设计系统。理解你的产品，研究行业最佳实践，提出适合你的设计系统方案...",
+    "descriptionCn": "设计咨询：创建设计系统",
+    "shortDescriptionCn": "设计咨询：创建设计系统",
     "allowedTools": [
       "Bash",
       "Read",
@@ -359,7 +594,22 @@
     ],
     "category": "Building",
     "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/design-consultation/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-consultation/SKILL.md",
+    "scenarios": [
+      "当你从零开始搭建设计系统时",
+      "当你想统一产品的视觉风格时",
+      "当你不确定用什么颜色、字体时"
+    ],
+    "tags": [
+      "设计系统",
+      "品牌",
+      "规范",
+      "颜色",
+      "字体",
+      "组件",
+      "设计语言"
+    ],
+    "targetUsers": "搭建设计系统的产品团队"
   },
   {
     "name": "devex-review",
@@ -368,8 +618,8 @@
     "preambleTier": 3,
     "description": "Live developer experience audit. Uses the browse tool to actually TEST the\ndeveloper experience: navigates docs, tries the getting started flow, times\nTTHW, screenshots error messages, evaluates CLI help text. Produces a DX\nscorecard with evidence. Compares against /plan-devex-review scores if they\nexist (the boomerang: plan said 3 minutes, reality says 8). Use when asked to\n\"test the DX\", \"DX audit\", \"developer experience test\", or \"try the\nonboarding\". Proactively suggest after shipping a developer-facing feature. (gstack)\nVoice triggers (speech-to-text aliases): \"dx audit\", \"test the developer experience\", \"try the onboarding\", \"developer experience test\".",
     "shortDescription": "Live developer experience audit. Uses the browse tool to actually TEST the",
-    "descriptionCn": "开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可用性。",
-    "shortDescriptionCn": "开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可...",
+    "descriptionCn": "开发者体验审计",
+    "shortDescriptionCn": "开发者体验审计",
     "allowedTools": [
       "Read",
       "Edit",
@@ -381,7 +631,20 @@
     ],
     "category": "Review",
     "categoryCn": "评审",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/devex-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/devex-review/SKILL.md",
+    "scenarios": [
+      "当你想实际测试开发者体验时",
+      "当你想从用户角度评估产品时"
+    ],
+    "tags": [
+      "开发者体验",
+      "审计",
+      "测试",
+      "用户视角",
+      "可用性",
+      "反馈"
+    ],
+    "targetUsers": "关注用户体验的开发者"
   },
   {
     "name": "office-hours",
@@ -390,8 +653,8 @@
     "preambleTier": 3,
     "description": "YC Office Hours — two modes. Startup mode: six forcing questions that expose\ndemand reality, status quo, desperate specificity, narrowest wedge, observation,\nand future-fit. Builder mode: design thinking brainstorming for side projects,\nhackathons, learning, and open source. Saves a design doc.\nUse when asked to \"brainstorm this\", \"I have an idea\", \"help me think through\nthis\", \"office hours\", or \"is this worth building\".\nProactively invoke this skill (do NOT answer directly) when the user describes\na new product idea, asks whether something is worth building, wants to think\nthrough design decisions for something that doesn't exist yet, or is exploring\na concept before any code is written.\nUse before /plan-ceo-review or /plan-eng-review. (gstack)",
     "shortDescription": "YC Office Hours — two modes. Startup mode: six forcing questions that expose",
-    "descriptionCn": "YC Office Hours 模式咨询。两种模式：创业模式（六个强制性问题暴露盲点）、产品模式（深度产品评审）。",
-    "shortDescriptionCn": "YC Office Hours 模式咨询。两种模式：创业模式（六个强制性问题暴露...",
+    "descriptionCn": "YC Office Hours 模式咨询",
+    "shortDescriptionCn": "YC Office Hours 模式咨询",
     "allowedTools": [
       "Bash",
       "Read",
@@ -404,7 +667,22 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/office-hours/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/office-hours/SKILL.md",
+    "scenarios": [
+      "当你不确定产品方向是否正确时",
+      "当你想获得创业建议时",
+      "当你想验证商业想法时"
+    ],
+    "tags": [
+      "YC",
+      "咨询",
+      "产品",
+      "创业",
+      "商业模式",
+      "方向",
+      "反馈"
+    ],
+    "targetUsers": "创业者和产品经理"
   },
   {
     "name": "plan-ceo-review",
@@ -413,8 +691,8 @@
     "preambleTier": 3,
     "description": "CEO/founder-mode plan review. Rethink the problem, find the 10-star product,\nchallenge premises, expand scope when it creates a better product. Four modes:\nSCOPE EXPANSION (dream big), SELECTIVE EXPANSION (hold scope + cherry-pick\nexpansions), HOLD SCOPE (maximum rigor), SCOPE REDUCTION (strip to essentials).\nUse when asked to \"think bigger\", \"expand scope\", \"strategy review\", \"rethink this\",\nor \"is this ambitious enough\".\nProactively suggest when the user is questioning scope or ambition of a plan,\nor when the plan feels like it could be thinking bigger. (gstack)",
     "shortDescription": "CEO/founder-mode plan review. Rethink the problem, find the 10-star product,",
-    "descriptionCn": "CEO 模式计划评审。CEO/创始人视角的计划评审，重新思考问题定义，寻找 10 星级产品机会，制定产品战略。",
-    "shortDescriptionCn": "CEO 模式计划评审。CEO/创始人视角的计划评审，重新思考问题定义，寻找 10...",
+    "descriptionCn": "CEO 模式计划评审",
+    "shortDescriptionCn": "CEO 模式计划评审",
     "allowedTools": [
       "Read",
       "Grep",
@@ -425,7 +703,22 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-ceo-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-ceo-review/SKILL.md",
+    "scenarios": [
+      "当你想从战略角度审视产品计划时",
+      "当你不确定解决的是不是正确问题时",
+      "当你想找 10 倍产品的机会时"
+    ],
+    "tags": [
+      "规划",
+      "CEO",
+      "战略",
+      "产品",
+      "愿景",
+      "10x产品",
+      "机会"
+    ],
+    "targetUsers": "产品负责人和创始人"
   },
   {
     "name": "plan-design-review",
@@ -434,8 +727,8 @@
     "preambleTier": 3,
     "description": "Designer's eye plan review — interactive, like CEO and Eng review.\nRates each design dimension 0-10, explains what would make it a 10,\nthen fixes the plan to get there. Works in plan mode. For live site\nvisual audits, use /design-review. Use when asked to \"review the design plan\"\nor \"design critique\".\nProactively suggest when the user has a plan with UI/UX components that\nshould be reviewed before implementation. (gstack)",
     "shortDescription": "Designer's eye plan review — interactive, like CEO and Eng review.",
-    "descriptionCn": "设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样深入。",
-    "shortDescriptionCn": "设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样...",
+    "descriptionCn": "设计师模式计划评审",
+    "shortDescriptionCn": "设计师模式计划评审",
     "allowedTools": [
       "Read",
       "Edit",
@@ -446,7 +739,20 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-design-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-design-review/SKILL.md",
+    "scenarios": [
+      "当你想从设计角度审视产品计划时",
+      "当你不确定用户体验是否合理时"
+    ],
+    "tags": [
+      "规划",
+      "设计",
+      "UX",
+      "用户",
+      "体验",
+      "交互"
+    ],
+    "targetUsers": "设计负责人"
   },
   {
     "name": "plan-devex-review",
@@ -455,8 +761,8 @@
     "preambleTier": 3,
     "description": "Interactive developer experience plan review. Explores developer personas,\nbenchmarks against competitors, designs magical moments, and traces friction\npoints before scoring. Three modes: DX EXPANSION (competitive advantage),\nDX POLISH (bulletproof every touchpoint), DX TRIAGE (critical gaps only).\nUse when asked to \"DX review\", \"developer experience audit\", \"devex review\",\nor \"API design review\".\nProactively suggest when the user has a plan for developer-facing products\n(APIs, CLIs, SDKs, libraries, platforms, docs). (gstack)\nVoice triggers (speech-to-text aliases): \"dx review\", \"developer experience review\", \"devex review\", \"devex audit\", \"API design review\", \"onboarding review\".",
     "shortDescription": "Interactive developer experience plan review. Explores developer personas,",
-    "descriptionCn": "开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程。",
-    "shortDescriptionCn": "开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程...",
+    "descriptionCn": "开发者体验计划评审",
+    "shortDescriptionCn": "开发者体验计划评审",
     "allowedTools": [
       "Read",
       "Edit",
@@ -468,7 +774,20 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-devex-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-devex-review/SKILL.md",
+    "scenarios": [
+      "当你想优化开发者工作体验时",
+      "当你想让团队开发效率更高时"
+    ],
+    "tags": [
+      "规划",
+      "开发者体验",
+      "效率",
+      "工具",
+      "工作流",
+      "DX"
+    ],
+    "targetUsers": "关注开发者体验的工程师"
   },
   {
     "name": "plan-eng-review",
@@ -477,8 +796,8 @@
     "preambleTier": 3,
     "description": "Eng manager-mode plan review. Lock in the execution plan — architecture,\ndata flow, diagrams, edge cases, test coverage, performance. Walks through\nissues interactively with opinionated recommendations. Use when asked to\n\"review the architecture\", \"engineering review\", or \"lock in the plan\".\nProactively suggest when the user has a plan or design doc and is about to\nstart coding — to catch architecture issues before implementation. (gstack)\nVoice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\".",
     "shortDescription": "Eng manager-mode plan review. Lock in the execution plan — architecture,",
-    "descriptionCn": "工程经理模式计划评审。工程经理视角的计划评审，锁定执行计划——架构设计、测试策略、部署方案。",
-    "shortDescriptionCn": "工程经理模式计划评审。工程经理视角的计划评审，锁定执行计划——架构设计、测试策略...",
+    "descriptionCn": "工程经理模式计划评审",
+    "shortDescriptionCn": "工程经理模式计划评审",
     "allowedTools": [
       "Read",
       "Write",
@@ -490,7 +809,22 @@
     ],
     "category": "Planning",
     "categoryCn": "规划",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-eng-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-eng-review/SKILL.md",
+    "scenarios": [
+      "当你想完善技术架构时",
+      "当你不确定技术方案是否可行时",
+      "当你想评估项目风险时"
+    ],
+    "tags": [
+      "规划",
+      "工程",
+      "架构",
+      "技术",
+      "执行",
+      "风险",
+      "方案"
+    ],
+    "targetUsers": "技术负责人和架构师"
   },
   {
     "name": "careful",
@@ -499,15 +833,28 @@
     "preambleTier": 4,
     "description": "Safety guardrails for destructive commands. Warns before rm -rf, DROP TABLE,\nforce-push, git reset --hard, kubectl delete, and similar destructive operations.\nUser can override each warning. Use when touching prod, debugging live systems,\nor working in a shared environment. Use when asked to \"be careful\", \"safety mode\",\n\"prod mode\", or \"careful mode\". (gstack)",
     "shortDescription": "Safety guardrails for destructive commands. Warns before rm -rf, DROP TABLE,",
-    "descriptionCn": "安全护栏：警告危险命令。破坏性命令的安全护栏，在执行 rm -rf、DROP TABLE 等操作前警告。",
-    "shortDescriptionCn": "安全护栏：警告危险命令。破坏性命令的安全护栏，在执行 rm -rf、DROP T...",
+    "descriptionCn": "安全护栏：警告危险命令",
+    "shortDescriptionCn": "安全护栏：警告危险命令",
     "allowedTools": [
       "Bash",
       "Read"
     ],
     "category": "Safety",
     "categoryCn": "安全",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/careful/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/careful/SKILL.md",
+    "scenarios": [
+      "当你要执行可能有风险的操作时",
+      "当你想避免误删文件时"
+    ],
+    "tags": [
+      "安全",
+      "警告",
+      "危险命令",
+      "确认",
+      "rm -rf",
+      "保护"
+    ],
+    "targetUsers": "执行危险操作前的开发者"
   },
   {
     "name": "design-review",
@@ -516,8 +863,8 @@
     "preambleTier": 4,
     "description": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems,\nAI slop patterns, and slow interactions — then fixes them. Iteratively fixes issues\nin source code, committing each fix atomically and re-verifying with before/after\nscreenshots. For plan-mode design review (before implementation), use /plan-design-review.\nUse when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\".\nProactively suggest when the user mentions visual inconsistencies or\nwants to polish the look of a live site. (gstack)",
     "shortDescription": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problem...",
-    "descriptionCn": "设计评审：检查视觉一致性、间距问题。以设计师的视角审查 UI，发现视觉不一致、间距问题、层级问题和可访问性缺陷。",
-    "shortDescriptionCn": "设计评审：检查视觉一致性、间距问题。以设计师的视角审查 UI，发现视觉不一致、间...",
+    "descriptionCn": "设计评审：检查视觉一致性、间距问题",
+    "shortDescriptionCn": "设计评审：检查视觉一致性、间距问题",
     "allowedTools": [
       "Bash",
       "Read",
@@ -530,7 +877,24 @@
     ],
     "category": "Review",
     "categoryCn": "评审",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/design-review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-review/SKILL.md",
+    "scenarios": [
+      "当你觉得 UI 哪里不对劲但说不出时",
+      "当你想确保设计符合规范时",
+      "当你想检查响应式布局问题时"
+    ],
+    "tags": [
+      "设计",
+      "UI",
+      "UX",
+      "审查",
+      "视觉",
+      "一致性",
+      "间距",
+      "可访问性",
+      "排版"
+    ],
+    "targetUsers": "关注 UI 细节的开发者"
   },
   {
     "name": "freeze",
@@ -539,8 +903,8 @@
     "preambleTier": 4,
     "description": "Restrict file edits to a specific directory for the session. Blocks Edit and\nWrite outside the allowed path. Use when debugging to prevent accidentally\n\"fixing\" unrelated code, or when you want to scope changes to one module.\nUse when asked to \"freeze\", \"restrict edits\", \"only edit this folder\",\nor \"lock down edits\". (gstack)",
     "shortDescription": "Restrict file edits to a specific directory for the session. Blocks Edit and",
-    "descriptionCn": "限制文件编辑范围。限制会话期间的文件编辑范围，阻止对指定目录外的 Edit 和 Write 操作。",
-    "shortDescriptionCn": "限制文件编辑范围。限制会话期间的文件编辑范围，阻止对指定目录外的 Edit 和 ...",
+    "descriptionCn": "限制文件编辑范围",
+    "shortDescriptionCn": "限制文件编辑范围",
     "allowedTools": [
       "Bash",
       "Read",
@@ -548,7 +912,20 @@
     ],
     "category": "Safety",
     "categoryCn": "安全",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/freeze/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/freeze/SKILL.md",
+    "scenarios": [
+      "当你想限制 AI 只修改特定目录时",
+      "当你不想让 AI 改动其他文件时"
+    ],
+    "tags": [
+      "安全",
+      "限制",
+      "范围",
+      "目录",
+      "编辑控制",
+      "边界"
+    ],
+    "targetUsers": "想控制 AI 编辑范围的开发者"
   },
   {
     "name": "gstack-upgrade",
@@ -557,8 +934,8 @@
     "preambleTier": 4,
     "description": "Upgrade gstack to the latest version. Detects global vs vendored install,\nruns the upgrade, and shows what's new. Use when asked to \"upgrade gstack\",\n\"update gstack\", or \"get latest version\".\nVoice triggers (speech-to-text aliases): \"upgrade the tools\", \"update the tools\", \"gee stack upgrade\", \"g stack upgrade\".",
     "shortDescription": "Upgrade gstack to the latest version. Detects global vs vendored install,",
-    "descriptionCn": "升级 gstack。将 gstack 升级到最新版本，检测全局安装 vs 本地安装，执行相应升级流程。",
-    "shortDescriptionCn": "升级 gstack。将 gstack 升级到最新版本，检测全局安装 vs 本地安...",
+    "descriptionCn": "升级 gstack",
+    "shortDescriptionCn": "升级 gstack",
     "allowedTools": [
       "Bash",
       "Read",
@@ -567,7 +944,19 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md",
+    "scenarios": [
+      "当你想升级 gstack 到最新版本时",
+      "当你想获取新功能时"
+    ],
+    "tags": [
+      "升级",
+      "更新",
+      "最新版本",
+      "gstack",
+      "功能"
+    ],
+    "targetUsers": "想使用最新功能的 gstack 用户"
   },
   {
     "name": "guard",
@@ -576,8 +965,8 @@
     "preambleTier": 4,
     "description": "Full safety mode: destructive command warnings + directory-scoped edits.\nCombines /careful (warns before rm -rf, DROP TABLE, force-push, etc.) with\n/freeze (blocks edits outside a specified directory). Use for maximum safety\nwhen touching prod or debugging live systems. Use when asked to \"guard mode\",\n\"full safety\", \"lock it down\", or \"maximum safety\". (gstack)",
     "shortDescription": "Full safety mode: destructive command warnings + directory-scoped edits.",
-    "descriptionCn": "全安全模式：警告 + 范围限制。完整安全模式：破坏性命令警告 + 目录范围限制编辑。",
-    "shortDescriptionCn": "全安全模式：警告 + 范围限制。完整安全模式：破坏性命令警告 + 目录范围限制编...",
+    "descriptionCn": "全安全模式：警告 + 范围限制",
+    "shortDescriptionCn": "全安全模式：警告 + 范围限制",
     "allowedTools": [
       "Bash",
       "Read",
@@ -585,7 +974,20 @@
     ],
     "category": "Safety",
     "categoryCn": "安全",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/guard/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/guard/SKILL.md",
+    "scenarios": [
+      "当你想开启全面安全模式时",
+      "当你处理敏感数据时"
+    ],
+    "tags": [
+      "安全",
+      "全面",
+      "警告",
+      "限制",
+      "危险操作",
+      "防护"
+    ],
+    "targetUsers": "处理敏感操作时的开发者"
   },
   {
     "name": "land-and-deploy",
@@ -594,8 +996,8 @@
     "preambleTier": 4,
     "description": "Land and deploy workflow. Merges the PR, waits for CI and deploy,\nverifies production health via canary checks. Takes over after /ship\ncreates the PR. Use when: \"merge\", \"land\", \"deploy\", \"merge and verify\",\n\"land it\", \"ship it to production\". (gstack)",
     "shortDescription": "Land and deploy workflow. Merges the PR, waits for CI and deploy,",
-    "descriptionCn": "合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环境。",
-    "shortDescriptionCn": "合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环...",
+    "descriptionCn": "合并 PR 并部署",
+    "shortDescriptionCn": "合并 PR 并部署",
     "allowedTools": [
       "Bash",
       "Read",
@@ -605,7 +1007,20 @@
     ],
     "category": "Shipping",
     "categoryCn": "发布",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/land-and-deploy/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/land-and-deploy/SKILL.md",
+    "scenarios": [
+      "当你想一键完成合并和部署时",
+      "当你不想手动检查 CI 状态时"
+    ],
+    "tags": [
+      "部署",
+      "合并",
+      "CI",
+      "自动化",
+      "发布",
+      "一键部署"
+    ],
+    "targetUsers": "频繁部署的开发者"
   },
   {
     "name": "open-gstack-browser",
@@ -614,8 +1029,8 @@
     "preambleTier": 4,
     "description": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.\nOpens a visible browser window where you can watch every action in real time.\nThe sidebar shows a live activity feed and chat. Anti-bot stealth built in.\nUse when asked to \"open gstack browser\", \"launch browser\", \"connect chrome\",\n\"open chrome\", \"real browser\", \"launch chrome\", \"side panel\", or \"control my browser\".\nVoice triggers (speech-to-text aliases): \"show me the browser\".",
     "shortDescription": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked ...",
-    "descriptionCn": "启动 AI 控制的浏览器。启动 GStack Browser——内置侧边栏扩展的 AI 控制 Chromium。",
-    "shortDescriptionCn": "启动 AI 控制的浏览器。启动 GStack Browser——内置侧边栏扩展的...",
+    "descriptionCn": "启动 AI 控制的浏览器",
+    "shortDescriptionCn": "启动 AI 控制的浏览器",
     "allowedTools": [
       "Bash",
       "Read",
@@ -623,7 +1038,19 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/open-gstack-browser/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/open-gstack-browser/SKILL.md",
+    "scenarios": [
+      "当你想启动 AI 控制的浏览器时",
+      "当你需要可视化操作浏览器时"
+    ],
+    "tags": [
+      "浏览器",
+      "AI控制",
+      "可视化",
+      "Chrome",
+      "启动"
+    ],
+    "targetUsers": "需要可视化浏览器的用户"
   },
   {
     "name": "pair-agent",
@@ -632,8 +1059,8 @@
     "preambleTier": 4,
     "description": "Pair a remote AI agent with your browser. One command generates a setup key and\nprints instructions the other agent can follow to connect. Works with OpenClaw,\nHermes, Codex, Cursor, or any agent that can make HTTP requests. The remote agent\ngets its own tab with scoped access (read+write by default, admin on request).\nUse when asked to \"pair agent\", \"connect agent\", \"share browser\", \"remote browser\",\n\"let another agent use my browser\", or \"give browser access\". (gstack)\nVoice triggers (speech-to-text aliases): \"pair agent\", \"connect agent\", \"share my browser\", \"remote browser access\".",
     "shortDescription": "Pair a remote AI agent with your browser. One command generates a setup key and",
-    "descriptionCn": "配对远程 AI 代理。将一个远程 AI 代理与你的浏览器配对，一个命令生成设置密钥并启动配对流程。",
-    "shortDescriptionCn": "配对远程 AI 代理。将一个远程 AI 代理与你的浏览器配对，一个命令生成设置密...",
+    "descriptionCn": "配对远程 AI 代理",
+    "shortDescriptionCn": "配对远程 AI 代理",
     "allowedTools": [
       "Bash",
       "Read",
@@ -641,7 +1068,20 @@
     ],
     "category": "Utilities",
     "categoryCn": "工具",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/pair-agent/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/pair-agent/SKILL.md",
+    "scenarios": [
+      "当你想和其他 AI 配对协作时",
+      "当你需要远程 AI 帮助时"
+    ],
+    "tags": [
+      "协作",
+      "远程",
+      "配对",
+      "AI代理",
+      "团队",
+      "共享"
+    ],
+    "targetUsers": "需要远程协作的开发者"
   },
   {
     "name": "qa",
@@ -650,8 +1090,8 @@
     "preambleTier": 4,
     "description": "Systematically QA test a web application and fix bugs found. Runs QA testing,\nthen iteratively fixes bugs in source code, committing each fix atomically and\nre-verifying. Use when asked to \"qa\", \"QA\", \"test this site\", \"find bugs\",\n\"test and fix\", or \"fix what's broken\".\nProactively suggest when the user says a feature is ready for testing\nor asks \"does this work?\". Three tiers: Quick (critical/high only),\nStandard (+ medium), Exhaustive (+ cosmetic). Produces before/after health scores,\nfix evidence, and a ship-readiness summary. For report-only mode, use /qa-only. (gstack)\nVoice triggers (speech-to-text aliases): \"quality check\", \"test the app\", \"run QA\".",
     "shortDescription": "Systematically QA test a web application and fix bugs found. Runs QA testing,",
-    "descriptionCn": "系统化 QA 测试并修复发现的 bug。运行全面的 QA 测试，包括功能测试、边界情况检查、跨浏览器兼容性验证，并自动修复发现的问题。",
-    "shortDescriptionCn": "系统化 QA 测试并修复发现的 bug。运行全面的 QA 测试，包括功能测试、边...",
+    "descriptionCn": "系统化 QA 测试并修复发现的 bug",
+    "shortDescriptionCn": "系统化 QA 测试并修复发现的 bug",
     "allowedTools": [
       "Bash",
       "Read",
@@ -664,7 +1104,23 @@
     ],
     "category": "Testing",
     "categoryCn": "测试",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/qa/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/qa/SKILL.md",
+    "scenarios": [
+      "当你想全面测试网站功能时",
+      "当你怀疑有 bug 但不确定在哪时",
+      "当你想确保新功能不会破坏旧功能时"
+    ],
+    "tags": [
+      "测试",
+      "QA",
+      "bug",
+      "功能测试",
+      "兼容性",
+      "自动化测试",
+      "质量保证",
+      "修复"
+    ],
+    "targetUsers": "想确保产品质量的开发者和测试工程师"
   },
   {
     "name": "qa-only",
@@ -673,8 +1129,8 @@
     "preambleTier": 4,
     "description": "Report-only QA testing. Systematically tests a web application and produces a\nstructured report with health score, screenshots, and repro steps — but never\nfixes anything. Use when asked to \"just report bugs\", \"qa report only\", or\n\"test but don't fix\". For the full test-fix-verify loop, use /qa instead.\nProactively suggest when the user wants a bug report without any code changes. (gstack)\nVoice triggers (speech-to-text aliases): \"bug report\", \"just check for bugs\".",
     "shortDescription": "Report-only QA testing. Systematically tests a web application and produces a",
-    "descriptionCn": "QA 测试报告模式，只报告不修复。运行完整的 QA 测试流程，生成详细的测试报告，列出所有发现的问题但不自动修复。",
-    "shortDescriptionCn": "QA 测试报告模式，只报告不修复。运行完整的 QA 测试流程，生成详细的测试报告...",
+    "descriptionCn": "QA 测试报告模式，只报告不修复",
+    "shortDescriptionCn": "QA 测试报告模式，只报告不修复",
     "allowedTools": [
       "Bash",
       "Read",
@@ -684,7 +1140,20 @@
     ],
     "category": "Testing",
     "categoryCn": "测试",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/qa-only/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/qa-only/SKILL.md",
+    "scenarios": [
+      "当你想让 AI 只报告 bug 不自动修复时",
+      "当你想先了解问题范围再决定怎么修时"
+    ],
+    "tags": [
+      "测试",
+      "QA",
+      "报告",
+      "bug检测",
+      "只读模式",
+      "诊断"
+    ],
+    "targetUsers": "只想了解问题不想自动修复的开发者"
   },
   {
     "name": "review",
@@ -693,8 +1162,8 @@
     "preambleTier": 4,
     "description": "Pre-landing PR review. Analyzes diff against the base branch for SQL safety, LLM trust\nboundary violations, conditional side effects, and other structural issues. Use when\nasked to \"review this PR\", \"code review\", \"pre-landing review\", or \"check my diff\".\nProactively suggest when the user is about to merge or land code changes. (gstack)",
     "shortDescription": "Pre-landing PR review. Analyzes diff against the base branch for SQL safety, LLM...",
-    "descriptionCn": "PR 预发布评审，检查代码安全和结构问题。分析基础分支的 diff，检查 SQL 注入、LLM 提示注入等安全问题，验证代码结构合理性。",
-    "shortDescriptionCn": "PR 预发布评审，检查代码安全和结构问题。分析基础分支的 diff，检查 SQL...",
+    "descriptionCn": "PR 预发布评审，检查代码安全和结构问题",
+    "shortDescriptionCn": "PR 预发布评审，检查代码安全和结构问题",
     "allowedTools": [
       "Bash",
       "Read",
@@ -708,7 +1177,23 @@
     ],
     "category": "Review",
     "categoryCn": "评审",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/review/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/review/SKILL.md",
+    "scenarios": [
+      "当你提交代码前想检查是否有安全问题",
+      "当你想知道 PR 是否有潜在风险时",
+      "当你想让代码更符合团队规范时"
+    ],
+    "tags": [
+      "代码审查",
+      "安全",
+      "PR",
+      "SQL注入",
+      "LLM注入",
+      "代码质量",
+      "风险管理",
+      "规范检查"
+    ],
+    "targetUsers": "注重代码质量和安全的开发者"
   },
   {
     "name": "ship",
@@ -717,8 +1202,8 @@
     "preambleTier": 4,
     "description": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION,\nupdate CHANGELOG, commit, push, create PR. Use when asked to \"ship\", \"deploy\",\n\"push to main\", \"create a PR\", \"merge and push\", or \"get it deployed\".\nProactively invoke this skill (do NOT push/PR directly) when the user says code\nis ready, asks about deploying, wants to push code up, or asks to create a PR. (gstack)",
     "shortDescription": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION,",
-    "descriptionCn": "发布流程：检测分支、运行测试、创建 PR。自动化整个发布流程，包括合并基础分支、运行测试套件、审查代码差异、更新版本号、创建 PR 并部署。",
-    "shortDescriptionCn": "发布流程：检测分支、运行测试、创建 PR。自动化整个发布流程，包括合并基础分支、...",
+    "descriptionCn": "发布流程：检测分支、运行测试、创建 PR",
+    "shortDescriptionCn": "发布流程：检测分支、运行测试、创建 PR",
     "allowedTools": [
       "Bash",
       "Read",
@@ -732,7 +1217,25 @@
     ],
     "category": "Shipping",
     "categoryCn": "发布",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/ship/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ship/SKILL.md",
+    "scenarios": [
+      "当你完成一个功能准备发布时",
+      "当你想自动跑完测试、创建 PR 的流程时",
+      "当你不确定当前分支是否可以安全合并时"
+    ],
+    "tags": [
+      "发布",
+      "PR",
+      "部署",
+      "合并",
+      "测试",
+      "版本控制",
+      "自动化",
+      "CI/CD",
+      "GitHub",
+      "工作流"
+    ],
+    "targetUsers": "频繁发布代码的开发者"
   },
   {
     "name": "unfreeze",
@@ -741,14 +1244,25 @@
     "preambleTier": 4,
     "description": "Clear the freeze boundary set by /freeze, allowing edits to all directories\nagain. Use when you want to widen edit scope without ending the session.\nUse when asked to \"unfreeze\", \"unlock edits\", \"remove freeze\", or\n\"allow all edits\". (gstack)",
     "shortDescription": "Clear the freeze boundary set by /freeze, allowing edits to all directories",
-    "descriptionCn": "解除编辑范围限制。清除 /freeze 设置的冻结边界，允许编辑所有目录。",
-    "shortDescriptionCn": "解除编辑范围限制。清除 /freeze 设置的冻结边界，允许编辑所有目录。",
+    "descriptionCn": "解除编辑范围限制",
+    "shortDescriptionCn": "解除编辑范围限制",
     "allowedTools": [
       "Bash",
       "Read"
     ],
     "category": "Safety",
     "categoryCn": "安全",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/unfreeze/SKILL.md"
+    "sourcePath": "/Users/yang/.claude/skills/gstack/unfreeze/SKILL.md",
+    "scenarios": [
+      "当你想解除目录编辑限制时"
+    ],
+    "tags": [
+      "安全",
+      "解除",
+      "恢复",
+      "无限制",
+      "全部编辑"
+    ],
+    "targetUsers": "想解除编辑限制的开发者"
   }
 ]

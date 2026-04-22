@@ -43,6 +43,12 @@ function getCategoryColor(category: string): string {
     <p class="skill-description-cn">{{ skill.shortDescriptionCn }}</p>
     <p class="skill-description-en">{{ skill.shortDescription }}</p>
 
+    <div class="tags-list" v-if="skill.tags?.length">
+      <span v-for="tag in skill.tags.slice(0, 3)" :key="tag" class="tag-badge">
+        {{ tag }}
+      </span>
+    </div>
+
     <div class="skill-meta">
       <span class="version">v{{ skill.version }}</span>
       <span
@@ -135,5 +141,20 @@ function getCategoryColor(category: string): string {
   margin-top: 0.5rem;
   color: #6b7280;
   font-size: 0.8rem;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.tag-badge {
+  padding: 2px 6px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #4b5563;
 }
 </style>
