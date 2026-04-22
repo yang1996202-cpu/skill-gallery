@@ -12,6 +12,18 @@ const searchQuery = ref('');
 const selectedCategory = ref<SkillCategory | null>(null);
 const selectedSkill = ref<Skill | null>(null);
 
+// 最后更新时间（使用构建时间）
+const lastUpdated = computed(() => {
+  const now = new Date();
+  return now.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+});
+
 const categories: SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities'];
 
 const categoryNames: Record<SkillCategory, string> = {
@@ -91,6 +103,7 @@ function closeDetail() {
 
     <footer class="footer">
       <p>共 {{ filteredSkills.length }} 个技能 | 来源：~/.claude/skills/gstack</p>
+      <p class="last-updated">最后更新：{{ lastUpdated }}</p>
     </footer>
 
     <SkillDetail
@@ -132,5 +145,12 @@ function closeDetail() {
   text-align: center;
   padding: 1rem;
   color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.footer .last-updated {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
 }
 </style>
