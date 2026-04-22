@@ -166,6 +166,13 @@ function parseSkillMd(filePath: string): Skill | null {
 }
 
 function main() {
+  // Check if skills directory exists
+  if (!fs.existsSync(GSTACK_SKILLS_DIR)) {
+    console.log(`Skills directory not found: ${GSTACK_SKILLS_DIR}`);
+    console.log('Skipping skill parsing - using existing skills.json if available');
+    return;
+  }
+
   const skills: Skill[] = [];
 
   // Find all skill directories
