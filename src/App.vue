@@ -55,6 +55,13 @@ const categoryNames: Record<SkillCategory, string> = {
 const filteredSkills = computed(() => {
   return skills.value.filter(skill => {
     const query = searchQuery.value.toLowerCase().trim();
+
+    // 分类筛选始终生效
+    if (selectedCategory.value && skill.category !== selectedCategory.value) {
+      return false;
+    }
+
+    // 没有搜索词时，返回分类筛选后的结果
     if (!query) return true;
 
     // 搜索名称、描述
@@ -68,10 +75,7 @@ const filteredSkills = computed(() => {
     // 搜索场景
     const matchesScenarios = skill.scenarios?.some(scene => scene.toLowerCase().includes(query)) || false;
 
-    const matchesCategory = !selectedCategory.value ||
-      skill.category === selectedCategory.value;
-
-    return (matchesBasic || matchesTags || matchesScenarios) && matchesCategory;
+    return matchesBasic || matchesTags || matchesScenarios;
   });
 });
 
@@ -115,17 +119,17 @@ function closeDetail() {
       <div class="version-toggle">
         <button
           class="toggle-btn"
-          :class="{ active: viewVersion === 2 }"
+          :class="{ active: viewVersion === 1 }"
           @click="viewVersion = 1; toggleVersion()"
         >
-          v1 简洁版
+          v1 简洁版（旧版）
         </button>
         <button
           class="toggle-btn"
           :class="{ active: viewVersion === 2 }"
           @click="viewVersion = 2; toggleVersion()"
         >
-          v2 场景版
+          v2 场景版（默认）
         </button>
       </div>
     </header>
