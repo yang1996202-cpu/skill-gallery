@@ -16,15 +16,17 @@ const selectedSkill = ref<Skill | null>(null);
 const urlParams = new URLSearchParams(window.location.search);
 const viewVersion = ref(urlParams.get('v') === '1' ? 1 : 2);
 
-function toggleVersion() {
-  viewVersion.value = viewVersion.value === 1 ? 2 : 1;
-  // 更新URL参数但不刷新页面
+function switchToOldVersion() {
+  viewVersion.value = 1;
   const newUrl = new URL(window.location.href);
-  if (viewVersion.value === 1) {
-    newUrl.searchParams.set('v', '1');
-  } else {
-    newUrl.searchParams.delete('v');
-  }
+  newUrl.searchParams.set('v', '1');
+  window.history.replaceState({}, '', newUrl.toString());
+}
+
+function switchToNewVersion() {
+  viewVersion.value = 2;
+  const newUrl = new URL(window.location.href);
+  newUrl.searchParams.delete('v');
   window.history.replaceState({}, '', newUrl.toString());
 }
 
@@ -120,14 +122,14 @@ function closeDetail() {
         <button
           v-if="viewVersion === 2"
           class="toggle-btn old-version-link"
-          @click="viewVersion = 1; toggleVersion()"
+          @click="switchToOldVersion()"
         >
           切换旧版
         </button>
         <button
           v-else
           class="toggle-btn old-version-link"
-          @click="viewVersion = 2; toggleVersion()"
+          @click="switchToNewVersion()"
         >
           返回新版
         </button>
