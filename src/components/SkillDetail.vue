@@ -93,7 +93,7 @@ function getTierColor(tier: number): string {
 
       <section class="section">
         <h3>分类</h3>
-        <span class="category-tag">{{ skill.categoryCn }} / {{ skill.category }}</span>
+        <span class="category-tag">{{ skill.categoryCn }}</span>
       </section>
 
       <section class="section">

@@ -17,13 +17,24 @@ function getTierColor(tier: number): string {
 
 function getCategoryColor(category: string): string {
   const colors: Record<string, string> = {
+    // v1 原始分类
     Planning: '#3b82f6',
     Building: '#10b981',
     Review: '#8b5cf6',
     Testing: '#f59e0b',
     Shipping: '#ef4444',
     Safety: '#dc2626',
-    Utilities: '#6b7280'
+    Utilities: '#6b7280',
+    // v2 Anthropic 九类分类
+    'Libraries & API Reference': '#6366f1',
+    'Product Verification': '#10b981',
+    'Data Acquisition & Analysis': '#06b6d4',
+    'Business Process Automation': '#f59e0b',
+    'Code Scaffolding': '#8b5cf6',
+    'Code Quality & Review': '#ec4899',
+    'CI/CD & Deployment': '#ef4444',
+    'Operations Manual': '#14b8a6',
+    'Infrastructure Operations': '#64748b'
   };
   return colors[category] || '#6b7280';
 }

@@ -66,17 +66,28 @@ function getCategoryColor(cat: SkillCategory): string {
 }
 
 function getCategoryDisplayName(cat: SkillCategory): string {
-  // v1 分类保持"中文 English"格式；v2 Anthropic 分类使用数据里的 categoryCn
-  const v1Names: Record<string, string> = {
-    Planning: '规划 Planning',
-    Building: '构建 Building',
-    Review: '评审 Review',
-    Testing: '测试 Testing',
-    Shipping: '发布 Shipping',
-    Safety: '安全 Safety',
-    Utilities: '工具 Utilities'
+  // v1 原始分类显示纯中文；v2 Anthropic 分类也显示中文
+  const names: Record<string, string> = {
+    // v1 原始分类
+    Planning: '规划',
+    Building: '构建',
+    Review: '评审',
+    Testing: '测试',
+    Shipping: '发布',
+    Safety: '安全',
+    Utilities: '工具',
+    // v2 Anthropic 九类分类
+    'Libraries & API Reference': '库和 API 参考',
+    'Product Verification': '产品验证',
+    'Data Acquisition & Analysis': '数据获取与分析',
+    'Business Process Automation': '业务流程自动化',
+    'Code Scaffolding': '代码脚手架',
+    'Code Quality & Review': '代码质量与审查',
+    'CI/CD & Deployment': 'CI/CD 与部署',
+    'Operations Manual': '运维手册',
+    'Infrastructure Operations': '基础设施操作'
   };
-  return v1Names[cat] || cat;
+  return names[cat] || cat;
 }
 
 const filteredSkills = computed(() => {
