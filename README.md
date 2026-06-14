@@ -1,10 +1,10 @@
 # GStack Skill Gallery
 
 [![Deploy](https://img.shields.io/badge/deploy-Cloudflare%20Pages-orange)](https://skill-gallery.pages.dev/)
-[![Skills](https://img.shields.io/badge/skills-36-blue)](https://skill-gallery.pages.dev/)
+[![Skills](https://img.shields.io/badge/skills-52-blue)](https://skill-gallery.pages.dev/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan/gstack) 的 36 个 Claude Code Skill 以卡片形式展示，支持分类筛选、搜索和详情查看。
+GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan/gstack) 的 52 个 Claude Code Skill 以卡片形式展示，支持分类筛选、搜索和详情查看。
 
 **在线预览**: [https://skill-gallery.pages.dev/](https://skill-gallery.pages.dev/)
 
@@ -12,7 +12,7 @@ GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan
 
 ## 功能特性
 
-- **分类浏览** — 7 大类别色块快速筛选：规划 / 构建 / 评审 / 测试 / 发布 / 安全 / 工具
+- **分类浏览** — 8 大类别色块快速筛选：规划 / 构建 / 评审 / 测试 / 发布 / 安全 / 工具 / iOS
 - **实时搜索** — 支持按技能名称、描述、标签、适用场景搜索
 - **详情弹窗** — 点击卡片查看完整描述、适用场景、适合人群和调用方式
 - **双版本视图** —
@@ -77,7 +77,7 @@ skill-gallery/
 │   ├── types/
 │   │   └── skill.ts        # Skill 类型定义
 │   ├── data/
-│   │   └── skills.json     # 生成的技能数据（37 个技能）
+│   │   └── skills.json     # 生成的技能数据（52 个技能）
 │   └── components/
 │       ├── SkillCard.vue   # 技能卡片（支持 v1/v2 两种视图）
 │       ├── SkillDetail.vue # 详情弹窗（描述 / 场景 / 标签 / 复制命令）
@@ -111,12 +111,15 @@ skill-gallery/
 | 分类 | 英文 | 技能数量 | 代表 Skill |
 |------|------|---------|-----------|
 | 规划 | Planning | 6 | `/office-hours`, `/autoplan`, `/plan-ceo-review` |
-| 构建 | Building | 5 | `/browse`, `/design-html`, `/investigate` |
+| 构建 | Building | 7 | `/browse`, `/design-html`, `/investigate`, `/scrape` |
 | 评审 | Review | 4 | `/review`, `/cso`, `/design-review` |
-| 测试 | Testing | 5 | `/qa`, `/benchmark`, `/canary`, `/health` |
-| 发布 | Shipping | 3 | `/ship`, `/land-and-deploy`, `/document-release` |
-| 安全 | Safety | 5 | `/guard`, `/careful`, `/freeze`, `/checkpoint` |
-| 工具 | Utilities | 8 | `/learn`, `/codex`, `/retro`, `/setup-deploy` |
+| 测试 | Testing | 7 | `/qa`, `/benchmark`, `/canary`, `/health`, `/ios-qa` |
+| 发布 | Shipping | 5 | `/ship`, `/land-and-deploy`, `/document-release` |
+| 安全 | Safety | 4 | `/guard`, `/careful`, `/freeze`, `/unfreeze` |
+| 工具 | Utilities | 14 | `/learn`, `/codex`, `/retro`, `/setup-gbrain` |
+| iOS | iOS | 5 | `/ios-qa`, `/ios-fix`, `/ios-design-review` |
+
+**注意**：`checkpoint` 已从 gstack 移除；`/connect-chrome` 是 `/open-gstack-browser` 的符号链接，不再作为独立技能展示。
 
 ---
 
@@ -140,7 +143,7 @@ skill-gallery/
 
 ## 相关项目
 
-- [garrytan/gstack](https://github.com/garrytan/gstack) — Garry Tan 的 Claude Code Skill 合集（36 个技能）
+- [garrytan/gstack](https://github.com/garrytan/gstack) — Garry Tan 的 Claude Code Skill 合集（52 个技能）
 - [Claude Code](https://claude.ai/code) — Anthropic 官方 CLI 工具
 
 ---

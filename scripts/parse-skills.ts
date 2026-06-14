@@ -11,7 +11,8 @@ type SkillCategory =
   | 'Testing'
   | 'Shipping'
   | 'Safety'
-  | 'Utilities';
+  | 'Utilities'
+  | 'iOS';
 
 const CATEGORY_MAP: Record<string, SkillCategory> = {
   'office-hours': 'Planning',
@@ -26,6 +27,8 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'design-shotgun': 'Building',
   'design-consultation': 'Building',
   'investigate': 'Building',
+  'scrape': 'Building',
+  'skillify': 'Building',
 
   'review': 'Review',
   'devex-review': 'Review',
@@ -35,18 +38,20 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'qa': 'Testing',
   'qa-only': 'Testing',
   'benchmark': 'Testing',
+  'benchmark-models': 'Testing',
   'canary': 'Testing',
   'health': 'Testing',
 
   'ship': 'Shipping',
   'land-and-deploy': 'Shipping',
   'document-release': 'Shipping',
+  'document-generate': 'Shipping',
+  'landing-report': 'Shipping',
 
   'guard': 'Safety',
   'careful': 'Safety',
   'freeze': 'Safety',
   'unfreeze': 'Safety',
-  'checkpoint': 'Safety',
 
   'learn': 'Utilities',
   'retro': 'Utilities',
@@ -56,6 +61,17 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'setup-deploy': 'Utilities',
   'open-gstack-browser': 'Utilities',
   'pair-agent': 'Utilities',
+  'context-save': 'Utilities',
+  'context-restore': 'Utilities',
+  'setup-gbrain': 'Utilities',
+  'sync-gbrain': 'Utilities',
+  'make-pdf': 'Utilities',
+
+  'ios-clean': 'iOS',
+  'ios-design-review': 'iOS',
+  'ios-fix': 'iOS',
+  'ios-qa': 'iOS',
+  'ios-sync': 'iOS',
 };
 
 const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
@@ -66,6 +82,7 @@ const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
   Shipping: '发布',
   Safety: '安全',
   Utilities: '工具',
+  iOS: 'iOS',
 };
 
 const SKILL_SCENARIOS_CN: Record<string, string[]> = {
@@ -129,6 +146,10 @@ const SKILL_SCENARIOS_CN: Record<string, string[]> = {
     '当你想对比新旧版本性能时',
     '当你想建立性能基线时'
   ],
+  'benchmark-models': [
+    '当你想对比不同模型在 gstack 技能上的表现时',
+    '当你需要评估模型能力差异时'
+  ],
   'canary': [
     '当你刚部署完想确认是否正常时',
     '当你想监控线上错误时',
@@ -178,6 +199,11 @@ const SKILL_SCENARIOS_CN: Record<string, string[]> = {
     '当你部署完需要更新文档时',
     '当你想自动生成发布说明时'
   ],
+  'document-generate': [
+    '当你发现项目文档缺失时',
+    '当你想为新功能补全文档时',
+    '当你需要生成教程、参考或解释文档时'
+  ],
   'learn': [
     '当你想回顾项目中学到的东西时',
     '当你想整理项目经验时'
@@ -189,11 +215,6 @@ const SKILL_SCENARIOS_CN: Record<string, string[]> = {
   'codex': [
     '当你想用 OpenAI Codex 时',
     '当你需要第二意见评审代码时'
-  ],
-  'checkpoint': [
-    '当你想保存当前工作状态时',
-    '当你需要中断工作稍后再继续时',
-    '当你想备份 git 状态和工作进度时'
   ],
   'freeze': [
     '当你想限制 AI 只修改特定目录时',
@@ -227,8 +248,60 @@ const SKILL_SCENARIOS_CN: Record<string, string[]> = {
     '当你需要可视化操作浏览器时'
   ],
   'pair-agent': [
-    '当你想和其他 AI 配对协作时',
-    '当你需要远程 AI 帮助时'
+    '当你想让另一个 AI Agent 使用你的浏览器时',
+    '当云端 Agent 需要你的登录态或本地网络时'
+  ],
+  'scrape': [
+    '当你需要从网页抓取结构化数据时',
+    '当你想批量提取网页内容时'
+  ],
+  'skillify': [
+    '当你想把一次成功的抓取流程固化成可复用技能时',
+    '当你需要反复从同类网页取数据时'
+  ],
+  'context-save': [
+    '当你需要中断工作并保存当前上下文时',
+    '当你想稍后从当前状态继续时'
+  ],
+  'context-restore': [
+    '当你想恢复之前保存的工作上下文时',
+    '当你从断点继续工作时'
+  ],
+  'setup-gbrain': [
+    '当你第一次配置 gbrain 知识库时',
+    '当你需要把 gbrain MCP 接入 Claude Code 时'
+  ],
+  'sync-gbrain': [
+    '当你想把当前仓库代码同步到 gbrain 时',
+    '当你想更新 CLAUDE.md 中的搜索指引时'
+  ],
+  'make-pdf': [
+    '当你想把 markdown 转成 PDF 报告时',
+    '当你需要出版物质量的 PDF 输出时'
+  ],
+  'landing-report': [
+    '当你想查看 workspace-aware ship 的队列状态时',
+    '当你需要只读的发布仪表盘时'
+  ],
+  'ios-clean': [
+    '当你想移除 iOS 项目中的 DebugBridge 调试代码时',
+    '当你准备发布应用前清理 #if DEBUG  wiring 时'
+  ],
+  'ios-design-review': [
+    '当你想在真机上审计 iOS 应用视觉设计时',
+    '当你需要检查 SwiftUI 界面的设计一致性时'
+  ],
+  'ios-fix': [
+    '当你需要自动修复 iOS bug 时',
+    '当你在真机测试中发现 SwiftUI 问题时'
+  ],
+  'ios-qa': [
+    '当你想在真机上 QA 测试 SwiftUI 应用时',
+    '当你需要验证 iOS 应用的实际交互时'
+  ],
+  'ios-sync': [
+    '当你需要把 iOS debug bridge 同步到最新模板时',
+    '当你更新 gstack 后需要刷新 iOS 桥接代码时'
   ]
 };
 
@@ -245,6 +318,7 @@ const SKILL_TAGS_CN: Record<string, string[]> = {
   'investigate': ['调试', 'bug', '根因', '排查', '错误', '问题定位', '系统化'],
   'cso': ['安全', '审计', 'OWASP', '密钥', '漏洞', '合规', '供应链', '基础设施'],
   'benchmark': ['性能', '速度', '测试', 'Core Web Vitals', '基线', '对比', '优化', '加载时间'],
+  'benchmark-models': ['模型', 'benchmark', '对比', 'gstack', '评估', '能力测试'],
   'canary': ['监控', '线上', '错误', '部署', '金丝雀', '预警', '日志', '稳定性'],
   'health': ['代码质量', '仪表板', '类型检查', 'lint', '测试覆盖', '趋势', '报告'],
   'office-hours': ['YC', '咨询', '产品', '创业', '商业模式', '方向', '反馈'],
@@ -256,10 +330,10 @@ const SKILL_TAGS_CN: Record<string, string[]> = {
   'devex-review': ['开发者体验', '审计', '测试', '用户视角', '可用性', '反馈'],
   'land-and-deploy': ['部署', '合并', 'CI', '自动化', '发布', '一键部署'],
   'document-release': ['文档', '发布', '更新', '说明', '变更日志', '同步'],
+  'document-generate': ['文档', '生成', '教程', '参考', '解释', 'Diataxis', '补全'],
   'learn': ['学习', '记录', '经验', '知识管理', '搜索', '导出'],
   'retro': ['回顾', '总结', '周会', '提交历史', '工作模式', '团队', '效率'],
   'codex': ['Codex', 'OpenAI', '代码生成', '代码评审', '第二意见', 'AI'],
-  'checkpoint': ['保存', '恢复', '状态', '中断', '继续', '备份', '快照'],
   'freeze': ['安全', '限制', '范围', '目录', '编辑控制', '边界'],
   'unfreeze': ['安全', '解除', '恢复', '无限制', '全部编辑'],
   'careful': ['安全', '警告', '危险命令', '确认', 'rm -rf', '保护'],
@@ -268,7 +342,20 @@ const SKILL_TAGS_CN: Record<string, string[]> = {
   'setup-browser-cookies': ['cookies', '登录', '浏览器', '认证', '导入'],
   'gstack-upgrade': ['升级', '更新', '最新版本', 'gstack', '功能'],
   'open-gstack-browser': ['浏览器', 'AI控制', '可视化', 'Chrome', '启动'],
-  'pair-agent': ['协作', '远程', '配对', 'AI代理', '团队', '共享']
+  'pair-agent': ['协作', '远程', '配对', 'AI代理', '浏览器共享', '本地网络'],
+  'scrape': ['抓取', '数据', '网页', '提取', '结构化', '爬虫'],
+  'skillify': ['固化', '技能', '抓取', '复用', '浏览器', '自动化'],
+  'context-save': ['保存', '上下文', '中断', '恢复', '会话', '状态'],
+  'context-restore': ['恢复', '上下文', '继续', '会话', '状态'],
+  'setup-gbrain': ['gbrain', '知识库', 'MCP', '配置', '初始化', 'PGLite'],
+  'sync-gbrain': ['gbrain', '同步', '代码', '搜索', 'CLADEU.md', '知识库'],
+  'make-pdf': ['PDF', 'markdown', '文档', '出版物', '导出', '排版'],
+  'landing-report': ['发布', '仪表盘', '队列', 'workspace', '只读', 'ship'],
+  'ios-clean': ['iOS', 'SwiftUI', 'DebugBridge', '清理', '发布', '#if DEBUG'],
+  'ios-design-review': ['iOS', 'SwiftUI', '设计', '真机', '视觉', '审计'],
+  'ios-fix': ['iOS', 'SwiftUI', 'bug', '自动修复', '真机'],
+  'ios-qa': ['iOS', 'SwiftUI', 'QA', '真机', '测试', '交互'],
+  'ios-sync': ['iOS', 'SwiftUI', 'DebugBridge', '同步', '模板', '桥接']
 };
 
 const SKILL_DESC_CN: Record<string, string> = {
@@ -284,6 +371,7 @@ const SKILL_DESC_CN: Record<string, string> = {
   'investigate': '系统化调试，根因分析。四阶段调试流程：调查、假设、验证、修复，深入定位问题根本原因。',
   'cso': '安全审计：基础设施、供应链、OWASP。首席安全官模式，优先进行基础设施安全审计，包括密钥考古、依赖项漏洞扫描、OWASP 合规检查。',
   'benchmark': '性能回归检测。使用 browse 守护进程建立页面加载时间、Core Web Vitals 和资源大小的基线。在每个 PR 上对比前后性能。追踪性能趋势。',
+  'benchmark-models': 'gstack 技能跨模型 benchmark。对比不同模型在 gstack 技能上的表现，评估能力差异。',
   'canary': '发布后监控：检查错误和性能。金丝雀监控模式，监控线上应用的 console 错误、网络请求失败、性能指标异常。',
   'health': '代码质量仪表板。封装现有项目工具（类型检查器、linter、测试运行器），生成代码健康度评分和趋势报告。',
   'office-hours': 'YC Office Hours 模式咨询。两种模式：创业模式（六个强制性问题暴露盲点）、产品模式（深度产品评审）。',
@@ -291,14 +379,14 @@ const SKILL_DESC_CN: Record<string, string> = {
   'plan-eng-review': '工程经理模式计划评审。工程经理视角的计划评审，锁定执行计划——架构设计、测试策略、部署方案。',
   'plan-design-review': '设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样深入。',
   'plan-devex-review': '开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程。',
-  'autoplan': '自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，自动生成全面的评审计划。',
+  'autoplan': '自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，按顺序自动运行并生成全面评审计划。',
   'devex-review': '开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可用性。',
   'land-and-deploy': '合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环境。',
   'document-release': '发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。',
+  'document-generate': '从零生成缺失文档。为功能、模块或整个项目生成缺失的文档，支持教程、参考、解释等多种 Diataxis 类型。',
   'learn': '管理项目学习记录。查看、搜索、清理和导出 gstack 积累的项目学习记录。',
   'retro': '周回顾：分析提交历史和工作模式。工程周回顾，分析提交历史、工作模式、代码变更趋势。',
   'codex': 'OpenAI Codex CLI 包装器。三种模式：代码评审（通过 API 的独立 diff 评审）、代码生成、代码解释。',
-  'checkpoint': '保存和恢复工作状态。保存和恢复工作状态检查点，捕获 git 状态、已做决策、当前上下文。',
   'freeze': '限制文件编辑范围。限制会话期间的文件编辑范围，阻止对指定目录外的 Edit 和 Write 操作。',
   'unfreeze': '解除编辑范围限制。清除 /freeze 设置的冻结边界，允许编辑所有目录。',
   'careful': '安全护栏：警告危险命令。在检测到潜在危险命令时暂停并请求确认，防止数据丢失。',
@@ -307,7 +395,20 @@ const SKILL_DESC_CN: Record<string, string> = {
   'setup-browser-cookies': '导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies 到 browse 会话，用于测试需要登录的页面。',
   'gstack-upgrade': '升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。',
   'open-gstack-browser': '启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。',
-  'pair-agent': '配对远程 AI 代理。与其他 AI 代理配对协作，实现分布式开发和代码审查。'
+  'pair-agent': '配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态或本地网络的场景。',
+  'scrape': '从网页抓取数据。从网页提取结构化数据，支持多种抓取策略和数据输出格式。',
+  'skillify': '固化抓取流程为技能。把最近一次成功的 /scrape 流程转成磁盘上的永久浏览器技能，方便复用。',
+  'context-save': '保存工作上下文。保存当前工作上下文，方便稍后从中断处继续。',
+  'context-restore': '恢复工作上下文。恢复 /context-save 保存的上下文，回到之前的工作状态。',
+  'setup-gbrain': '配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite 或 Supabase brain、注册 MCP、配置远程信任策略。',
+  'sync-gbrain': '同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLAUDE.md 中的搜索指引。',
+  'make-pdf': '把 markdown 转成 PDF。将任意 markdown 文件转换为出版物质量的 PDF。',
+  'landing-report': 'workspace-aware ship 只读队列仪表盘。查看面向工作区的 ship 队列状态，只读模式。',
+  'ios-clean': '清理 iOS 调试桥接。移除 DebugBridge SPM 包以及 iOS 项目中的所有 #if DEBUG 调试代码。',
+  'ios-design-review': 'iOS 真机视觉设计审计。在真实硬件上对 iOS 应用进行视觉设计审计。',
+  'ios-fix': '自动修复 iOS bug。自主修复 iOS 应用中的 bug。',
+  'ios-qa': 'iOS 真机 QA。在真实设备上对 SwiftUI 应用进行 QA 测试。',
+  'ios-sync': '同步 iOS debug bridge。根据 gstack 上游最新模板重新生成 iOS debug bridge。'
 };
 
 interface Skill {
@@ -362,6 +463,7 @@ function parseSkillMd(filePath: string): Skill | null {
       'investigate': '遇到复杂 bug 的开发者',
       'cso': '关注安全的开发者和技术负责人',
       'benchmark': '关注性能的开发者',
+      'benchmark-models': '需要对比模型能力的开发者',
       'canary': '负责线上稳定性的开发者',
       'health': '关注代码质量的团队负责人',
       'office-hours': '创业者和产品经理',
@@ -373,10 +475,10 @@ function parseSkillMd(filePath: string): Skill | null {
       'devex-review': '关注用户体验的开发者',
       'land-and-deploy': '频繁部署的开发者',
       'document-release': '需要维护文档的开发者',
+      'document-generate': '需要补全项目文档的开发者',
       'learn': '注重知识积累的开发者',
       'retro': '做周回顾的团队成员',
       'codex': '使用多种 AI 工具的开发者',
-      'checkpoint': '需要保存工作状态的开发者',
       'freeze': '想控制 AI 编辑范围的开发者',
       'unfreeze': '想解除编辑限制的开发者',
       'careful': '执行危险操作前的开发者',
@@ -385,7 +487,20 @@ function parseSkillMd(filePath: string): Skill | null {
       'setup-browser-cookies': '需要登录态测试的开发者',
       'gstack-upgrade': '想使用最新功能的 gstack 用户',
       'open-gstack-browser': '需要可视化浏览器的用户',
-      'pair-agent': '需要远程协作的开发者'
+      'pair-agent': '需要让其他 AI 使用本机浏览器的开发者',
+      'scrape': '需要从网页抓取数据的开发者',
+      'skillify': '想把抓取流程复用为技能的开发者',
+      'context-save': '需要保存工作状态的开发者',
+      'context-restore': '需要恢复工作状态的开发者',
+      'setup-gbrain': '想配置 gbrain 知识库的开发者',
+      'sync-gbrain': '使用 gbrain 做代码知识库的开发者',
+      'make-pdf': '需要把 markdown 转成 PDF 的开发者',
+      'landing-report': '想查看 ship 队列状态的开发者',
+      'ios-clean': '准备发布 iOS 应用的开发者',
+      'ios-design-review': '关注 iOS 应用视觉设计的开发者',
+      'ios-fix': '需要修复 iOS bug 的开发者',
+      'ios-qa': '需要在真机上测试 SwiftUI 应用的开发者',
+      'ios-sync': '使用 gstack iOS debug bridge 的开发者'
     };
 
     return {
@@ -425,9 +540,9 @@ function main() {
 
   const skills: Skill[] = [];
 
-  // Find all skill directories
+  // Find all skill directories, skip symlinks (e.g. connect-chrome -> open-gstack-browser)
   const dirs = fs.readdirSync(GSTACK_SKILLS_DIR, { withFileTypes: true })
-    .filter((d: fs.Dirent) => d.isDirectory() && !d.name.startsWith('.') && !d.name.startsWith('_'))
+    .filter((d: fs.Dirent) => d.isDirectory() && !d.isSymbolicLink() && !d.name.startsWith('.') && !d.name.startsWith('_'))
     .map((d: fs.Dirent) => d.name);
 
   for (const dir of dirs) {

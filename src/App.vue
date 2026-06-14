@@ -33,7 +33,7 @@ function switchToNewVersion() {
 // 最后更新时间（构建时生成，保持不变）
 const lastUpdated = __BUILD_TIME__;
 
-const categories: SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities'];
+const categories: SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities', 'iOS'];
 
 const categoryNames: Record<SkillCategory, string> = {
   Planning: '规划 Planning',
@@ -42,7 +42,8 @@ const categoryNames: Record<SkillCategory, string> = {
   Testing: '测试 Testing',
   Shipping: '发布 Shipping',
   Safety: '安全 Safety',
-  Utilities: '工具 Utilities'
+  Utilities: '工具 Utilities',
+  iOS: 'iOS'
 };
 
 const filteredSkills = computed(() => {
@@ -89,7 +90,8 @@ function getCategoryColor(cat: SkillCategory): string {
     Testing: '#f59e0b',
     Shipping: '#ef4444',
     Safety: '#dc2626',
-    Utilities: '#6b7280'
+    Utilities: '#6b7280',
+    iOS: '#0ea5e9'
   };
   return colors[cat];
 }
@@ -107,7 +109,7 @@ function closeDetail() {
   <div class="app">
     <header class="header">
       <h1>GStack 技能目录 Skill Gallery</h1>
-      <p class="subtitle">36 个技能 · 点击查看详情 · 学习如何使用</p>
+      <p class="subtitle">{{ skills.length }} 个技能 · 点击查看详情 · 学习如何使用</p>
       <SearchBar v-model="searchQuery" />
       <div class="version-toggle">
         <button

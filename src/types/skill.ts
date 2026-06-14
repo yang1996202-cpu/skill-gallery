@@ -5,7 +5,8 @@ export type SkillCategory =
   | 'Testing'
   | 'Shipping'
   | 'Safety'
-  | 'Utilities';
+  | 'Utilities'
+  | 'iOS';
 
 export interface Skill {
   name: string;
