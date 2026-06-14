@@ -21,6 +21,7 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'plan-eng-review': 'Planning',
   'plan-design-review': 'Planning',
   'plan-devex-review': 'Planning',
+  'spec': 'Planning',
 
   'browse': 'Building',
   'design-html': 'Building',
@@ -66,6 +67,7 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'setup-gbrain': 'Utilities',
   'sync-gbrain': 'Utilities',
   'make-pdf': 'Utilities',
+  'plan-tune': 'Utilities',
 
   'ios-clean': 'iOS',
   'ios-design-review': 'iOS',
@@ -186,6 +188,15 @@ const SKILL_SCENARIOS_CN: Record<string, string[]> = {
   'autoplan': [
     '当你想要全面的项目评审时',
     '当你想自动跑完所有评审流程时'
+  ],
+  'spec': [
+    '当你有一个模糊的想法想写成可执行方案时',
+    '当你需要把需求转成精确的 backlog 项时',
+    '当你想为团队输出一份清晰的技术 spec 时'
+  ],
+  'plan-tune': [
+    '当你想调整 gstack 提问的敏感度时',
+    '当你希望 gstack 更懂你的决策偏好时'
   ],
   'devex-review': [
     '当你想实际测试开发者体验时',
@@ -327,6 +338,8 @@ const SKILL_TAGS_CN: Record<string, string[]> = {
   'plan-design-review': ['规划', '设计', 'UX', '用户', '体验', '交互'],
   'plan-devex-review': ['规划', '开发者体验', '效率', '工具', '工作流', 'DX'],
   'autoplan': ['评审', '自动化', '管道', '全面', 'CEO', '设计', '工程', 'DX'],
+  'spec': ['spec', '需求', '方案', 'backlog', '文档', '产品', '技术方案', '可执行'],
+  'plan-tune': ['tune', '调优', '问题敏感度', '偏好', 'gstack', '配置'],
   'devex-review': ['开发者体验', '审计', '测试', '用户视角', '可用性', '反馈'],
   'land-and-deploy': ['部署', '合并', 'CI', '自动化', '发布', '一键部署'],
   'document-release': ['文档', '发布', '更新', '说明', '变更日志', '同步'],
@@ -380,6 +393,8 @@ const SKILL_DESC_CN: Record<string, string> = {
   'plan-design-review': '设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样深入。',
   'plan-devex-review': '开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程。',
   'autoplan': '自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，按顺序自动运行并生成全面评审计划。',
+  'spec': '把模糊意图转成可执行 spec。分五个阶段将模糊需求转化为精确、可执行的规范，适合写成 backlog 或 GitHub issue。',
+  'plan-tune': 'gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心理画像配置。',
   'devex-review': '开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可用性。',
   'land-and-deploy': '合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环境。',
   'document-release': '发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。',
@@ -472,6 +487,8 @@ function parseSkillMd(filePath: string): Skill | null {
       'plan-design-review': '设计负责人',
       'plan-devex-review': '关注开发者体验的工程师',
       'autoplan': '需要全面项目评审的负责人',
+      'spec': '需要把需求写成可执行 spec 的产品或技术负责人',
+      'plan-tune': '想调整 gstack 提问行为的深度用户',
       'devex-review': '关注用户体验的开发者',
       'land-and-deploy': '频繁部署的开发者',
       'document-release': '需要维护文档的开发者',

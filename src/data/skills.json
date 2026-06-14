@@ -568,8 +568,8 @@
     "preambleTier": 2,
     "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
     "shortDescription": "Self-tuning question sensitivity + developer psychographic for gstack (v1: obser...",
-    "descriptionCn": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
-    "shortDescriptionCn": "Self-tuning question sensitivity + devel...",
+    "descriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心理画像配置。",
+    "shortDescriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心...",
     "allowedTools": [
       "Bash",
       "Read",
@@ -583,12 +583,18 @@
     "categoryCn": "工具",
     "sourcePath": "/Users/yang/.claude/skills/gstack/plan-tune/SKILL.md",
     "scenarios": [
-      "通用场景"
+      "当你想调整 gstack 提问的敏感度时",
+      "当你希望 gstack 更懂你的决策偏好时"
     ],
     "tags": [
-      "Utilities"
+      "tune",
+      "调优",
+      "问题敏感度",
+      "偏好",
+      "gstack",
+      "配置"
     ],
-    "targetUsers": "gstack 用户"
+    "targetUsers": "想调整 gstack 提问行为的深度用户"
   },
   {
     "name": "retro",
@@ -1736,8 +1742,8 @@
     "preambleTier": 4,
     "description": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
     "shortDescription": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
-    "descriptionCn": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
-    "shortDescriptionCn": "Turn vague intent into a precise, execut...",
+    "descriptionCn": "把模糊意图转成可执行 spec。分五个阶段将模糊需求转化为精确、可执行的规范，适合写成 backlog 或 GitHub issue。",
+    "shortDescriptionCn": "把模糊意图转成可执行 spec。分五个阶段将模糊需求转化为精确、可执行的规范，适...",
     "allowedTools": [
       "Bash",
       "Read",
@@ -1745,16 +1751,25 @@
       "Glob",
       "AskUserQuestion"
     ],
-    "category": "Utilities",
-    "categoryCn": "工具",
+    "category": "Planning",
+    "categoryCn": "规划",
     "sourcePath": "/Users/yang/.claude/skills/gstack/spec/SKILL.md",
     "scenarios": [
-      "通用场景"
+      "当你有一个模糊的想法想写成可执行方案时",
+      "当你需要把需求转成精确的 backlog 项时",
+      "当你想为团队输出一份清晰的技术 spec 时"
     ],
     "tags": [
-      "Utilities"
+      "spec",
+      "需求",
+      "方案",
+      "backlog",
+      "文档",
+      "产品",
+      "技术方案",
+      "可执行"
     ],
-    "targetUsers": "gstack 用户"
+    "targetUsers": "需要把需求写成可执行 spec 的产品或技术负责人"
   },
   {
     "name": "unfreeze",
