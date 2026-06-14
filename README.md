@@ -12,13 +12,63 @@ GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan
 
 ## 功能特性
 
-- **分类浏览** — 8 大类别色块快速筛选：规划 / 构建 / 评审 / 测试 / 发布 / 安全 / 工具 / iOS
+- **双版本视图** —
+  - **v2（默认）**：52 个技能 + Anthropic 内部九类分类法，场景 + 标签，快速判断 skill 用途
+  - **v1（旧版）**：36 个技能 + 原始 7 类分类，纯描述视图，保留历史展示
+- **分类浏览** — 版本对应分类色块快速筛选
+  - v2：库和 API 参考 / 产品验证 / 数据获取与分析 / 业务流程自动化 / 代码脚手架 / 代码质量与审查 / CI/CD 与部署 / 运维手册 / 基础设施操作
+  - v1：规划 / 构建 / 评审 / 测试 / 发布 / 安全 / 工具
 - **实时搜索** — 支持按技能名称、描述、标签、适用场景搜索
 - **详情弹窗** — 点击卡片查看完整描述、适用场景、适合人群和调用方式
-- **双版本视图** —
-  - v2（默认）：场景 + 标签，快速判断这个 skill 是否适合你
-  - v1：纯描述视图，适合快速浏览功能概述
-- **自动数据生成** — 从本地 `~/.claude/skills/gstack` 解析 SKILL.md 自动生成结构化数据
+- **自动数据生成** — 从本地 `~/.claude/skills/gstack` 解析 SKILL.md 自动生成 v2 结构化数据
+
+---
+
+## v2 分类定义（Anthropic 内部九类法）
+
+> 来源：[Anthropic 分享 Skills 在 Claude Code 的最佳实践](https://mp.weixin.qq.com/s/t7_DCP3Ig7hcrK7C8sRn4A)
+
+| 分类 | 英文 | 一句话定义 |
+|---|---|---|
+| 库和 API 参考 | Libraries & API Reference | 教 agent 正确使用特定库、CLI、SDK 或工具 |
+| 产品验证 | Product Verification | 教 agent 如何测试/验证代码或产品是否按预期工作 |
+| 数据获取与分析 | Data Acquisition & Analysis | 连接数据源，提供查询、抓取、分析路径 |
+| 业务流程自动化 | Business Process Automation | 把重复性工作流压缩成一条命令 |
+| 代码脚手架 | Code Scaffolding | 生成框架模板、样板代码和初始结构 |
+| 代码质量与审查 | Code Quality & Review | 强制代码风格、审查流程和架构标准 |
+| CI/CD 与部署 | CI/CD & Deployment | 推代码、部署、监控 PR/发布 |
+| 运维手册 | Operations Manual | 拿症状 → 多工具排查 → 结构化报告 |
+| 基础设施操作 | Infrastructure Operations | 日常维护，对破坏性操作设护栏 |
+
+### v2 分类与技能映射
+
+| 分类 | 技能数量 | 代表 Skill |
+|---|---|---|
+| 库和 API 参考 | 9 | `/browse`, `/codex`, `/setup-gbrain`, `/scrape` |
+| 产品验证 | 7 | `/qa`, `/benchmark`, `/ios-qa`, `/design-review` |
+| 数据获取与分析 | 5 | `/scrape`, `/benchmark-models`, `/landing-report`, `/learn` |
+| 业务流程自动化 | 6 | `/spec`, `/document-generate`, `/office-hours`, `/make-pdf` |
+| 代码脚手架 | 4 | `/design-html`, `/design-shotgun`, `/design-consultation`, `/ios-sync` |
+| 代码质量与审查 | 7 | `/review`, `/cso`, `/autoplan`, `/plan-ceo-review` |
+| CI/CD 与部署 | 4 | `/ship`, `/land-and-deploy`, `/document-release`, `/canary` |
+| 运维手册 | 3 | `/investigate`, `/ios-fix`, `/health` |
+| 基础设施操作 | 7 | `/guard`, `/careful`, `/freeze`, `/setup-deploy`, `/gstack-upgrade` |
+
+---
+
+## v1 原始分类（36 技能）
+
+| 分类 | 英文 | 技能数量 | 代表 Skill |
+|---|---|---|---|
+| 规划 | Planning | 6 | `/office-hours`, `/autoplan`, `/plan-ceo-review` |
+| 构建 | Building | 5 | `/browse`, `/design-html`, `/investigate` |
+| 评审 | Review | 4 | `/review`, `/cso`, `/design-review` |
+| 测试 | Testing | 5 | `/qa`, `/benchmark`, `/canary`, `/health` |
+| 发布 | Shipping | 3 | `/ship`, `/land-and-deploy`, `/document-release` |
+| 安全 | Safety | 4 | `/guard`, `/careful`, `/freeze`, `/unfreeze` |
+| 工具 | Utilities | 9 | `/learn`, `/codex`, `/retro`, `/setup-deploy` |
+
+**注意**：v1 为历史快照，保留 36 个技能的原始 7 类展示，不再随 gstack 升级而更新。当前 gstack 已移除 `checkpoint`；`/connect-chrome` 是 `/open-gstack-browser` 的符号链接。
 
 ---
 
@@ -70,14 +120,15 @@ skill-gallery/
 ├── vite.config.ts          # Vite 配置
 ├── tsconfig.json
 ├── scripts/
-│   └── parse-skills.ts     # 从 gstack 解析 SKILL.md 生成 skills.json
+│   └── parse-skills.ts     # 从 gstack 解析 SKILL.md 生成 skills-v2.json
 ├── src/
 │   ├── main.ts             # 应用入口
-│   ├── App.vue             # 根组件：筛选逻辑 + 布局
+│   ├── App.vue             # 根组件：双版本切换 + 筛选逻辑 + 布局
 │   ├── types/
-│   │   └── skill.ts        # Skill 类型定义
+│   │   └── skill.ts        # Skill 类型定义（兼容 v1/v2 分类）
 │   ├── data/
-│   │   └── skills.json     # 生成的技能数据（52 个技能）
+│   │   ├── skills-v1.json  # v1 历史数据（36 技能 / 7 类）
+│   │   └── skills-v2.json  # v2 数据（52 技能 / Anthropic 九类）
 │   └── components/
 │       ├── SkillCard.vue   # 技能卡片（支持 v1/v2 两种视图）
 │       ├── SkillDetail.vue # 详情弹窗（描述 / 场景 / 标签 / 复制命令）
@@ -103,23 +154,6 @@ skill-gallery/
 | 适合人群 | 硬编码（`SKILL_TARGET_USERS_CN`） |
 
 **注意**：场景、标签、适合人群目前为硬编码补充，非自动从 SKILL.md 提取。新增 skill 时需要同步更新 `parse-skills.ts` 中的映射表。
-
----
-
-## 技能分类
-
-| 分类 | 英文 | 技能数量 | 代表 Skill |
-|------|------|---------|-----------|
-| 规划 | Planning | 6 | `/office-hours`, `/autoplan`, `/plan-ceo-review` |
-| 构建 | Building | 7 | `/browse`, `/design-html`, `/investigate`, `/scrape` |
-| 评审 | Review | 4 | `/review`, `/cso`, `/design-review` |
-| 测试 | Testing | 7 | `/qa`, `/benchmark`, `/canary`, `/health`, `/ios-qa` |
-| 发布 | Shipping | 5 | `/ship`, `/land-and-deploy`, `/document-release` |
-| 安全 | Safety | 4 | `/guard`, `/careful`, `/freeze`, `/unfreeze` |
-| 工具 | Utilities | 14 | `/learn`, `/codex`, `/retro`, `/setup-gbrain` |
-| iOS | iOS | 5 | `/ios-qa`, `/ios-fix`, `/ios-design-review` |
-
-**注意**：`checkpoint` 已从 gstack 移除；`/connect-chrome` 是 `/open-gstack-browser` 的符号链接，不再作为独立技能展示。
 
 ---
 

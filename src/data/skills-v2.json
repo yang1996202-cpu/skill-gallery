@@ -1,0 +1,1802 @@
+[
+  {
+    "name": "benchmark",
+    "slashCommand": "/benchmark",
+    "version": "1.0.0",
+    "preambleTier": 1,
+    "description": "Performance regression detection using the browse daemon. (gstack)",
+    "shortDescription": "Performance regression detection using the browse daemon. (gstack)",
+    "descriptionCn": "性能回归检测。使用 browse 守护进程建立页面加载时间、Core Web Vitals 和资源大小的基线。在每个 PR 上对比前后性能。追踪性能趋势。",
+    "shortDescriptionCn": "性能回归检测。使用 browse 守护进程建立页面加载时间、Core Web V...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/benchmark/SKILL.md",
+    "scenarios": [
+      "当你觉得网站变慢了时",
+      "当你想对比新旧版本性能时",
+      "当你想建立性能基线时"
+    ],
+    "tags": [
+      "性能",
+      "速度",
+      "测试",
+      "Core Web Vitals",
+      "基线",
+      "对比",
+      "优化",
+      "加载时间"
+    ],
+    "targetUsers": "关注性能的开发者"
+  },
+  {
+    "name": "benchmark-models",
+    "slashCommand": "/benchmark-models",
+    "version": "1.0.0",
+    "preambleTier": 1,
+    "description": "Cross-model benchmark for gstack skills. (gstack)",
+    "shortDescription": "Cross-model benchmark for gstack skills. (gstack)",
+    "descriptionCn": "gstack 技能跨模型 benchmark。对比不同模型在 gstack 技能上的表现，评估能力差异。",
+    "shortDescriptionCn": "gstack 技能跨模型 benchmark。对比不同模型在 gstack 技能...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取与分析",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/benchmark-models/SKILL.md",
+    "scenarios": [
+      "当你想对比不同模型在 gstack 技能上的表现时",
+      "当你需要评估模型能力差异时"
+    ],
+    "tags": [
+      "模型",
+      "benchmark",
+      "对比",
+      "gstack",
+      "评估",
+      "能力测试"
+    ],
+    "targetUsers": "需要对比模型能力的开发者"
+  },
+  {
+    "name": "browse",
+    "slashCommand": "/browse",
+    "version": "1.1.0",
+    "preambleTier": 1,
+    "description": "Fast headless browser for QA testing and site dogfooding. (gstack)",
+    "shortDescription": "Fast headless browser for QA testing and site dogfooding. (gstack)",
+    "descriptionCn": "无头浏览器浏览，用于测试网站和截图。支持导航任意 URL、与元素交互、验证页面状态、对比操作前后的差异、生成带注释的截图、检查响应式布局、测试表单和上传、处理对话框、断言元素状态。每个命令约 100ms。用于测试功能、验证部署、体验用户流程或提交带证据的 bug 报告。",
+    "shortDescriptionCn": "无头浏览器浏览，用于测试网站和截图。支持导航任意 URL、与元素交互、验证页面状...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/browse/SKILL.md",
+    "scenarios": [
+      "当你想测试刚部署的网站是否正常工作时",
+      "当你需要截图向同事展示 bug 时",
+      "当你想验证登录流程是否顺畅时",
+      "当你需要检查页面在不同设备上的显示效果时"
+    ],
+    "tags": [
+      "测试",
+      "截图",
+      "浏览器",
+      "QA",
+      "验证",
+      "部署检查",
+      "网站测试",
+      "无头浏览器",
+      "交互测试",
+      "响应式"
+    ],
+    "targetUsers": "需要测试网站、截图验证的前端开发者和 QA"
+  },
+  {
+    "name": "make-pdf",
+    "slashCommand": "/make-pdf",
+    "version": "1.0.0",
+    "preambleTier": 1,
+    "description": "Turn any markdown file into a publication-quality PDF. (gstack)",
+    "shortDescription": "Turn any markdown file into a publication-quality PDF. (gstack)",
+    "descriptionCn": "把 markdown 转成 PDF。将任意 markdown 文件转换为出版物质量的 PDF。",
+    "shortDescriptionCn": "把 markdown 转成 PDF。将任意 markdown 文件转换为出版物质...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/make-pdf/SKILL.md",
+    "scenarios": [
+      "当你想把 markdown 转成 PDF 报告时",
+      "当你需要出版物质量的 PDF 输出时"
+    ],
+    "tags": [
+      "PDF",
+      "markdown",
+      "文档",
+      "出版物",
+      "导出",
+      "排版"
+    ],
+    "targetUsers": "需要把 markdown 转成 PDF 的开发者"
+  },
+  {
+    "name": "setup-browser-cookies",
+    "slashCommand": "/setup-browser-cookies",
+    "version": "1.0.0",
+    "preambleTier": 1,
+    "description": "Import cookies from your real Chromium browser into the headless browse session. (gstack)",
+    "shortDescription": "Import cookies from your real Chromium browser into the headless browse session....",
+    "descriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies 到 browse 会话，用于测试需要登录的页面。",
+    "shortDescriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-browser-cookies/SKILL.md",
+    "scenarios": [
+      "当你需要登录态测试网站时",
+      "当你想导入浏览器 cookies 时"
+    ],
+    "tags": [
+      "cookies",
+      "登录",
+      "浏览器",
+      "认证",
+      "导入"
+    ],
+    "targetUsers": "需要登录态测试的开发者"
+  },
+  {
+    "name": "canary",
+    "slashCommand": "/canary",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Post-deploy canary monitoring. (gstack)",
+    "shortDescription": "Post-deploy canary monitoring. (gstack)",
+    "descriptionCn": "发布后监控：检查错误和性能。金丝雀监控模式，监控线上应用的 console 错误、网络请求失败、性能指标异常。",
+    "shortDescriptionCn": "发布后监控：检查错误和性能。金丝雀监控模式，监控线上应用的 console 错误...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 与部署",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/canary/SKILL.md",
+    "scenarios": [
+      "当你刚部署完想确认是否正常时",
+      "当你想监控线上错误时",
+      "当你担心部署有副作用时"
+    ],
+    "tags": [
+      "监控",
+      "线上",
+      "错误",
+      "部署",
+      "金丝雀",
+      "预警",
+      "日志",
+      "稳定性"
+    ],
+    "targetUsers": "负责线上稳定性的开发者"
+  },
+  {
+    "name": "context-restore",
+    "slashCommand": "/context-restore",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Restore working context saved earlier by /context-save. (gstack)",
+    "shortDescription": "Restore working context saved earlier by /context-save. (gstack)",
+    "descriptionCn": "恢复工作上下文。恢复 /context-save 保存的上下文，回到之前的工作状态。",
+    "shortDescriptionCn": "恢复工作上下文。恢复 /context-save 保存的上下文，回到之前的工作状...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/context-restore/SKILL.md",
+    "scenarios": [
+      "当你想恢复之前保存的工作上下文时",
+      "当你从断点继续工作时"
+    ],
+    "tags": [
+      "恢复",
+      "上下文",
+      "继续",
+      "会话",
+      "状态"
+    ],
+    "targetUsers": "需要恢复工作状态的开发者"
+  },
+  {
+    "name": "context-save",
+    "slashCommand": "/context-save",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Save working context. (gstack)",
+    "shortDescription": "Save working context. (gstack)",
+    "descriptionCn": "保存工作上下文。保存当前工作上下文，方便稍后从中断处继续。",
+    "shortDescriptionCn": "保存工作上下文。保存当前工作上下文，方便稍后从中断处继续。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/context-save/SKILL.md",
+    "scenarios": [
+      "当你需要中断工作并保存当前上下文时",
+      "当你想稍后从当前状态继续时"
+    ],
+    "tags": [
+      "保存",
+      "上下文",
+      "中断",
+      "恢复",
+      "会话",
+      "状态"
+    ],
+    "targetUsers": "需要保存工作状态的开发者"
+  },
+  {
+    "name": "cso",
+    "slashCommand": "/cso",
+    "version": "2.0.0",
+    "preambleTier": 2,
+    "description": "Chief Security Officer mode. (gstack)",
+    "shortDescription": "Chief Security Officer mode. (gstack)",
+    "descriptionCn": "安全审计：基础设施、供应链、OWASP。首席安全官模式，优先进行基础设施安全审计，包括密钥考古、依赖项漏洞扫描、OWASP 合规检查。",
+    "shortDescriptionCn": "安全审计：基础设施、供应链、OWASP。首席安全官模式，优先进行基础设施安全审计...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Grep",
+      "Glob",
+      "Write",
+      "Agent",
+      "WebSearch",
+      "AskUserQuestion"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/cso/SKILL.md",
+    "scenarios": [
+      "当你想检查项目是否有安全隐患时",
+      "当你担心密钥或密码泄露时",
+      "当你需要安全合规审计时"
+    ],
+    "tags": [
+      "安全",
+      "审计",
+      "OWASP",
+      "密钥",
+      "漏洞",
+      "合规",
+      "供应链",
+      "基础设施"
+    ],
+    "targetUsers": "关注安全的开发者和技术负责人"
+  },
+  {
+    "name": "design-html",
+    "slashCommand": "/design-html",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack)",
+    "shortDescription": "Design finalization: generates production-quality Pretext-native HTML/CSS. (gsta...",
+    "descriptionCn": "生成生产级 HTML/CSS 设计。生成符合生产标准的高质量 HTML/CSS 代码，遵循 Pretext 设计系统规范。",
+    "shortDescriptionCn": "生成生产级 HTML/CSS 设计。生成符合生产标准的高质量 HTML/CSS ...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Agent",
+      "AskUserQuestion"
+    ],
+    "category": "Code Scaffolding",
+    "categoryCn": "代码脚手架",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-html/SKILL.md",
+    "scenarios": [
+      "当你需要把设计稿变成可运行的网页时",
+      "当你想要高质量的前端代码时",
+      "当你需要快速迭代设计时"
+    ],
+    "tags": [
+      "设计",
+      "HTML",
+      "CSS",
+      "前端",
+      "生产代码",
+      "响应式",
+      "Pretext"
+    ],
+    "targetUsers": "需要高质量前端代码的开发者"
+  },
+  {
+    "name": "design-shotgun",
+    "slashCommand": "/design-shotgun",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack)",
+    "shortDescription": "Design shotgun: generate multiple AI design variants, open a comparison board, c...",
+    "descriptionCn": "生成多个设计变体并对比。快速生成多个 AI 设计变体，打开对比面板供用户选择，加速设计迭代过程。",
+    "shortDescriptionCn": "生成多个设计变体并对比。快速生成多个 AI 设计变体，打开对比面板供用户选择，加...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Glob",
+      "Grep",
+      "Agent",
+      "AskUserQuestion"
+    ],
+    "category": "Code Scaffolding",
+    "categoryCn": "代码脚手架",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-shotgun/SKILL.md",
+    "scenarios": [
+      "当你不确定哪种设计方案最好时",
+      "当你想快速看到多个设计方向时",
+      "当你需要对比不同设计风格时"
+    ],
+    "tags": [
+      "设计",
+      "探索",
+      "对比",
+      "多方案",
+      "创意",
+      "视觉方向",
+      "迭代"
+    ],
+    "targetUsers": "探索设计方案的产品设计师"
+  },
+  {
+    "name": "document-generate",
+    "slashCommand": "/document-generate",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Generate missing documentation from scratch for a feature, module, or entire project. (gstack)",
+    "shortDescription": "Generate missing documentation from scratch for a feature, module, or entire pro...",
+    "descriptionCn": "从零生成缺失文档。为功能、模块或整个项目生成缺失的文档，支持教程、参考、解释等多种 Diataxis 类型。",
+    "shortDescriptionCn": "从零生成缺失文档。为功能、模块或整个项目生成缺失的文档，支持教程、参考、解释等多...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/document-generate/SKILL.md",
+    "scenarios": [
+      "当你发现项目文档缺失时",
+      "当你想为新功能补全文档时",
+      "当你需要生成教程、参考或解释文档时"
+    ],
+    "tags": [
+      "文档",
+      "生成",
+      "教程",
+      "参考",
+      "解释",
+      "Diataxis",
+      "补全"
+    ],
+    "targetUsers": "需要补全项目文档的开发者"
+  },
+  {
+    "name": "document-release",
+    "slashCommand": "/document-release",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Post-ship documentation update. (gstack)",
+    "shortDescription": "Post-ship documentation update. (gstack)",
+    "descriptionCn": "发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。",
+    "shortDescriptionCn": "发布后文档更新。发布后文档更新，读取所有项目文档，交叉引用变更，更新相关文档。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 与部署",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/document-release/SKILL.md",
+    "scenarios": [
+      "当你部署完需要更新文档时",
+      "当你想自动生成发布说明时"
+    ],
+    "tags": [
+      "文档",
+      "发布",
+      "更新",
+      "说明",
+      "变更日志",
+      "同步"
+    ],
+    "targetUsers": "需要维护文档的开发者"
+  },
+  {
+    "name": "health",
+    "slashCommand": "/health",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Code quality dashboard. (gstack)",
+    "shortDescription": "Code quality dashboard. (gstack)",
+    "descriptionCn": "代码质量仪表板。封装现有项目工具（类型检查器、linter、测试运行器），生成代码健康度评分和趋势报告。",
+    "shortDescriptionCn": "代码质量仪表板。封装现有项目工具（类型检查器、linter、测试运行器），生成代...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Operations Manual",
+    "categoryCn": "运维手册",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/health/SKILL.md",
+    "scenarios": [
+      "当你想了解代码库整体健康状况时",
+      "当你想查看测试、类型检查覆盖率时",
+      "当你想追踪代码质量趋势时"
+    ],
+    "tags": [
+      "代码质量",
+      "仪表板",
+      "类型检查",
+      "lint",
+      "测试覆盖",
+      "趋势",
+      "报告"
+    ],
+    "targetUsers": "关注代码质量的团队负责人"
+  },
+  {
+    "name": "investigate",
+    "slashCommand": "/investigate",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Systematic debugging with root cause investigation. (gstack)",
+    "shortDescription": "Systematic debugging with root cause investigation. (gstack)",
+    "descriptionCn": "系统化调试，根因分析。四阶段调试流程：调查、假设、验证、修复，深入定位问题根本原因。",
+    "shortDescriptionCn": "系统化调试，根因分析。四阶段调试流程：调查、假设、验证、修复，深入定位问题根本原...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Operations Manual",
+    "categoryCn": "运维手册",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/investigate/SKILL.md",
+    "scenarios": [
+      "当你遇到 bug 但不知道原因时",
+      "当错误信息很模糊时",
+      "当你想系统化地排查问题时"
+    ],
+    "tags": [
+      "调试",
+      "bug",
+      "根因",
+      "排查",
+      "错误",
+      "问题定位",
+      "系统化"
+    ],
+    "targetUsers": "遇到复杂 bug 的开发者"
+  },
+  {
+    "name": "learn",
+    "slashCommand": "/learn",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Manage project learnings.",
+    "shortDescription": "Manage project learnings.",
+    "descriptionCn": "管理项目学习记录。查看、搜索、清理和导出 gstack 积累的项目学习记录。",
+    "shortDescriptionCn": "管理项目学习记录。查看、搜索、清理和导出 gstack 积累的项目学习记录。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "AskUserQuestion",
+      "Glob",
+      "Grep"
+    ],
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取与分析",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/learn/SKILL.md",
+    "scenarios": [
+      "当你想回顾项目中学到的东西时",
+      "当你想整理项目经验时"
+    ],
+    "tags": [
+      "学习",
+      "记录",
+      "经验",
+      "知识管理",
+      "搜索",
+      "导出"
+    ],
+    "targetUsers": "注重知识积累的开发者"
+  },
+  {
+    "name": "plan-tune",
+    "slashCommand": "/plan-tune",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
+    "shortDescription": "Self-tuning question sensitivity + developer psychographic for gstack (v1: obser...",
+    "descriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心理画像配置。",
+    "shortDescriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "AskUserQuestion",
+      "Glob",
+      "Grep"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-tune/SKILL.md",
+    "scenarios": [
+      "当你想调整 gstack 提问的敏感度时",
+      "当你希望 gstack 更懂你的决策偏好时"
+    ],
+    "tags": [
+      "tune",
+      "调优",
+      "问题敏感度",
+      "偏好",
+      "gstack",
+      "配置"
+    ],
+    "targetUsers": "想调整 gstack 提问行为的深度用户"
+  },
+  {
+    "name": "retro",
+    "slashCommand": "/retro",
+    "version": "2.0.0",
+    "preambleTier": 2,
+    "description": "Weekly engineering retrospective. (gstack)",
+    "shortDescription": "Weekly engineering retrospective. (gstack)",
+    "descriptionCn": "周回顾：分析提交历史和工作模式。工程周回顾，分析提交历史、工作模式、代码变更趋势。",
+    "shortDescriptionCn": "周回顾：分析提交历史和工作模式。工程周回顾，分析提交历史、工作模式、代码变更趋势...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取与分析",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/retro/SKILL.md",
+    "scenarios": [
+      "当你想做周回顾总结时",
+      "当你想分析团队工作模式时"
+    ],
+    "tags": [
+      "回顾",
+      "总结",
+      "周会",
+      "提交历史",
+      "工作模式",
+      "团队",
+      "效率"
+    ],
+    "targetUsers": "做周回顾的团队成员"
+  },
+  {
+    "name": "setup-deploy",
+    "slashCommand": "/setup-deploy",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Configure deployment settings for /land-and-deploy.",
+    "shortDescription": "Configure deployment settings for /land-and-deploy.",
+    "descriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平台。",
+    "shortDescriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md",
+    "scenarios": [
+      "当你第一次配置部署环境时",
+      "当你想自动化部署流程时"
+    ],
+    "tags": [
+      "配置",
+      "部署",
+      "初始化",
+      "Vercel",
+      "Netlify",
+      "AWS"
+    ],
+    "targetUsers": "初次配置部署的开发者"
+  },
+  {
+    "name": "setup-gbrain",
+    "slashCommand": "/setup-gbrain",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)",
+    "shortDescription": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite ...",
+    "descriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite 或 Supabase brain、注册 MCP、配置远程信任策略。",
+    "shortDescriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-gbrain/SKILL.md",
+    "scenarios": [
+      "当你第一次配置 gbrain 知识库时",
+      "当你需要把 gbrain MCP 接入 Claude Code 时"
+    ],
+    "tags": [
+      "gbrain",
+      "知识库",
+      "MCP",
+      "配置",
+      "初始化",
+      "PGLite"
+    ],
+    "targetUsers": "想配置 gbrain 知识库的开发者"
+  },
+  {
+    "name": "sync-gbrain",
+    "slashCommand": "/sync-gbrain",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. Wraps the gstack-gbrain-sync orchestrator with state (gstack)",
+    "shortDescription": "Keep gbrain current with this repo's code and refresh agent search guidance in C...",
+    "descriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLAUDE.md 中的搜索指引。",
+    "shortDescriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLA...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/sync-gbrain/SKILL.md",
+    "scenarios": [
+      "当你想把当前仓库代码同步到 gbrain 时",
+      "当你想更新 CLAUDE.md 中的搜索指引时"
+    ],
+    "tags": [
+      "gbrain",
+      "同步",
+      "代码",
+      "搜索",
+      "CLADEU.md",
+      "知识库"
+    ],
+    "targetUsers": "使用 gbrain 做代码知识库的开发者"
+  },
+  {
+    "name": "autoplan",
+    "slashCommand": "/autoplan",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. (gstack)",
+    "shortDescription": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills fro...",
+    "descriptionCn": "自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，按顺序自动运行并生成全面评审计划。",
+    "shortDescriptionCn": "自动评审管道。读取完整的 CEO、设计、工程和 DX 评审技能，按顺序自动运行并...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "AskUserQuestion"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/autoplan/SKILL.md",
+    "scenarios": [
+      "当你想要全面的项目评审时",
+      "当你想自动跑完所有评审流程时"
+    ],
+    "tags": [
+      "评审",
+      "自动化",
+      "管道",
+      "全面",
+      "CEO",
+      "设计",
+      "工程",
+      "DX"
+    ],
+    "targetUsers": "需要全面项目评审的负责人"
+  },
+  {
+    "name": "codex",
+    "slashCommand": "/codex",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "OpenAI Codex CLI wrapper — three modes. (gstack)",
+    "shortDescription": "OpenAI Codex CLI wrapper — three modes. (gstack)",
+    "descriptionCn": "OpenAI Codex CLI 包装器。三种模式：代码评审（通过 API 的独立 diff 评审）、代码生成、代码解释。",
+    "shortDescriptionCn": "OpenAI Codex CLI 包装器。三种模式：代码评审（通过 API 的独...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/codex/SKILL.md",
+    "scenarios": [
+      "当你想用 OpenAI Codex 时",
+      "当你需要第二意见评审代码时"
+    ],
+    "tags": [
+      "Codex",
+      "OpenAI",
+      "代码生成",
+      "代码评审",
+      "第二意见",
+      "AI"
+    ],
+    "targetUsers": "使用多种 AI 工具的开发者"
+  },
+  {
+    "name": "design-consultation",
+    "slashCommand": "/design-consultation",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, motion), and generates font+color preview... (gstack)",
+    "shortDescription": "Design consultation: understands your product, researches the landscape, propose...",
+    "descriptionCn": "设计咨询：创建设计系统。理解你的产品，研究行业最佳实践，提出适合你的设计系统方案。",
+    "shortDescriptionCn": "设计咨询：创建设计系统。理解你的产品，研究行业最佳实践，提出适合你的设计系统方案...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Code Scaffolding",
+    "categoryCn": "代码脚手架",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-consultation/SKILL.md",
+    "scenarios": [
+      "当你从零开始搭建设计系统时",
+      "当你想统一产品的视觉风格时",
+      "当你不确定用什么颜色、字体时"
+    ],
+    "tags": [
+      "设计系统",
+      "品牌",
+      "规范",
+      "颜色",
+      "字体",
+      "组件",
+      "设计语言"
+    ],
+    "targetUsers": "搭建设计系统的产品团队"
+  },
+  {
+    "name": "devex-review",
+    "slashCommand": "/devex-review",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Live developer experience audit. (gstack)",
+    "shortDescription": "Live developer experience audit. (gstack)",
+    "descriptionCn": "开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可用性。",
+    "shortDescriptionCn": "开发者体验审计。使用 browse 工具实际测试开发者体验，从用户角度评估产品可...",
+    "allowedTools": [
+      "Read",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Bash",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/devex-review/SKILL.md",
+    "scenarios": [
+      "当你想实际测试开发者体验时",
+      "当你想从用户角度评估产品时"
+    ],
+    "tags": [
+      "开发者体验",
+      "审计",
+      "测试",
+      "用户视角",
+      "可用性",
+      "反馈"
+    ],
+    "targetUsers": "关注用户体验的开发者"
+  },
+  {
+    "name": "ios-clean",
+    "slashCommand": "/ios-clean",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack)",
+    "shortDescription": "Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gs...",
+    "descriptionCn": "清理 iOS 调试桥接。移除 DebugBridge SPM 包以及 iOS 项目中的所有 #if DEBUG 调试代码。",
+    "shortDescriptionCn": "清理 iOS 调试桥接。移除 DebugBridge SPM 包以及 iOS 项...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ios-clean/SKILL.md",
+    "scenarios": [
+      "当你想移除 iOS 项目中的 DebugBridge 调试代码时",
+      "当你准备发布应用前清理 #if DEBUG  wiring 时"
+    ],
+    "tags": [
+      "iOS",
+      "SwiftUI",
+      "DebugBridge",
+      "清理",
+      "发布",
+      "#if DEBUG"
+    ],
+    "targetUsers": "准备发布 iOS 应用的开发者"
+  },
+  {
+    "name": "ios-design-review",
+    "slashCommand": "/ios-design-review",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Visual design audit for iOS apps on real hardware. (gstack)",
+    "shortDescription": "Visual design audit for iOS apps on real hardware. (gstack)",
+    "descriptionCn": "iOS 真机视觉设计审计。在真实硬件上对 iOS 应用进行视觉设计审计。",
+    "shortDescriptionCn": "iOS 真机视觉设计审计。在真实硬件上对 iOS 应用进行视觉设计审计。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ios-design-review/SKILL.md",
+    "scenarios": [
+      "当你想在真机上审计 iOS 应用视觉设计时",
+      "当你需要检查 SwiftUI 界面的设计一致性时"
+    ],
+    "tags": [
+      "iOS",
+      "SwiftUI",
+      "设计",
+      "真机",
+      "视觉",
+      "审计"
+    ],
+    "targetUsers": "关注 iOS 应用视觉设计的开发者"
+  },
+  {
+    "name": "ios-fix",
+    "slashCommand": "/ios-fix",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Autonomous iOS bug fixer. (gstack)",
+    "shortDescription": "Autonomous iOS bug fixer. (gstack)",
+    "descriptionCn": "自动修复 iOS bug。自主修复 iOS 应用中的 bug。",
+    "shortDescriptionCn": "自动修复 iOS bug。自主修复 iOS 应用中的 bug。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Operations Manual",
+    "categoryCn": "运维手册",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ios-fix/SKILL.md",
+    "scenarios": [
+      "当你需要自动修复 iOS bug 时",
+      "当你在真机测试中发现 SwiftUI 问题时"
+    ],
+    "tags": [
+      "iOS",
+      "SwiftUI",
+      "bug",
+      "自动修复",
+      "真机"
+    ],
+    "targetUsers": "需要修复 iOS bug 的开发者"
+  },
+  {
+    "name": "ios-qa",
+    "slashCommand": "/ios-qa",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Live-device iOS QA for SwiftUI apps. (gstack)",
+    "shortDescription": "Live-device iOS QA for SwiftUI apps. (gstack)",
+    "descriptionCn": "iOS 真机 QA。在真实设备上对 SwiftUI 应用进行 QA 测试。",
+    "shortDescriptionCn": "iOS 真机 QA。在真实设备上对 SwiftUI 应用进行 QA 测试。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ios-qa/SKILL.md",
+    "scenarios": [
+      "当你想在真机上 QA 测试 SwiftUI 应用时",
+      "当你需要验证 iOS 应用的实际交互时"
+    ],
+    "tags": [
+      "iOS",
+      "SwiftUI",
+      "QA",
+      "真机",
+      "测试",
+      "交互"
+    ],
+    "targetUsers": "需要在真机上测试 SwiftUI 应用的开发者"
+  },
+  {
+    "name": "ios-sync",
+    "slashCommand": "/ios-sync",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack)",
+    "shortDescription": "Regenerate the iOS debug bridge against the latest upstream gstack templates. (g...",
+    "descriptionCn": "同步 iOS debug bridge。根据 gstack 上游最新模板重新生成 iOS debug bridge。",
+    "shortDescriptionCn": "同步 iOS debug bridge。根据 gstack 上游最新模板重新生成...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Code Scaffolding",
+    "categoryCn": "代码脚手架",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ios-sync/SKILL.md",
+    "scenarios": [
+      "当你需要把 iOS debug bridge 同步到最新模板时",
+      "当你更新 gstack 后需要刷新 iOS 桥接代码时"
+    ],
+    "tags": [
+      "iOS",
+      "SwiftUI",
+      "DebugBridge",
+      "同步",
+      "模板",
+      "桥接"
+    ],
+    "targetUsers": "使用 gstack iOS debug bridge 的开发者"
+  },
+  {
+    "name": "office-hours",
+    "slashCommand": "/office-hours",
+    "version": "2.0.0",
+    "preambleTier": 3,
+    "description": "YC Office Hours — two modes. (gstack)",
+    "shortDescription": "YC Office Hours — two modes. (gstack)",
+    "descriptionCn": "YC Office Hours 模式咨询。两种模式：创业模式（六个强制性问题暴露盲点）、产品模式（深度产品评审）。",
+    "shortDescriptionCn": "YC Office Hours 模式咨询。两种模式：创业模式（六个强制性问题暴露...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Grep",
+      "Glob",
+      "Write",
+      "Edit",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/office-hours/SKILL.md",
+    "scenarios": [
+      "当你不确定产品方向是否正确时",
+      "当你想获得创业建议时",
+      "当你想验证商业想法时"
+    ],
+    "tags": [
+      "YC",
+      "咨询",
+      "产品",
+      "创业",
+      "商业模式",
+      "方向",
+      "反馈"
+    ],
+    "targetUsers": "创业者和产品经理"
+  },
+  {
+    "name": "plan-ceo-review",
+    "slashCommand": "/plan-ceo-review",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "CEO/founder-mode plan review. (gstack)",
+    "shortDescription": "CEO/founder-mode plan review. (gstack)",
+    "descriptionCn": "CEO 模式计划评审。CEO/创始人视角的计划评审，重新思考问题定义，寻找 10 星级产品机会，制定产品战略。",
+    "shortDescriptionCn": "CEO 模式计划评审。CEO/创始人视角的计划评审，重新思考问题定义，寻找 10...",
+    "allowedTools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-ceo-review/SKILL.md",
+    "scenarios": [
+      "当你想从战略角度审视产品计划时",
+      "当你不确定解决的是不是正确问题时",
+      "当你想找 10 倍产品的机会时"
+    ],
+    "tags": [
+      "规划",
+      "CEO",
+      "战略",
+      "产品",
+      "愿景",
+      "10x产品",
+      "机会"
+    ],
+    "targetUsers": "产品负责人和创始人"
+  },
+  {
+    "name": "plan-design-review",
+    "slashCommand": "/plan-design-review",
+    "version": "2.0.0",
+    "preambleTier": 3,
+    "description": "Designer's eye plan review — interactive, like CEO and Eng review. (gstack)",
+    "shortDescription": "Designer's eye plan review — interactive, like CEO and Eng review. (gstack)",
+    "descriptionCn": "设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样深入。",
+    "shortDescriptionCn": "设计师模式计划评审。设计师视角的计划评审，交互式评审，像 CEO 和工程评审一样...",
+    "allowedTools": [
+      "Read",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Bash",
+      "AskUserQuestion"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-design-review/SKILL.md",
+    "scenarios": [
+      "当你想从设计角度审视产品计划时",
+      "当你不确定用户体验是否合理时"
+    ],
+    "tags": [
+      "规划",
+      "设计",
+      "UX",
+      "用户",
+      "体验",
+      "交互"
+    ],
+    "targetUsers": "设计负责人"
+  },
+  {
+    "name": "plan-devex-review",
+    "slashCommand": "/plan-devex-review",
+    "version": "2.0.0",
+    "preambleTier": 3,
+    "description": "Interactive developer experience plan review. (gstack)",
+    "shortDescription": "Interactive developer experience plan review. (gstack)",
+    "descriptionCn": "开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程。",
+    "shortDescriptionCn": "开发者体验计划评审。交互式开发者体验计划评审，探索开发者角色，优化开发者工作流程...",
+    "allowedTools": [
+      "Read",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Bash",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-devex-review/SKILL.md",
+    "scenarios": [
+      "当你想优化开发者工作体验时",
+      "当你想让团队开发效率更高时"
+    ],
+    "tags": [
+      "规划",
+      "开发者体验",
+      "效率",
+      "工具",
+      "工作流",
+      "DX"
+    ],
+    "targetUsers": "关注开发者体验的工程师"
+  },
+  {
+    "name": "plan-eng-review",
+    "slashCommand": "/plan-eng-review",
+    "version": "1.0.0",
+    "preambleTier": 3,
+    "description": "Eng manager-mode plan review. (gstack)",
+    "shortDescription": "Eng manager-mode plan review. (gstack)",
+    "descriptionCn": "工程经理模式计划评审。工程经理视角的计划评审，锁定执行计划——架构设计、测试策略、部署方案。",
+    "shortDescriptionCn": "工程经理模式计划评审。工程经理视角的计划评审，锁定执行计划——架构设计、测试策略...",
+    "allowedTools": [
+      "Read",
+      "Write",
+      "Grep",
+      "Glob",
+      "AskUserQuestion",
+      "Bash",
+      "WebSearch"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-eng-review/SKILL.md",
+    "scenarios": [
+      "当你想完善技术架构时",
+      "当你不确定技术方案是否可行时",
+      "当你想评估项目风险时"
+    ],
+    "tags": [
+      "规划",
+      "工程",
+      "架构",
+      "技术",
+      "执行",
+      "风险",
+      "方案"
+    ],
+    "targetUsers": "技术负责人和架构师"
+  },
+  {
+    "name": "careful",
+    "slashCommand": "/careful",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Safety guardrails for destructive commands. (gstack)",
+    "shortDescription": "Safety guardrails for destructive commands. (gstack)",
+    "descriptionCn": "安全护栏：警告危险命令。在检测到潜在危险命令时暂停并请求确认，防止数据丢失。",
+    "shortDescriptionCn": "安全护栏：警告危险命令。在检测到潜在危险命令时暂停并请求确认，防止数据丢失。",
+    "allowedTools": [
+      "Bash",
+      "Read"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/careful/SKILL.md",
+    "scenarios": [
+      "当你要执行可能有风险的操作时",
+      "当你想避免误删文件时"
+    ],
+    "tags": [
+      "安全",
+      "警告",
+      "危险命令",
+      "确认",
+      "rm -rf",
+      "保护"
+    ],
+    "targetUsers": "执行危险操作前的开发者"
+  },
+  {
+    "name": "design-review",
+    "slashCommand": "/design-review",
+    "version": "2.0.0",
+    "preambleTier": 4,
+    "description": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. (gstack)",
+    "shortDescription": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problem...",
+    "descriptionCn": "设计评审：检查视觉一致性、间距问题。以设计师的视角审查 UI，发现视觉不一致、间距问题、层级问题和可访问性缺陷。",
+    "shortDescriptionCn": "设计评审：检查视觉一致性、间距问题。以设计师的视角审查 UI，发现视觉不一致、间...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/design-review/SKILL.md",
+    "scenarios": [
+      "当你觉得 UI 哪里不对劲但说不出时",
+      "当你想确保设计符合规范时",
+      "当你想检查响应式布局问题时"
+    ],
+    "tags": [
+      "设计",
+      "UI",
+      "UX",
+      "审查",
+      "视觉",
+      "一致性",
+      "间距",
+      "可访问性",
+      "排版"
+    ],
+    "targetUsers": "关注 UI 细节的开发者"
+  },
+  {
+    "name": "freeze",
+    "slashCommand": "/freeze",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Restrict file edits to a specific directory for the session. (gstack)",
+    "shortDescription": "Restrict file edits to a specific directory for the session. (gstack)",
+    "descriptionCn": "限制文件编辑范围。限制会话期间的文件编辑范围，阻止对指定目录外的 Edit 和 Write 操作。",
+    "shortDescriptionCn": "限制文件编辑范围。限制会话期间的文件编辑范围，阻止对指定目录外的 Edit 和 ...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/freeze/SKILL.md",
+    "scenarios": [
+      "当你想限制 AI 只修改特定目录时",
+      "当你不想让 AI 改动其他文件时"
+    ],
+    "tags": [
+      "安全",
+      "限制",
+      "范围",
+      "目录",
+      "编辑控制",
+      "边界"
+    ],
+    "targetUsers": "想控制 AI 编辑范围的开发者"
+  },
+  {
+    "name": "gstack-upgrade",
+    "slashCommand": "/gstack-upgrade",
+    "version": "1.1.0",
+    "preambleTier": 4,
+    "description": "Upgrade gstack to the latest version.",
+    "shortDescription": "Upgrade gstack to the latest version.",
+    "descriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
+    "shortDescriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "AskUserQuestion"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md",
+    "scenarios": [
+      "当你想升级 gstack 到最新版本时",
+      "当你想获取新功能时"
+    ],
+    "tags": [
+      "升级",
+      "更新",
+      "最新版本",
+      "gstack",
+      "功能"
+    ],
+    "targetUsers": "想使用最新功能的 gstack 用户"
+  },
+  {
+    "name": "guard",
+    "slashCommand": "/guard",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Full safety mode: destructive command warnings + directory-scoped edits. (gstack)",
+    "shortDescription": "Full safety mode: destructive command warnings + directory-scoped edits. (gstack...",
+    "descriptionCn": "全安全模式：警告 + 范围限制。综合安全模式，结合 careful 和 freeze 功能，提供全方位保护。",
+    "shortDescriptionCn": "全安全模式：警告 + 范围限制。综合安全模式，结合 careful 和 free...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/guard/SKILL.md",
+    "scenarios": [
+      "当你想开启全面安全模式时",
+      "当你处理敏感数据时"
+    ],
+    "tags": [
+      "安全",
+      "全面",
+      "警告",
+      "限制",
+      "危险操作",
+      "防护"
+    ],
+    "targetUsers": "处理敏感操作时的开发者"
+  },
+  {
+    "name": "land-and-deploy",
+    "slashCommand": "/land-and-deploy",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Land and deploy workflow. (gstack)",
+    "shortDescription": "Land and deploy workflow. (gstack)",
+    "descriptionCn": "合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环境。",
+    "shortDescriptionCn": "合并 PR 并部署。完整的合并和部署工作流：合并 PR、等待 CI、部署到生产环...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 与部署",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/land-and-deploy/SKILL.md",
+    "scenarios": [
+      "当你想一键完成合并和部署时",
+      "当你不想手动检查 CI 状态时"
+    ],
+    "tags": [
+      "部署",
+      "合并",
+      "CI",
+      "自动化",
+      "发布",
+      "一键部署"
+    ],
+    "targetUsers": "频繁部署的开发者"
+  },
+  {
+    "name": "landing-report",
+    "slashCommand": "/landing-report",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Read-only queue dashboard for workspace-aware ship. (gstack)",
+    "shortDescription": "Read-only queue dashboard for workspace-aware ship. (gstack)",
+    "descriptionCn": "workspace-aware ship 只读队列仪表盘。查看面向工作区的 ship 队列状态，只读模式。",
+    "shortDescriptionCn": "workspace-aware ship 只读队列仪表盘。查看面向工作区的 sh...",
+    "allowedTools": [
+      "Bash",
+      "Read"
+    ],
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取与分析",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/landing-report/SKILL.md",
+    "scenarios": [
+      "当你想查看 workspace-aware ship 的队列状态时",
+      "当你需要只读的发布仪表盘时"
+    ],
+    "tags": [
+      "发布",
+      "仪表盘",
+      "队列",
+      "workspace",
+      "只读",
+      "ship"
+    ],
+    "targetUsers": "想查看 ship 队列状态的开发者"
+  },
+  {
+    "name": "open-gstack-browser",
+    "slashCommand": "/open-gstack-browser",
+    "version": "0.2.0",
+    "preambleTier": 4,
+    "description": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
+    "shortDescription": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked ...",
+    "descriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
+    "shortDescriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/open-gstack-browser/SKILL.md",
+    "scenarios": [
+      "当你想启动 AI 控制的浏览器时",
+      "当你需要可视化操作浏览器时"
+    ],
+    "tags": [
+      "浏览器",
+      "AI控制",
+      "可视化",
+      "Chrome",
+      "启动"
+    ],
+    "targetUsers": "需要可视化浏览器的用户"
+  },
+  {
+    "name": "pair-agent",
+    "slashCommand": "/pair-agent",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Pair a remote AI agent with your browser. (gstack)",
+    "shortDescription": "Pair a remote AI agent with your browser. (gstack)",
+    "descriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态或本地网络的场景。",
+    "shortDescriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/pair-agent/SKILL.md",
+    "scenarios": [
+      "当你想让另一个 AI Agent 使用你的浏览器时",
+      "当云端 Agent 需要你的登录态或本地网络时"
+    ],
+    "tags": [
+      "协作",
+      "远程",
+      "配对",
+      "AI代理",
+      "浏览器共享",
+      "本地网络"
+    ],
+    "targetUsers": "需要让其他 AI 使用本机浏览器的开发者"
+  },
+  {
+    "name": "qa",
+    "slashCommand": "/qa",
+    "version": "2.0.0",
+    "preambleTier": 4,
+    "description": "Systematically QA test a web application and fix bugs found. (gstack)",
+    "shortDescription": "Systematically QA test a web application and fix bugs found. (gstack)",
+    "descriptionCn": "系统化 QA 测试并修复发现的 bug。运行全面的 QA 测试，包括功能测试、边界情况检查、跨浏览器兼容性验证，并自动修复发现的问题。",
+    "shortDescriptionCn": "系统化 QA 测试并修复发现的 bug。运行全面的 QA 测试，包括功能测试、边...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/qa/SKILL.md",
+    "scenarios": [
+      "当你想全面测试网站功能时",
+      "当你怀疑有 bug 但不确定在哪时",
+      "当你想确保新功能不会破坏旧功能时"
+    ],
+    "tags": [
+      "测试",
+      "QA",
+      "bug",
+      "功能测试",
+      "兼容性",
+      "自动化测试",
+      "质量保证",
+      "修复"
+    ],
+    "targetUsers": "想确保产品质量的开发者和测试工程师"
+  },
+  {
+    "name": "qa-only",
+    "slashCommand": "/qa-only",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Report-only QA testing. (gstack)",
+    "shortDescription": "Report-only QA testing. (gstack)",
+    "descriptionCn": "QA 测试报告模式，只报告不修复。运行完整的 QA 测试流程，生成详细的测试报告，列出所有发现的问题但不自动修复。",
+    "shortDescriptionCn": "QA 测试报告模式，只报告不修复。运行完整的 QA 测试流程，生成详细的测试报告...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Product Verification",
+    "categoryCn": "产品验证",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/qa-only/SKILL.md",
+    "scenarios": [
+      "当你想让 AI 只报告 bug 不自动修复时",
+      "当你想先了解问题范围再决定怎么修时"
+    ],
+    "tags": [
+      "测试",
+      "QA",
+      "报告",
+      "bug检测",
+      "只读模式",
+      "诊断"
+    ],
+    "targetUsers": "只想了解问题不想自动修复的开发者"
+  },
+  {
+    "name": "review",
+    "slashCommand": "/review",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Pre-landing PR review. (gstack)",
+    "shortDescription": "Pre-landing PR review. (gstack)",
+    "descriptionCn": "PR 预发布评审，检查代码安全和结构问题。分析基础分支的 diff，检查 SQL 注入、LLM 提示注入等安全问题，验证代码结构合理性。",
+    "shortDescriptionCn": "PR 预发布评审，检查代码安全和结构问题。分析基础分支的 diff，检查 SQL...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "Grep",
+      "Glob",
+      "Agent",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "Code Quality & Review",
+    "categoryCn": "代码质量与审查",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/review/SKILL.md",
+    "scenarios": [
+      "当你提交代码前想检查是否有安全问题",
+      "当你想知道 PR 是否有潜在风险时",
+      "当你想让代码更符合团队规范时"
+    ],
+    "tags": [
+      "代码审查",
+      "安全",
+      "PR",
+      "SQL注入",
+      "LLM注入",
+      "代码质量",
+      "风险管理",
+      "规范检查"
+    ],
+    "targetUsers": "注重代码质量和安全的开发者"
+  },
+  {
+    "name": "scrape",
+    "slashCommand": "/scrape",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Pull data from a web page. (gstack)",
+    "shortDescription": "Pull data from a web page. (gstack)",
+    "descriptionCn": "从网页抓取数据。从网页提取结构化数据，支持多种抓取策略和数据输出格式。",
+    "shortDescriptionCn": "从网页抓取数据。从网页提取结构化数据，支持多种抓取策略和数据输出格式。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取与分析",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/scrape/SKILL.md",
+    "scenarios": [
+      "当你需要从网页抓取结构化数据时",
+      "当你想批量提取网页内容时"
+    ],
+    "tags": [
+      "抓取",
+      "数据",
+      "网页",
+      "提取",
+      "结构化",
+      "爬虫"
+    ],
+    "targetUsers": "需要从网页抓取数据的开发者"
+  },
+  {
+    "name": "ship",
+    "slashCommand": "/ship",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit, push, create PR. (gstack)",
+    "shortDescription": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION,...",
+    "descriptionCn": "发布流程：检测分支、运行测试、创建 PR。自动化整个发布流程，包括合并基础分支、运行测试套件、审查代码差异、更新版本号、创建 PR 并部署。",
+    "shortDescriptionCn": "发布流程：检测分支、运行测试、创建 PR。自动化整个发布流程，包括合并基础分支、...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Agent",
+      "AskUserQuestion",
+      "WebSearch"
+    ],
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 与部署",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/ship/SKILL.md",
+    "scenarios": [
+      "当你完成一个功能准备发布时",
+      "当你想自动跑完测试、创建 PR 的流程时",
+      "当你不确定当前分支是否可以安全合并时"
+    ],
+    "tags": [
+      "发布",
+      "PR",
+      "部署",
+      "合并",
+      "测试",
+      "版本控制",
+      "自动化",
+      "CI/CD",
+      "GitHub",
+      "工作流"
+    ],
+    "targetUsers": "频繁发布代码的开发者"
+  },
+  {
+    "name": "skillify",
+    "slashCommand": "/skillify",
+    "version": "1.0.0",
+    "preambleTier": 4,
+    "description": "Codify the most recent successful /scrape flow into a permanent browser-skill on disk. (gstack)",
+    "shortDescription": "Codify the most recent successful /scrape flow into a permanent browser-skill on...",
+    "descriptionCn": "固化抓取流程为技能。把最近一次成功的 /scrape 流程转成磁盘上的永久浏览器技能，方便复用。",
+    "shortDescriptionCn": "固化抓取流程为技能。把最近一次成功的 /scrape 流程转成磁盘上的永久浏览器...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "AskUserQuestion"
+    ],
+    "category": "Libraries & API Reference",
+    "categoryCn": "库和 API 参考",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/skillify/SKILL.md",
+    "scenarios": [
+      "当你想把一次成功的抓取流程固化成可复用技能时",
+      "当你需要反复从同类网页取数据时"
+    ],
+    "tags": [
+      "固化",
+      "技能",
+      "抓取",
+      "复用",
+      "浏览器",
+      "自动化"
+    ],
+    "targetUsers": "想把抓取流程复用为技能的开发者"
+  },
+  {
+    "name": "spec",
+    "slashCommand": "/spec",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
+    "shortDescription": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
+    "descriptionCn": "把模糊意图转成可执行 spec。分五个阶段将模糊需求转化为精确、可执行的规范，适合写成 backlog 或 GitHub issue。",
+    "shortDescriptionCn": "把模糊意图转成可执行 spec。分五个阶段将模糊需求转化为精确、可执行的规范，适...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Grep",
+      "Glob",
+      "AskUserQuestion"
+    ],
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程自动化",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/spec/SKILL.md",
+    "scenarios": [
+      "当你有一个模糊的想法想写成可执行方案时",
+      "当你需要把需求转成精确的 backlog 项时",
+      "当你想为团队输出一份清晰的技术 spec 时"
+    ],
+    "tags": [
+      "spec",
+      "需求",
+      "方案",
+      "backlog",
+      "文档",
+      "产品",
+      "技术方案",
+      "可执行"
+    ],
+    "targetUsers": "需要把需求写成可执行 spec 的产品或技术负责人"
+  },
+  {
+    "name": "unfreeze",
+    "slashCommand": "/unfreeze",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Clear the freeze boundary set by /freeze, allowing edits to all directories again. (gstack)",
+    "shortDescription": "Clear the freeze boundary set by /freeze, allowing edits to all directories agai...",
+    "descriptionCn": "解除编辑范围限制。清除 /freeze 设置的冻结边界，允许编辑所有目录。",
+    "shortDescriptionCn": "解除编辑范围限制。清除 /freeze 设置的冻结边界，允许编辑所有目录。",
+    "allowedTools": [
+      "Bash",
+      "Read"
+    ],
+    "category": "Infrastructure Operations",
+    "categoryCn": "基础设施操作",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/unfreeze/SKILL.md",
+    "scenarios": [
+      "当你想解除目录编辑限制时"
+    ],
+    "tags": [
+      "安全",
+      "解除",
+      "恢复",
+      "无限制",
+      "全部编辑"
+    ],
+    "targetUsers": "想解除编辑限制的开发者"
+  }
+]

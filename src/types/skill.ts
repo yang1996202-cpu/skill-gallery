@@ -1,4 +1,5 @@
 export type SkillCategory =
+  // v1 原始分类
   | 'Planning'
   | 'Building'
   | 'Review'
@@ -6,7 +7,16 @@ export type SkillCategory =
   | 'Shipping'
   | 'Safety'
   | 'Utilities'
-  | 'iOS';
+  // v2 Anthropic 九类分类法
+  | 'Libraries & API Reference'
+  | 'Product Verification'
+  | 'Data Acquisition & Analysis'
+  | 'Business Process Automation'
+  | 'Code Scaffolding'
+  | 'Code Quality & Review'
+  | 'CI/CD & Deployment'
+  | 'Operations Manual'
+  | 'Infrastructure Operations';
 
 export interface Skill {
   name: string;

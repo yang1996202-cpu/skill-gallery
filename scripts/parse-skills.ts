@@ -4,87 +4,101 @@ import YAML from 'yaml';
 
 const GSTACK_SKILLS_DIR = path.join(process.env.HOME || '', '.claude/skills/gstack');
 
+// Anthropic 内部 skill 九类分类法（来源：https://mp.weixin.qq.com/s/t7_DCP3Ig7hcrK7C8sRn4A）
+// 旧版（v1）仍使用原始 7 类，保留在 skills-v1.json；此脚本生成新版（v2）skills-v2.json。
 type SkillCategory =
-  | 'Planning'
-  | 'Building'
-  | 'Review'
-  | 'Testing'
-  | 'Shipping'
-  | 'Safety'
-  | 'Utilities'
-  | 'iOS';
+  | 'Libraries & API Reference'
+  | 'Product Verification'
+  | 'Data Acquisition & Analysis'
+  | 'Business Process Automation'
+  | 'Code Scaffolding'
+  | 'Code Quality & Review'
+  | 'CI/CD & Deployment'
+  | 'Operations Manual'
+  | 'Infrastructure Operations';
 
 const CATEGORY_MAP: Record<string, SkillCategory> = {
-  'office-hours': 'Planning',
-  'autoplan': 'Planning',
-  'plan-ceo-review': 'Planning',
-  'plan-eng-review': 'Planning',
-  'plan-design-review': 'Planning',
-  'plan-devex-review': 'Planning',
-  'spec': 'Planning',
+  // 库和 API 参考：教 agent 正确使用特定库、CLI、SDK 或工具
+  'browse': 'Libraries & API Reference',
+  'codex': 'Libraries & API Reference',
+  'open-gstack-browser': 'Libraries & API Reference',
+  'pair-agent': 'Libraries & API Reference',
+  'setup-browser-cookies': 'Libraries & API Reference',
+  'setup-gbrain': 'Libraries & API Reference',
+  'sync-gbrain': 'Libraries & API Reference',
+  'skillify': 'Libraries & API Reference',
+  'plan-tune': 'Libraries & API Reference',
 
-  'browse': 'Building',
-  'design-html': 'Building',
-  'design-shotgun': 'Building',
-  'design-consultation': 'Building',
-  'investigate': 'Building',
-  'scrape': 'Building',
-  'skillify': 'Building',
+  // 产品验证：教 agent 如何测试/验证代码或产品是否按预期工作
+  'qa': 'Product Verification',
+  'qa-only': 'Product Verification',
+  'benchmark': 'Product Verification',
+  'ios-qa': 'Product Verification',
+  'ios-design-review': 'Product Verification',
+  'devex-review': 'Product Verification',
+  'design-review': 'Product Verification',
 
-  'review': 'Review',
-  'devex-review': 'Review',
-  'design-review': 'Review',
-  'cso': 'Review',
+  // 数据获取与分析：连接数据源，提供查询、抓取、分析路径
+  'scrape': 'Data Acquisition & Analysis',
+  'benchmark-models': 'Data Acquisition & Analysis',
+  'landing-report': 'Data Acquisition & Analysis',
+  'learn': 'Data Acquisition & Analysis',
+  'retro': 'Data Acquisition & Analysis',
 
-  'qa': 'Testing',
-  'qa-only': 'Testing',
-  'benchmark': 'Testing',
-  'benchmark-models': 'Testing',
-  'canary': 'Testing',
-  'health': 'Testing',
+  // 业务流程自动化：把重复性工作流压缩成一条命令
+  'document-generate': 'Business Process Automation',
+  'spec': 'Business Process Automation',
+  'office-hours': 'Business Process Automation',
+  'make-pdf': 'Business Process Automation',
+  'context-save': 'Business Process Automation',
+  'context-restore': 'Business Process Automation',
 
-  'ship': 'Shipping',
-  'land-and-deploy': 'Shipping',
-  'document-release': 'Shipping',
-  'document-generate': 'Shipping',
-  'landing-report': 'Shipping',
+  // 代码脚手架：生成框架模板、样板代码和初始结构
+  'design-html': 'Code Scaffolding',
+  'design-shotgun': 'Code Scaffolding',
+  'design-consultation': 'Code Scaffolding',
+  'ios-sync': 'Code Scaffolding',
 
-  'guard': 'Safety',
-  'careful': 'Safety',
-  'freeze': 'Safety',
-  'unfreeze': 'Safety',
+  // 代码质量与审查：强制代码风格、审查流程和架构标准
+  'review': 'Code Quality & Review',
+  'cso': 'Code Quality & Review',
+  'plan-ceo-review': 'Code Quality & Review',
+  'plan-eng-review': 'Code Quality & Review',
+  'plan-design-review': 'Code Quality & Review',
+  'plan-devex-review': 'Code Quality & Review',
+  'autoplan': 'Code Quality & Review',
 
-  'learn': 'Utilities',
-  'retro': 'Utilities',
-  'codex': 'Utilities',
-  'gstack-upgrade': 'Utilities',
-  'setup-browser-cookies': 'Utilities',
-  'setup-deploy': 'Utilities',
-  'open-gstack-browser': 'Utilities',
-  'pair-agent': 'Utilities',
-  'context-save': 'Utilities',
-  'context-restore': 'Utilities',
-  'setup-gbrain': 'Utilities',
-  'sync-gbrain': 'Utilities',
-  'make-pdf': 'Utilities',
-  'plan-tune': 'Utilities',
+  // CI/CD 与部署：推代码、部署、监控 PR/发布
+  'ship': 'CI/CD & Deployment',
+  'land-and-deploy': 'CI/CD & Deployment',
+  'document-release': 'CI/CD & Deployment',
+  'canary': 'CI/CD & Deployment',
 
-  'ios-clean': 'iOS',
-  'ios-design-review': 'iOS',
-  'ios-fix': 'iOS',
-  'ios-qa': 'iOS',
-  'ios-sync': 'iOS',
+  // 运维手册：拿症状 → 多工具排查 → 结构化报告
+  'investigate': 'Operations Manual',
+  'ios-fix': 'Operations Manual',
+  'health': 'Operations Manual',
+
+  // 基础设施操作：日常维护，对破坏性操作设护栏
+  'careful': 'Infrastructure Operations',
+  'guard': 'Infrastructure Operations',
+  'freeze': 'Infrastructure Operations',
+  'unfreeze': 'Infrastructure Operations',
+  'ios-clean': 'Infrastructure Operations',
+  'setup-deploy': 'Infrastructure Operations',
+  'gstack-upgrade': 'Infrastructure Operations',
 };
 
 const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
-  Planning: '规划',
-  Building: '构建',
-  Review: '评审',
-  Testing: '测试',
-  Shipping: '发布',
-  Safety: '安全',
-  Utilities: '工具',
-  iOS: 'iOS',
+  'Libraries & API Reference': '库和 API 参考',
+  'Product Verification': '产品验证',
+  'Data Acquisition & Analysis': '数据获取与分析',
+  'Business Process Automation': '业务流程自动化',
+  'Code Scaffolding': '代码脚手架',
+  'Code Quality & Review': '代码质量与审查',
+  'CI/CD & Deployment': 'CI/CD 与部署',
+  'Operations Manual': '运维手册',
+  'Infrastructure Operations': '基础设施操作',
 };
 
 const SKILL_SCENARIOS_CN: Record<string, string[]> = {
@@ -551,7 +565,7 @@ function main() {
   // Check if skills directory exists
   if (!fs.existsSync(GSTACK_SKILLS_DIR)) {
     console.log(`Skills directory not found: ${GSTACK_SKILLS_DIR}`);
-    console.log('Skipping skill parsing - using existing skills.json if available');
+    console.log('Skipping skill parsing - using existing skills-v2.json if available');
     return;
   }
 
@@ -575,7 +589,7 @@ function main() {
   // Sort by preamble-tier (lower = higher priority)
   skills.sort((a, b) => a.preambleTier - b.preambleTier);
 
-  const outputPath = path.join(import.meta.dirname, '../src/data/skills.json');
+  const outputPath = path.join(import.meta.dirname, '../src/data/skills-v2.json');
   fs.writeFileSync(outputPath, JSON.stringify(skills, null, 2));
 
   console.log(`Parsed ${skills.length} skills to ${outputPath}`);
