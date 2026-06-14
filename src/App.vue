@@ -185,7 +185,7 @@ function closeDetail() {
         <div class="footer-section">
           <h4>关于项目</h4>
           <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。</p>
-          <p>v2 默认使用 Anthropic 内部九类分类法；v1 保留原始 36 技能 / 7 分类视图。支持分类筛选、搜索和详情查看。</p>
+          <p>v1 与 v2 现在采用统一的卡片样式（场景 + 标签）。v2 默认使用 Anthropic 内部九类分类法；v1 保留原始 36 技能 / 7 分类视图。</p>
         </div>
 
         <div class="footer-section">

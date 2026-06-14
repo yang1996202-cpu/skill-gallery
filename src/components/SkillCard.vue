@@ -53,23 +53,15 @@ function getCategoryColor(category: string): string {
       <code>{{ skill.slashCommand }}</code>
     </h3>
 
-    <!-- v1: 纯描述（旧版） -->
-    <template v-if="!isV2(version)">
-      <p class="skill-description-cn">{{ skill.shortDescriptionCn }}</p>
-      <p class="skill-description-en">{{ skill.shortDescription }}</p>
-    </template>
-
-    <!-- v2: 场景+标签 -->
-    <template v-else>
-      <p class="skill-scenario" v-if="skill.scenarios?.length">
-        {{ skill.scenarios[0] }}
-      </p>
-      <div class="tags-list" v-if="skill.tags?.length">
-        <span v-for="tag in skill.tags.slice(0, 3)" :key="tag" class="tag-badge">
-          {{ tag }}
-        </span>
-      </div>
-    </template>
+    <!-- v1 / v2 统一使用场景 + 标签展示 -->
+    <p class="skill-scenario" v-if="skill.scenarios?.length">
+      {{ skill.scenarios[0] }}
+    </p>
+    <div class="tags-list" v-if="skill.tags?.length">
+      <span v-for="tag in skill.tags.slice(0, 3)" :key="tag" class="tag-badge">
+        {{ tag }}
+      </span>
+    </div>
 
     <div class="skill-meta">
       <span class="version">v{{ skill.version }}</span>
