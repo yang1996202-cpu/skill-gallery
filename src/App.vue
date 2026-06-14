@@ -181,8 +181,39 @@ function closeDetail() {
     </main>
 
     <footer class="footer">
-      <p>共 {{ filteredSkills.length }} 个技能 | 来源：~/.claude/skills/gstack</p>
-      <p class="last-updated">最后更新：{{ lastUpdated }}</p>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>关于项目</h4>
+          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。</p>
+          <p>v2 默认使用 Anthropic 内部九类分类法；v1 保留原始 36 技能 / 7 分类视图。支持分类筛选、搜索和详情查看。</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>最近更新</h4>
+          <ul>
+            <li>分类名称全面中文化</li>
+            <li>新增 v2 Anthropic 九类分类</li>
+            <li>保留 v1 原始分类视图</li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>创始人 / 来源</h4>
+          <p><a href="https://github.com/garrytan" target="_blank" rel="noopener">Garry Tan</a> — <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">gstack</a> 作者</p>
+        </div>
+
+        <div class="footer-section author-card">
+          <h4>维护者</h4>
+          <p class="author-name"><strong>杨京艺</strong></p>
+          <p><a href="https://github.com/yang1996202-cpu" target="_blank" rel="noopener">GitHub @yang1996202-cpu</a></p>
+          <p class="author-tag">AI 工具 · Agent · MCP · Skill · 知识管理</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>共 {{ filteredSkills.length }} 个技能 | 来源：~/.claude/skills/gstack</p>
+        <p class="last-updated">最后更新：{{ lastUpdated }}</p>
+      </div>
     </footer>
 
     <SkillDetail
@@ -249,13 +280,77 @@ function closeDetail() {
 }
 
 .footer {
-  text-align: center;
-  padding: 1rem;
-  color: #6b7280;
-  font-size: 0.9rem;
+  padding: 2rem 1rem 1rem;
+  color: #374151;
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
 }
 
-.footer .last-updated {
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #1e3a8a;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0.25rem 0;
+}
+
+.footer-section ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.footer-section a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.author-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.author-name {
+  font-size: 1.05rem;
+}
+
+.author-tag {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.footer-bottom .last-updated {
   font-size: 0.75rem;
   color: #9ca3af;
   margin-top: 0.25rem;

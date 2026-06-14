@@ -182,6 +182,33 @@ skill-gallery/
 
 ---
 
+## 更新日志
+
+### 2026-06-14
+
+- 分类名称全面中文化：v1 / v2 的筛选栏、卡片、详情弹窗均显示中文分类名。
+- 保留 v1 原始 7 类分类视图（36 技能），v2 默认展示 Anthropic 内部九类分类法（52 技能）。
+- 补充 v2 Anthropic 九类分类的卡片颜色映射。
+
+### 2026-06-12
+
+- 上线双版本视图：v2（52 技能 + Anthropic 九类法）与 v1（36 技能 + 原始 7 类）。
+- 支持分类筛选、实时搜索、详情弹窗。
+- 数据生成脚本支持从本地 `~/.claude/skills/gstack` 解析 SKILL.md。
+
+---
+
+## 项目与维护者
+
+- **项目**：GStack Skill Gallery —— [garrytan/gstack](https://github.com/garrytan/gstack) 的可视化技能目录。
+- **创始人 / Skill 来源**：[Garry Tan](https://github.com/garrytan) —— [gstack](https://github.com/garrytan/gstack) 作者。
+- **作者 / 维护者**：[杨京艺](https://github.com/yang1996202-cpu)（@yang1996202-cpu）
+- **在线预览**：[https://skill-gallery.pages.dev/](https://skill-gallery.pages.dev/)
+
+> 杨京艺：前 SaaS 销售 / 解决方案顾问，现全职探索 AI 工具、Agent、MCP、Skill、知识管理、内容与商业化。欢迎通过 GitHub 交流。
+
+---
+
 ## License
 
 MIT
