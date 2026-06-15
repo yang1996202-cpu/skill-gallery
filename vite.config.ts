@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 const buildTime = new Date().toLocaleString('zh-CN', {
   timeZone: 'Asia/Shanghai',
   year: 'numeric',
@@ -12,7 +14,7 @@ const buildTime = new Date().toLocaleString('zh-CN', {
 });
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), cloudflare()],
   define: {
     __BUILD_TIME__: JSON.stringify(buildTime),
   },
