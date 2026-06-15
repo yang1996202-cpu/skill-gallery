@@ -1,5 +1,267 @@
 [
   {
+    "name": "gstack-upgrade",
+    "slashCommand": "/gstack-upgrade",
+    "version": "1.1.0",
+    "preambleTier": 4,
+    "description": "Upgrade gstack to the latest version.",
+    "shortDescription": "Upgrade gstack to the latest version.",
+    "descriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
+    "shortDescriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md",
+    "scenarios": [
+      "当你想升级 gstack 到最新版本时",
+      "当你想获取新功能时"
+    ],
+    "tags": [
+      "升级",
+      "更新",
+      "最新版本",
+      "gstack",
+      "功能"
+    ],
+    "targetUsers": "想使用最新功能的 gstack 用户"
+  },
+  {
+    "name": "open-gstack-browser",
+    "slashCommand": "/open-gstack-browser",
+    "version": "0.2.0",
+    "preambleTier": 4,
+    "description": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
+    "shortDescription": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked ...",
+    "descriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
+    "shortDescriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/open-gstack-browser/SKILL.md",
+    "scenarios": [
+      "当你想启动 AI 控制的浏览器时",
+      "当你需要可视化操作浏览器时"
+    ],
+    "tags": [
+      "浏览器",
+      "AI控制",
+      "可视化",
+      "Chrome",
+      "启动"
+    ],
+    "targetUsers": "需要可视化浏览器的用户"
+  },
+  {
+    "name": "pair-agent",
+    "slashCommand": "/pair-agent",
+    "version": "0.1.0",
+    "preambleTier": 4,
+    "description": "Pair a remote AI agent with your browser. (gstack)",
+    "shortDescription": "Pair a remote AI agent with your browser. (gstack)",
+    "descriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态或本地网络的场景。",
+    "shortDescriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/pair-agent/SKILL.md",
+    "scenarios": [
+      "当你想让另一个 AI Agent 使用你的浏览器时",
+      "当云端 Agent 需要你的登录态或本地网络时"
+    ],
+    "tags": [
+      "协作",
+      "远程",
+      "配对",
+      "AI代理",
+      "浏览器共享",
+      "本地网络"
+    ],
+    "targetUsers": "需要让其他 AI 使用本机浏览器的开发者"
+  },
+  {
+    "name": "plan-tune",
+    "slashCommand": "/plan-tune",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
+    "shortDescription": "Self-tuning question sensitivity + developer psychographic for gstack (v1: obser...",
+    "descriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心理画像配置。",
+    "shortDescriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "AskUserQuestion",
+      "Glob",
+      "Grep"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-tune/SKILL.md",
+    "scenarios": [
+      "当你想调整 gstack 提问的敏感度时",
+      "当你希望 gstack 更懂你的决策偏好时"
+    ],
+    "tags": [
+      "tune",
+      "调优",
+      "问题敏感度",
+      "偏好",
+      "gstack",
+      "配置"
+    ],
+    "targetUsers": "想调整 gstack 提问行为的深度用户"
+  },
+  {
+    "name": "setup-browser-cookies",
+    "slashCommand": "/setup-browser-cookies",
+    "version": "1.0.0",
+    "preambleTier": 1,
+    "description": "Import cookies from your real Chromium browser into the headless browse session. (gstack)",
+    "shortDescription": "Import cookies from your real Chromium browser into the headless browse session....",
+    "descriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies 到 browse 会话，用于测试需要登录的页面。",
+    "shortDescriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-browser-cookies/SKILL.md",
+    "scenarios": [
+      "当你需要登录态测试网站时",
+      "当你想导入浏览器 cookies 时"
+    ],
+    "tags": [
+      "cookies",
+      "登录",
+      "浏览器",
+      "认证",
+      "导入"
+    ],
+    "targetUsers": "需要登录态测试的开发者"
+  },
+  {
+    "name": "setup-deploy",
+    "slashCommand": "/setup-deploy",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Configure deployment settings for /land-and-deploy.",
+    "shortDescription": "Configure deployment settings for /land-and-deploy.",
+    "descriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平台。",
+    "shortDescriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md",
+    "scenarios": [
+      "当你第一次配置部署环境时",
+      "当你想自动化部署流程时"
+    ],
+    "tags": [
+      "配置",
+      "部署",
+      "初始化",
+      "Vercel",
+      "Netlify",
+      "AWS"
+    ],
+    "targetUsers": "初次配置部署的开发者"
+  },
+  {
+    "name": "setup-gbrain",
+    "slashCommand": "/setup-gbrain",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)",
+    "shortDescription": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite ...",
+    "descriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite 或 Supabase brain、注册 MCP、配置远程信任策略。",
+    "shortDescriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-gbrain/SKILL.md",
+    "scenarios": [
+      "当你第一次配置 gbrain 知识库时",
+      "当你需要把 gbrain MCP 接入 Claude Code 时"
+    ],
+    "tags": [
+      "gbrain",
+      "知识库",
+      "MCP",
+      "配置",
+      "初始化",
+      "PGLite"
+    ],
+    "targetUsers": "想配置 gbrain 知识库的开发者"
+  },
+  {
+    "name": "sync-gbrain",
+    "slashCommand": "/sync-gbrain",
+    "version": "1.0.0",
+    "preambleTier": 2,
+    "description": "Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. Wraps the gstack-gbrain-sync orchestrator with state (gstack)",
+    "shortDescription": "Keep gbrain current with this repo's code and refresh agent search guidance in C...",
+    "descriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLAUDE.md 中的搜索指引。",
+    "shortDescriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLA...",
+    "allowedTools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "AskUserQuestion"
+    ],
+    "category": "Preparation",
+    "categoryCn": "准备",
+    "sourcePath": "/Users/yang/.claude/skills/gstack/sync-gbrain/SKILL.md",
+    "scenarios": [
+      "当你想把当前仓库代码同步到 gbrain 时",
+      "当你想更新 CLAUDE.md 中的搜索指引时"
+    ],
+    "tags": [
+      "gbrain",
+      "同步",
+      "代码",
+      "搜索",
+      "CLADEU.md",
+      "知识库"
+    ],
+    "targetUsers": "使用 gbrain 做代码知识库的开发者"
+  },
+  {
     "name": "office-hours",
     "slashCommand": "/office-hours",
     "version": "2.0.0",
@@ -612,67 +874,6 @@
     "targetUsers": "需要把 markdown 转成 PDF 的开发者"
   },
   {
-    "name": "open-gstack-browser",
-    "slashCommand": "/open-gstack-browser",
-    "version": "0.2.0",
-    "preambleTier": 4,
-    "description": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
-    "shortDescription": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked ...",
-    "descriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
-    "shortDescriptionCn": "启动 AI 控制的浏览器。启动可视化浏览器，AI 可以实时查看和控制浏览器操作。",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "AskUserQuestion"
-    ],
-    "category": "Building",
-    "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/open-gstack-browser/SKILL.md",
-    "scenarios": [
-      "当你想启动 AI 控制的浏览器时",
-      "当你需要可视化操作浏览器时"
-    ],
-    "tags": [
-      "浏览器",
-      "AI控制",
-      "可视化",
-      "Chrome",
-      "启动"
-    ],
-    "targetUsers": "需要可视化浏览器的用户"
-  },
-  {
-    "name": "pair-agent",
-    "slashCommand": "/pair-agent",
-    "version": "0.1.0",
-    "preambleTier": 4,
-    "description": "Pair a remote AI agent with your browser. (gstack)",
-    "shortDescription": "Pair a remote AI agent with your browser. (gstack)",
-    "descriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态或本地网络的场景。",
-    "shortDescriptionCn": "配对远程 AI 代理。让另一个 AI Agent 使用你的浏览器，适合需要登录态...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "AskUserQuestion"
-    ],
-    "category": "Building",
-    "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/pair-agent/SKILL.md",
-    "scenarios": [
-      "当你想让另一个 AI Agent 使用你的浏览器时",
-      "当云端 Agent 需要你的登录态或本地网络时"
-    ],
-    "tags": [
-      "协作",
-      "远程",
-      "配对",
-      "AI代理",
-      "浏览器共享",
-      "本地网络"
-    ],
-    "targetUsers": "需要让其他 AI 使用本机浏览器的开发者"
-  },
-  {
     "name": "scrape",
     "slashCommand": "/scrape",
     "version": "1.0.0",
@@ -702,36 +903,6 @@
       "爬虫"
     ],
     "targetUsers": "需要从网页抓取数据的开发者"
-  },
-  {
-    "name": "setup-browser-cookies",
-    "slashCommand": "/setup-browser-cookies",
-    "version": "1.0.0",
-    "preambleTier": 1,
-    "description": "Import cookies from your real Chromium browser into the headless browse session. (gstack)",
-    "shortDescription": "Import cookies from your real Chromium browser into the headless browse session....",
-    "descriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies 到 browse 会话，用于测试需要登录的页面。",
-    "shortDescriptionCn": "导入浏览器 cookies。从本地 Chromium 浏览器导入 cookies...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "AskUserQuestion"
-    ],
-    "category": "Building",
-    "categoryCn": "构建",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-browser-cookies/SKILL.md",
-    "scenarios": [
-      "当你需要登录态测试网站时",
-      "当你想导入浏览器 cookies 时"
-    ],
-    "tags": [
-      "cookies",
-      "登录",
-      "浏览器",
-      "认证",
-      "导入"
-    ],
-    "targetUsers": "需要登录态测试的开发者"
   },
   {
     "name": "skillify",
@@ -1332,41 +1503,6 @@
     "targetUsers": "想查看 ship 队列状态的开发者"
   },
   {
-    "name": "setup-deploy",
-    "slashCommand": "/setup-deploy",
-    "version": "1.0.0",
-    "preambleTier": 2,
-    "description": "Configure deployment settings for /land-and-deploy.",
-    "shortDescription": "Configure deployment settings for /land-and-deploy.",
-    "descriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平台。",
-    "shortDescriptionCn": "配置部署设置。配置项目部署设置，支持 Vercel、Netlify 等多种部署平...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "Write",
-      "Edit",
-      "Glob",
-      "Grep",
-      "AskUserQuestion"
-    ],
-    "category": "Shipping",
-    "categoryCn": "发布",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md",
-    "scenarios": [
-      "当你第一次配置部署环境时",
-      "当你想自动化部署流程时"
-    ],
-    "tags": [
-      "配置",
-      "部署",
-      "初始化",
-      "Vercel",
-      "Netlify",
-      "AWS"
-    ],
-    "targetUsers": "初次配置部署的开发者"
-  },
-  {
     "name": "ship",
     "slashCommand": "/ship",
     "version": "1.0.0",
@@ -1536,37 +1672,6 @@
     "targetUsers": "想控制 AI 编辑范围的开发者"
   },
   {
-    "name": "gstack-upgrade",
-    "slashCommand": "/gstack-upgrade",
-    "version": "1.1.0",
-    "preambleTier": 4,
-    "description": "Upgrade gstack to the latest version.",
-    "shortDescription": "Upgrade gstack to the latest version.",
-    "descriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
-    "shortDescriptionCn": "升级 gstack。检查并安装 gstack 的最新版本，获取新功能和安全更新。",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "Write",
-      "AskUserQuestion"
-    ],
-    "category": "Reflection",
-    "categoryCn": "反思",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md",
-    "scenarios": [
-      "当你想升级 gstack 到最新版本时",
-      "当你想获取新功能时"
-    ],
-    "tags": [
-      "升级",
-      "更新",
-      "最新版本",
-      "gstack",
-      "功能"
-    ],
-    "targetUsers": "想使用最新功能的 gstack 用户"
-  },
-  {
     "name": "guard",
     "slashCommand": "/guard",
     "version": "0.1.0",
@@ -1633,41 +1738,6 @@
     "targetUsers": "注重知识积累的开发者"
   },
   {
-    "name": "plan-tune",
-    "slashCommand": "/plan-tune",
-    "version": "1.0.0",
-    "preambleTier": 2,
-    "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
-    "shortDescription": "Self-tuning question sensitivity + developer psychographic for gstack (v1: obser...",
-    "descriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心理画像配置。",
-    "shortDescriptionCn": "gstack 问题敏感度自调优。观察并调整 gstack 的提问敏感度与开发者心...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "Write",
-      "Edit",
-      "AskUserQuestion",
-      "Glob",
-      "Grep"
-    ],
-    "category": "Reflection",
-    "categoryCn": "反思",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/plan-tune/SKILL.md",
-    "scenarios": [
-      "当你想调整 gstack 提问的敏感度时",
-      "当你希望 gstack 更懂你的决策偏好时"
-    ],
-    "tags": [
-      "tune",
-      "调优",
-      "问题敏感度",
-      "偏好",
-      "gstack",
-      "配置"
-    ],
-    "targetUsers": "想调整 gstack 提问行为的深度用户"
-  },
-  {
     "name": "retro",
     "slashCommand": "/retro",
     "version": "2.0.0",
@@ -1700,76 +1770,6 @@
       "效率"
     ],
     "targetUsers": "做周回顾的团队成员"
-  },
-  {
-    "name": "setup-gbrain",
-    "slashCommand": "/setup-gbrain",
-    "version": "1.0.0",
-    "preambleTier": 2,
-    "description": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)",
-    "shortDescription": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite ...",
-    "descriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite 或 Supabase brain、注册 MCP、配置远程信任策略。",
-    "shortDescriptionCn": "配置 gbrain 知识库。安装 gbrain CLI、初始化本地 PGLite...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "Write",
-      "Edit",
-      "Glob",
-      "Grep",
-      "AskUserQuestion"
-    ],
-    "category": "Reflection",
-    "categoryCn": "反思",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/setup-gbrain/SKILL.md",
-    "scenarios": [
-      "当你第一次配置 gbrain 知识库时",
-      "当你需要把 gbrain MCP 接入 Claude Code 时"
-    ],
-    "tags": [
-      "gbrain",
-      "知识库",
-      "MCP",
-      "配置",
-      "初始化",
-      "PGLite"
-    ],
-    "targetUsers": "想配置 gbrain 知识库的开发者"
-  },
-  {
-    "name": "sync-gbrain",
-    "slashCommand": "/sync-gbrain",
-    "version": "1.0.0",
-    "preambleTier": 2,
-    "description": "Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. Wraps the gstack-gbrain-sync orchestrator with state (gstack)",
-    "shortDescription": "Keep gbrain current with this repo's code and refresh agent search guidance in C...",
-    "descriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLAUDE.md 中的搜索指引。",
-    "shortDescriptionCn": "同步代码到 gbrain。保持 gbrain 与当前仓库代码同步，并刷新 CLA...",
-    "allowedTools": [
-      "Bash",
-      "Read",
-      "Write",
-      "Edit",
-      "Glob",
-      "Grep",
-      "AskUserQuestion"
-    ],
-    "category": "Reflection",
-    "categoryCn": "反思",
-    "sourcePath": "/Users/yang/.claude/skills/gstack/sync-gbrain/SKILL.md",
-    "scenarios": [
-      "当你想把当前仓库代码同步到 gbrain 时",
-      "当你想更新 CLAUDE.md 中的搜索指引时"
-    ],
-    "tags": [
-      "gbrain",
-      "同步",
-      "代码",
-      "搜索",
-      "CLADEU.md",
-      "知识库"
-    ],
-    "targetUsers": "使用 gbrain 做代码知识库的开发者"
   },
   {
     "name": "unfreeze",

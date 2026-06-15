@@ -1,5 +1,6 @@
 export type SkillCategory =
   // v1 原始分类：按迭代冲刺流程排列
+  | 'Preparation'
   | 'Thinking'
   | 'Planning'
   | 'Building'

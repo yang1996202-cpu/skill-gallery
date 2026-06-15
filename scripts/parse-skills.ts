@@ -17,13 +17,14 @@ type SkillCategory =
   | 'Operations Manual'
   | 'Infrastructure Operations';
 
-// v1 原始 7 类分类法：按迭代冲刺流程排列
-// 思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思
-type V1SkillCategory = 'Thinking' | 'Planning' | 'Building' | 'Review' | 'Testing' | 'Shipping' | 'Reflection';
+// v1 原始分类法：按迭代冲刺流程排列
+// 准备 → 思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思
+type V1SkillCategory = 'Preparation' | 'Thinking' | 'Planning' | 'Building' | 'Review' | 'Testing' | 'Shipping' | 'Reflection';
 
-const V1_CATEGORY_ORDER: V1SkillCategory[] = ['Thinking', 'Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Reflection'];
+const V1_CATEGORY_ORDER: V1SkillCategory[] = ['Preparation', 'Thinking', 'Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Reflection'];
 
 const V1_CATEGORY_NAMES_CN: Record<V1SkillCategory, string> = {
+  Preparation: '准备',
   Thinking: '思考',
   Planning: '计划',
   Building: '构建',
@@ -105,8 +106,18 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'gstack-upgrade': 'Infrastructure Operations',
 };
 
-// v1 原始 7 类映射：按迭代冲刺流程排列
+// v1 原始分类映射：按迭代冲刺流程排列
 const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
+  // 准备 Preparation：环境、工具、配置、升级
+  'gstack-upgrade': 'Preparation',
+  'open-gstack-browser': 'Preparation',
+  'pair-agent': 'Preparation',
+  'plan-tune': 'Preparation',
+  'setup-browser-cookies': 'Preparation',
+  'setup-deploy': 'Preparation',
+  'setup-gbrain': 'Preparation',
+  'sync-gbrain': 'Preparation',
+
   // 思考 Thinking：问题定义、战略思考、创业咨询
   'office-hours': 'Thinking',
   'plan-ceo-review': 'Thinking',
@@ -128,10 +139,7 @@ const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
   'investigate': 'Building',
   'ios-fix': 'Building',
   'make-pdf': 'Building',
-  'open-gstack-browser': 'Building',
-  'pair-agent': 'Building',
   'scrape': 'Building',
-  'setup-browser-cookies': 'Building',
   'skillify': 'Building',
   'ios-sync': 'Building',
 
@@ -156,26 +164,22 @@ const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
   'land-and-deploy': 'Shipping',
   'document-release': 'Shipping',
   'landing-report': 'Shipping',
-  'setup-deploy': 'Shipping',
   'ios-clean': 'Shipping',
 
-  // 反思 Reflection：回顾、学习、上下文管理、知识库维护、安全护栏
+  // 反思 Reflection：回顾、学习、上下文管理、安全护栏
   'careful': 'Reflection',
   'context-restore': 'Reflection',
   'context-save': 'Reflection',
   'freeze': 'Reflection',
   'guard': 'Reflection',
-  'gstack-upgrade': 'Reflection',
   'learn': 'Reflection',
-  'plan-tune': 'Reflection',
   'retro': 'Reflection',
-  'setup-gbrain': 'Reflection',
-  'sync-gbrain': 'Reflection',
   'unfreeze': 'Reflection',
 };
 
 const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
   // v1 流程分类
+  'Preparation': '准备',
   'Thinking': '思考',
   'Planning': '计划',
   'Building': '构建',

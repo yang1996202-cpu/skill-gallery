@@ -8,7 +8,7 @@ import skillsV1 from './data/skills-v1.json';
 import skillsV2 from './data/skills-v2.json';
 import type { Skill, SkillCategory } from './types/skill';
 
-// 分类方式: 1=原始 7 类（默认首页）, 2=Anthropic 九类
+// 分类方式: 1=原始流程（默认首页）, 2=Anthropic 九类
 const urlParams = new URLSearchParams(window.location.search);
 const viewVersion = ref(urlParams.get('v') === '2' ? 2 : 1);
 
@@ -44,6 +44,7 @@ const lastUpdated = __BUILD_TIME__;
 function getCategoryColor(cat: SkillCategory): string {
   const colors: Record<SkillCategory, string> = {
     // v1 流程分类颜色
+    Preparation: '#84cc16',
     Thinking: '#8b5cf6',
     Planning: '#3b82f6',
     Building: '#10b981',
@@ -68,6 +69,7 @@ function getCategoryColor(cat: SkillCategory): string {
 function getCategoryDisplayName(cat: SkillCategory): string {
   const names: Record<string, string> = {
     // v1 流程分类
+    Preparation: '准备',
     Thinking: '思考',
     Planning: '计划',
     Building: '构建',
@@ -140,7 +142,7 @@ function closeDetail() {
     <header class="header">
       <h1>GStack 技能目录 Skill Gallery</h1>
       <p class="subtitle">
-        {{ viewVersion === 1 ? '原始 7 类流程分类' : 'Anthropic 内部九类分类' }}
+        {{ viewVersion === 1 ? '原始流程分类' : 'Anthropic 内部九类分类' }}
         · {{ skills.length }} 个技能
         · 点击查看详情
       </p>
@@ -151,7 +153,7 @@ function closeDetail() {
           :class="{ active: viewVersion === 1 }"
           @click="switchToV1Category()"
         >
-          原始 7 类
+          原始流程
         </button>
         <button
           class="mode-btn"
@@ -183,14 +185,14 @@ function closeDetail() {
       <div class="footer-grid">
         <div class="footer-section">
           <h4>关于项目</h4>
-          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。默认首页使用原始 7 类流程分类（思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思），覆盖 52 个技能；可切换至 Anthropic 内部九类分类法查看。支持分类筛选、搜索和详情查看。</p>
+          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。默认首页使用原始流程分类（准备 → 思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思），覆盖 52 个技能；可切换至 Anthropic 内部九类分类法查看。支持分类筛选、搜索和详情查看。</p>
         </div>
 
         <div class="footer-section">
           <h4>最近更新</h4>
           <ul>
-            <li>v1 改为迭代冲刺流程分类：思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思</li>
-            <li>默认首页改为原始 7 类流程分类（52 技能）</li>
+            <li>v1 增加“准备”阶段，setup/配置/升级类 skill 不再全放反思</li>
+            <li>v1 流程分类：准备 → 思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思</li>
             <li>v2 Anthropic 九类分类映射按原文定义重新校准</li>
           </ul>
         </div>
