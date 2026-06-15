@@ -5,7 +5,7 @@ import YAML from 'yaml';
 const GSTACK_SKILLS_DIR = path.join(process.env.HOME || '', '.claude/skills/gstack');
 
 // Anthropic 内部 skill 九类分类法（来源：https://mp.weixin.qq.com/s/t7_DCP3Ig7hcrK7C8sRn4A）
-// 旧版（v1）仍使用原始 7 类，保留在 skills-v1.json；此脚本生成新版（v2）skills-v2.json。
+// 旧版（v1）仍使用原始 7 类；此脚本同时生成新版（v2）skills-v2.json 与旧版（v1）skills-v1.json。
 type SkillCategory =
   | 'Libraries & API Reference'
   | 'Product Verification'
@@ -16,6 +16,21 @@ type SkillCategory =
   | 'CI/CD & Deployment'
   | 'Operations Manual'
   | 'Infrastructure Operations';
+
+// v1 原始 7 类分类法（开发顺序：Planning → Building → Review → Testing → Shipping → Safety → Utilities）
+type V1SkillCategory = 'Planning' | 'Building' | 'Review' | 'Testing' | 'Shipping' | 'Safety' | 'Utilities';
+
+const V1_CATEGORY_ORDER: V1SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities'];
+
+const V1_CATEGORY_NAMES_CN: Record<V1SkillCategory, string> = {
+  Planning: '规划',
+  Building: '构建',
+  Review: '评审',
+  Testing: '测试',
+  Shipping: '发布',
+  Safety: '安全',
+  Utilities: '工具'
+};
 
 const CATEGORY_MAP: Record<string, SkillCategory> = {
   // 库和 API 参考：教 agent 正确使用特定库、CLI、SDK 或工具
@@ -38,20 +53,20 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'devex-review': 'Product Verification',
   'design-review': 'Product Verification',
 
-  // 数据获取与分析：连接数据源，提供查询、抓取、分析路径
+  // 数据获取与分析：连接数据/监控栈，提供查询路径、dashboard ID、工作流说明
   'scrape': 'Data Acquisition & Analysis',
   'benchmark-models': 'Data Acquisition & Analysis',
-  'landing-report': 'Data Acquisition & Analysis',
-  'learn': 'Data Acquisition & Analysis',
-  'retro': 'Data Acquisition & Analysis',
+  'health': 'Data Acquisition & Analysis',
 
-  // 业务流程自动化：把重复性工作流压缩成一条命令
+  // 业务流程自动化：把重复性团队工作流压缩成一条命令，常依赖其他 skill 或 MCP
   'document-generate': 'Business Process Automation',
   'spec': 'Business Process Automation',
   'office-hours': 'Business Process Automation',
   'make-pdf': 'Business Process Automation',
   'context-save': 'Business Process Automation',
   'context-restore': 'Business Process Automation',
+  'learn': 'Business Process Automation',
+  'retro': 'Business Process Automation',
 
   // 代码脚手架：生成框架模板、样板代码和初始结构
   'design-html': 'Code Scaffolding',
@@ -68,16 +83,17 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'plan-devex-review': 'Code Quality & Review',
   'autoplan': 'Code Quality & Review',
 
-  // CI/CD 与部署：推代码、部署、监控 PR/发布
+  // CI/CD 与部署：拉取、推送、部署代码
   'ship': 'CI/CD & Deployment',
   'land-and-deploy': 'CI/CD & Deployment',
   'document-release': 'CI/CD & Deployment',
-  'canary': 'CI/CD & Deployment',
+  'setup-deploy': 'CI/CD & Deployment',
+  'landing-report': 'CI/CD & Deployment',
 
   // 运维手册：拿症状 → 多工具排查 → 结构化报告
   'investigate': 'Operations Manual',
   'ios-fix': 'Operations Manual',
-  'health': 'Operations Manual',
+  'canary': 'Operations Manual',
 
   // 基础设施操作：日常维护，对破坏性操作设护栏
   'careful': 'Infrastructure Operations',
@@ -85,20 +101,88 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'freeze': 'Infrastructure Operations',
   'unfreeze': 'Infrastructure Operations',
   'ios-clean': 'Infrastructure Operations',
-  'setup-deploy': 'Infrastructure Operations',
   'gstack-upgrade': 'Infrastructure Operations',
+};
+
+// v1 原始 7 类映射（基于 gstack 历史分类 + SKILL.md 功能归纳）
+const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
+  // 规划 Planning：产品/技术规划、spec、创业咨询
+  'autoplan': 'Planning',
+  'office-hours': 'Planning',
+  'plan-ceo-review': 'Planning',
+  'plan-design-review': 'Planning',
+  'plan-devex-review': 'Planning',
+  'plan-eng-review': 'Planning',
+  'spec': 'Planning',
+
+  // 构建 Building：实现、调试、设计落地、数据获取
+  'browse': 'Building',
+  'design-html': 'Building',
+  'design-shotgun': 'Building',
+  'design-consultation': 'Building',
+  'investigate': 'Building',
+  'ios-fix': 'Building',
+  'scrape': 'Building',
+
+  // 评审 Review：代码/设计/安全/体验审查
+  'review': 'Review',
+  'cso': 'Review',
+  'devex-review': 'Review',
+  'design-review': 'Review',
+  'ios-design-review': 'Review',
+
+  // 测试 Testing：QA、性能、模型对比
+  'qa': 'Testing',
+  'qa-only': 'Testing',
+  'benchmark': 'Testing',
+  'benchmark-models': 'Testing',
+  'canary': 'Testing',
+  'health': 'Testing',
+  'ios-qa': 'Testing',
+
+  // 发布 Shipping：合并、部署、发布后文档/监控
+  'ship': 'Shipping',
+  'land-and-deploy': 'Shipping',
+  'document-release': 'Shipping',
+  'landing-report': 'Shipping',
+
+  // 安全 Safety：危险命令护栏、编辑范围限制
+  'careful': 'Safety',
+  'freeze': 'Safety',
+  'guard': 'Safety',
+  'unfreeze': 'Safety',
+
+  // 工具 Utilities：配置、升级、知识库、上下文、生成 PDF 等通用工具
+  'codex': 'Utilities',
+  'context-restore': 'Utilities',
+  'context-save': 'Utilities',
+  'document-generate': 'Utilities',
+  'gstack-upgrade': 'Utilities',
+  'learn': 'Utilities',
+  'make-pdf': 'Utilities',
+  'open-gstack-browser': 'Utilities',
+  'pair-agent': 'Utilities',
+  'plan-tune': 'Utilities',
+  'retro': 'Utilities',
+  'setup-browser-cookies': 'Utilities',
+  'setup-deploy': 'Utilities',
+  'setup-gbrain': 'Utilities',
+  'skillify': 'Utilities',
+  'sync-gbrain': 'Utilities',
+  'ios-clean': 'Utilities',
+  'ios-sync': 'Utilities',
 };
 
 const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
   'Libraries & API Reference': '库和 API 参考',
   'Product Verification': '产品验证',
-  'Data Acquisition & Analysis': '数据获取与分析',
-  'Business Process Automation': '业务流程自动化',
-  'Code Scaffolding': '代码脚手架',
-  'Code Quality & Review': '代码质量与审查',
-  'CI/CD & Deployment': 'CI/CD 与部署',
+  'Data Acquisition & Analysis': '数据获取和分析',
+  'Business Process Automation': '业务流程和团队自动化',
+  'Code Scaffolding': '代码脚手架和模板',
+  'Code Quality & Review': '代码质量和审查',
+  'CI/CD & Deployment': 'CI/CD 和部署',
   'Operations Manual': '运维手册',
-  'Infrastructure Operations': '基础设施操作',
+  'Infrastructure Operations': '基础设施运维',
 };
 
 const SKILL_SCENARIOS_CN: Record<string, string[]> = {
@@ -450,7 +534,7 @@ interface Skill {
   descriptionCn: string;
   shortDescriptionCn: string;
   allowedTools: string[];
-  category: SkillCategory;
+  category: SkillCategory | V1SkillCategory;
   categoryCn: string;
   sourcePath: string;
   // 新增：场景和标签
@@ -459,7 +543,7 @@ interface Skill {
   targetUsers: string;
 }
 
-function parseSkillMd(filePath: string): Skill | null {
+function parseSkillMd(filePath: string, version: 1 | 2): Skill | null {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
 
@@ -475,7 +559,12 @@ function parseSkillMd(filePath: string): Skill | null {
     const name = yaml.name || path.basename(path.dirname(filePath));
     const description = yaml.description || '';
     const shortDescription = description.split('\n')[0].trim();
-    const category = CATEGORY_MAP[name] || 'Utilities';
+    const category = version === 1
+      ? (V1_CATEGORY_MAP[name] || 'Utilities')
+      : (CATEGORY_MAP[name] || 'Utilities');
+    const categoryCn = version === 1
+      ? V1_CATEGORY_NAMES_CN[category as V1SkillCategory]
+      : CATEGORY_NAMES_CN[category as SkillCategory];
     const descriptionCn = SKILL_DESC_CN[name] || shortDescription;
     const scenarios = SKILL_SCENARIOS_CN[name] || ['通用场景'];
     const tags = SKILL_TAGS_CN[name] || [category];
@@ -549,7 +638,7 @@ function parseSkillMd(filePath: string): Skill | null {
         : descriptionCn,
       allowedTools: yaml['allowed-tools'] || [],
       category,
-      categoryCn: CATEGORY_NAMES_CN[category],
+      categoryCn,
       sourcePath: filePath,
       scenarios,
       tags,
@@ -569,30 +658,41 @@ function main() {
     return;
   }
 
-  const skills: Skill[] = [];
-
-  // Find all skill directories, skip symlinks (e.g. connect-chrome -> open-gstack-browser)
   const dirs = fs.readdirSync(GSTACK_SKILLS_DIR, { withFileTypes: true })
     .filter((d: fs.Dirent) => d.isDirectory() && !d.isSymbolicLink() && !d.name.startsWith('.') && !d.name.startsWith('_'))
     .map((d: fs.Dirent) => d.name);
 
+  // Generate v2 (Anthropic 九类)
+  const v2Skills: Skill[] = [];
   for (const dir of dirs) {
     const skillPath = path.join(GSTACK_SKILLS_DIR, dir, 'SKILL.md');
     if (fs.existsSync(skillPath)) {
-      const skill = parseSkillMd(skillPath);
-      if (skill) {
-        skills.push(skill);
-      }
+      const skill = parseSkillMd(skillPath, 2);
+      if (skill) v2Skills.push(skill);
     }
   }
+  v2Skills.sort((a, b) => a.preambleTier - b.preambleTier);
+  const v2OutputPath = path.join(import.meta.dirname, '../src/data/skills-v2.json');
+  fs.writeFileSync(v2OutputPath, JSON.stringify(v2Skills, null, 2));
+  console.log(`Parsed ${v2Skills.length} skills to ${v2OutputPath}`);
 
-  // Sort by preamble-tier (lower = higher priority)
-  skills.sort((a, b) => a.preambleTier - b.preambleTier);
-
-  const outputPath = path.join(import.meta.dirname, '../src/data/skills-v2.json');
-  fs.writeFileSync(outputPath, JSON.stringify(skills, null, 2));
-
-  console.log(`Parsed ${skills.length} skills to ${outputPath}`);
+  // Generate v1（原始 7 类，52 个技能，按开发顺序排序）
+  const v1Skills: Skill[] = [];
+  for (const dir of dirs) {
+    const skillPath = path.join(GSTACK_SKILLS_DIR, dir, 'SKILL.md');
+    if (fs.existsSync(skillPath)) {
+      const skill = parseSkillMd(skillPath, 1);
+      if (skill) v1Skills.push(skill);
+    }
+  }
+  v1Skills.sort((a, b) => {
+    const orderDiff = V1_CATEGORY_ORDER.indexOf(a.category as V1SkillCategory) - V1_CATEGORY_ORDER.indexOf(b.category as V1SkillCategory);
+    if (orderDiff !== 0) return orderDiff;
+    return a.name.localeCompare(b.name);
+  });
+  const v1OutputPath = path.join(import.meta.dirname, '../src/data/skills-v1.json');
+  fs.writeFileSync(v1OutputPath, JSON.stringify(v1Skills, null, 2));
+  console.log(`Parsed ${v1Skills.length} skills to ${v1OutputPath}`);
 }
 
 main();

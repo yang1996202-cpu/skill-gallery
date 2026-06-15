@@ -8,9 +8,9 @@ import skillsV1 from './data/skills-v1.json';
 import skillsV2 from './data/skills-v2.json';
 import type { Skill, SkillCategory } from './types/skill';
 
-// URL参数版本控制: v1=纯描述（36技能原始7类）, v2=场景+标签（52技能 Anthropic 九类，默认）
+// 分类方式: 1=原始 7 类（默认首页）, 2=Anthropic 九类
 const urlParams = new URLSearchParams(window.location.search);
-const viewVersion = ref(urlParams.get('v') === '1' ? 1 : 2);
+const viewVersion = ref(urlParams.get('v') === '2' ? 2 : 1);
 
 const allSkills = computed<Skill[]>(() => viewVersion.value === 1 ? skillsV1 : skillsV2);
 const skills = ref<Skill[]>(allSkills.value);
@@ -24,17 +24,17 @@ const searchQuery = ref('');
 const selectedCategory = ref<SkillCategory | null>(null);
 const selectedSkill = ref<Skill | null>(null);
 
-function switchToOldVersion() {
+function switchToV1Category() {
   viewVersion.value = 1;
   const newUrl = new URL(window.location.href);
-  newUrl.searchParams.set('v', '1');
+  newUrl.searchParams.delete('v');
   window.history.replaceState({}, '', newUrl.toString());
 }
 
-function switchToNewVersion() {
+function switchToV2Category() {
   viewVersion.value = 2;
   const newUrl = new URL(window.location.href);
-  newUrl.searchParams.delete('v');
+  newUrl.searchParams.set('v', '2');
   window.history.replaceState({}, '', newUrl.toString());
 }
 
@@ -76,16 +76,16 @@ function getCategoryDisplayName(cat: SkillCategory): string {
     Shipping: '发布',
     Safety: '安全',
     Utilities: '工具',
-    // v2 Anthropic 九类分类
+    // v2 Anthropic 九类分类（与来源保持一致）
     'Libraries & API Reference': '库和 API 参考',
     'Product Verification': '产品验证',
-    'Data Acquisition & Analysis': '数据获取与分析',
-    'Business Process Automation': '业务流程自动化',
-    'Code Scaffolding': '代码脚手架',
-    'Code Quality & Review': '代码质量与审查',
-    'CI/CD & Deployment': 'CI/CD 与部署',
+    'Data Acquisition & Analysis': '数据获取和分析',
+    'Business Process Automation': '业务流程和团队自动化',
+    'Code Scaffolding': '代码脚手架和模板',
+    'Code Quality & Review': '代码质量和审查',
+    'CI/CD & Deployment': 'CI/CD 和部署',
     'Operations Manual': '运维手册',
-    'Infrastructure Operations': '基础设施操作'
+    'Infrastructure Operations': '基础设施运维'
   };
   return names[cat] || cat;
 }
@@ -141,25 +141,25 @@ function closeDetail() {
     <header class="header">
       <h1>GStack 技能目录 Skill Gallery</h1>
       <p class="subtitle">
-        {{ viewVersion === 1 ? 'v1 原始分类' : 'v2 Anthropic 九类分类' }}
+        {{ viewVersion === 1 ? '原始 7 类分类' : 'Anthropic 内部九类分类' }}
         · {{ skills.length }} 个技能
         · 点击查看详情
       </p>
       <SearchBar v-model="searchQuery" />
-      <div class="version-toggle">
+      <div class="classification-mode">
         <button
-          v-if="viewVersion === 2"
-          class="toggle-btn old-version-link"
-          @click="switchToOldVersion()"
+          class="mode-btn"
+          :class="{ active: viewVersion === 1 }"
+          @click="switchToV1Category()"
         >
-          切换旧版
+          原始 7 类
         </button>
         <button
-          v-else
-          class="toggle-btn old-version-link"
-          @click="switchToNewVersion()"
+          class="mode-btn"
+          :class="{ active: viewVersion === 2 }"
+          @click="switchToV2Category()"
         >
-          返回新版
+          Anthropic 9 类
         </button>
       </div>
     </header>
@@ -184,16 +184,15 @@ function closeDetail() {
       <div class="footer-grid">
         <div class="footer-section">
           <h4>关于项目</h4>
-          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。</p>
-          <p>v1 与 v2 现在采用统一的卡片样式（场景 + 标签）。v2 默认使用 Anthropic 内部九类分类法；v1 保留原始 36 技能 / 7 分类视图。</p>
+          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。默认首页使用原始 7 类分类（Planning → Building → Review → Testing → Shipping → Safety → Utilities），覆盖 52 个技能；可切换至 Anthropic 内部九类分类法查看。支持分类筛选、搜索和详情查看。</p>
         </div>
 
         <div class="footer-section">
           <h4>最近更新</h4>
           <ul>
-            <li>分类名称全面中文化</li>
-            <li>新增 v2 Anthropic 九类分类</li>
-            <li>保留 v1 原始分类视图</li>
+            <li>默认首页改为原始 7 类分类（52 技能）</li>
+            <li>版本切换改为“原始 7 类 / Anthropic 9 类”分类方式选择</li>
+            <li>v2 Anthropic 九类分类映射按原文定义重新校准</li>
           </ul>
         </div>
 
@@ -253,30 +252,37 @@ function closeDetail() {
   margin: 0 auto;
 }
 
-.version-toggle {
+.classification-mode {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.toggle-btn {
+.mode-btn {
   padding: 6px 12px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  background: transparent;
   color: white;
   cursor: pointer;
   font-size: 0.85rem;
   transition: all 0.2s;
 }
 
-.toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+.mode-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.old-version-link {
-  text-decoration: underline;
-  opacity: 0.8;
+.mode-btn.active {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e3a8a;
+  font-weight: 500;
 }
 
 .footer {

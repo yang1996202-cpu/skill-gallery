@@ -50,7 +50,7 @@
       "AskUserQuestion"
     ],
     "category": "Data Acquisition & Analysis",
-    "categoryCn": "数据获取与分析",
+    "categoryCn": "数据获取和分析",
     "sourcePath": "/Users/yang/.claude/skills/gstack/benchmark-models/SKILL.md",
     "scenarios": [
       "当你想对比不同模型在 gstack 技能上的表现时",
@@ -118,7 +118,7 @@
       "AskUserQuestion"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/make-pdf/SKILL.md",
     "scenarios": [
       "当你想把 markdown 转成 PDF 报告时",
@@ -180,8 +180,8 @@
       "Glob",
       "AskUserQuestion"
     ],
-    "category": "CI/CD & Deployment",
-    "categoryCn": "CI/CD 与部署",
+    "category": "Operations Manual",
+    "categoryCn": "运维手册",
     "sourcePath": "/Users/yang/.claude/skills/gstack/canary/SKILL.md",
     "scenarios": [
       "当你刚部署完想确认是否正常时",
@@ -217,7 +217,7 @@
       "AskUserQuestion"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/context-restore/SKILL.md",
     "scenarios": [
       "当你想恢复之前保存的工作上下文时",
@@ -250,7 +250,7 @@
       "AskUserQuestion"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/context-save/SKILL.md",
     "scenarios": [
       "当你需要中断工作并保存当前上下文时",
@@ -286,7 +286,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/cso/SKILL.md",
     "scenarios": [
       "当你想检查项目是否有安全隐患时",
@@ -325,7 +325,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Scaffolding",
-    "categoryCn": "代码脚手架",
+    "categoryCn": "代码脚手架和模板",
     "sourcePath": "/Users/yang/.claude/skills/gstack/design-html/SKILL.md",
     "scenarios": [
       "当你需要把设计稿变成可运行的网页时",
@@ -361,7 +361,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Scaffolding",
-    "categoryCn": "代码脚手架",
+    "categoryCn": "代码脚手架和模板",
     "sourcePath": "/Users/yang/.claude/skills/gstack/design-shotgun/SKILL.md",
     "scenarios": [
       "当你不确定哪种设计方案最好时",
@@ -398,7 +398,7 @@
       "AskUserQuestion"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/document-generate/SKILL.md",
     "scenarios": [
       "当你发现项目文档缺失时",
@@ -435,7 +435,7 @@
       "AskUserQuestion"
     ],
     "category": "CI/CD & Deployment",
-    "categoryCn": "CI/CD 与部署",
+    "categoryCn": "CI/CD 和部署",
     "sourcePath": "/Users/yang/.claude/skills/gstack/document-release/SKILL.md",
     "scenarios": [
       "当你部署完需要更新文档时",
@@ -469,8 +469,8 @@
       "Grep",
       "AskUserQuestion"
     ],
-    "category": "Operations Manual",
-    "categoryCn": "运维手册",
+    "category": "Data Acquisition & Analysis",
+    "categoryCn": "数据获取和分析",
     "sourcePath": "/Users/yang/.claude/skills/gstack/health/SKILL.md",
     "scenarios": [
       "当你想了解代码库整体健康状况时",
@@ -544,8 +544,8 @@
       "Glob",
       "Grep"
     ],
-    "category": "Data Acquisition & Analysis",
-    "categoryCn": "数据获取与分析",
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/learn/SKILL.md",
     "scenarios": [
       "当你想回顾项目中学到的东西时",
@@ -612,8 +612,8 @@
       "Glob",
       "AskUserQuestion"
     ],
-    "category": "Data Acquisition & Analysis",
-    "categoryCn": "数据获取与分析",
+    "category": "Business Process Automation",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/retro/SKILL.md",
     "scenarios": [
       "当你想做周回顾总结时",
@@ -648,8 +648,8 @@
       "Grep",
       "AskUserQuestion"
     ],
-    "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 和部署",
     "sourcePath": "/Users/yang/.claude/skills/gstack/setup-deploy/SKILL.md",
     "scenarios": [
       "当你第一次配置部署环境时",
@@ -755,7 +755,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/autoplan/SKILL.md",
     "scenarios": [
       "当你想要全面的项目评审时",
@@ -827,7 +827,7 @@
       "WebSearch"
     ],
     "category": "Code Scaffolding",
-    "categoryCn": "代码脚手架",
+    "categoryCn": "代码脚手架和模板",
     "sourcePath": "/Users/yang/.claude/skills/gstack/design-consultation/SKILL.md",
     "scenarios": [
       "当你从零开始搭建设计系统时",
@@ -898,7 +898,7 @@
       "AskUserQuestion"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/ios-clean/SKILL.md",
     "scenarios": [
       "当你想移除 iOS 项目中的 DebugBridge 调试代码时",
@@ -1035,7 +1035,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Scaffolding",
-    "categoryCn": "代码脚手架",
+    "categoryCn": "代码脚手架和模板",
     "sourcePath": "/Users/yang/.claude/skills/gstack/ios-sync/SKILL.md",
     "scenarios": [
       "当你需要把 iOS debug bridge 同步到最新模板时",
@@ -1071,7 +1071,7 @@
       "WebSearch"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/office-hours/SKILL.md",
     "scenarios": [
       "当你不确定产品方向是否正确时",
@@ -1107,7 +1107,7 @@
       "WebSearch"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/plan-ceo-review/SKILL.md",
     "scenarios": [
       "当你想从战略角度审视产品计划时",
@@ -1143,7 +1143,7 @@
       "AskUserQuestion"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/plan-design-review/SKILL.md",
     "scenarios": [
       "当你想从设计角度审视产品计划时",
@@ -1178,7 +1178,7 @@
       "WebSearch"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/plan-devex-review/SKILL.md",
     "scenarios": [
       "当你想优化开发者工作体验时",
@@ -1213,7 +1213,7 @@
       "WebSearch"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/plan-eng-review/SKILL.md",
     "scenarios": [
       "当你想完善技术架构时",
@@ -1245,7 +1245,7 @@
       "Read"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/careful/SKILL.md",
     "scenarios": [
       "当你要执行可能有风险的操作时",
@@ -1316,7 +1316,7 @@
       "AskUserQuestion"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/freeze/SKILL.md",
     "scenarios": [
       "当你想限制 AI 只修改特定目录时",
@@ -1348,7 +1348,7 @@
       "AskUserQuestion"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/gstack-upgrade/SKILL.md",
     "scenarios": [
       "当你想升级 gstack 到最新版本时",
@@ -1378,7 +1378,7 @@
       "AskUserQuestion"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/guard/SKILL.md",
     "scenarios": [
       "当你想开启全面安全模式时",
@@ -1411,7 +1411,7 @@
       "AskUserQuestion"
     ],
     "category": "CI/CD & Deployment",
-    "categoryCn": "CI/CD 与部署",
+    "categoryCn": "CI/CD 和部署",
     "sourcePath": "/Users/yang/.claude/skills/gstack/land-and-deploy/SKILL.md",
     "scenarios": [
       "当你想一键完成合并和部署时",
@@ -1440,8 +1440,8 @@
       "Bash",
       "Read"
     ],
-    "category": "Data Acquisition & Analysis",
-    "categoryCn": "数据获取与分析",
+    "category": "CI/CD & Deployment",
+    "categoryCn": "CI/CD 和部署",
     "sourcePath": "/Users/yang/.claude/skills/gstack/landing-report/SKILL.md",
     "scenarios": [
       "当你想查看 workspace-aware ship 的队列状态时",
@@ -1611,7 +1611,7 @@
       "WebSearch"
     ],
     "category": "Code Quality & Review",
-    "categoryCn": "代码质量与审查",
+    "categoryCn": "代码质量和审查",
     "sourcePath": "/Users/yang/.claude/skills/gstack/review/SKILL.md",
     "scenarios": [
       "当你提交代码前想检查是否有安全问题",
@@ -1645,7 +1645,7 @@
       "AskUserQuestion"
     ],
     "category": "Data Acquisition & Analysis",
-    "categoryCn": "数据获取与分析",
+    "categoryCn": "数据获取和分析",
     "sourcePath": "/Users/yang/.claude/skills/gstack/scrape/SKILL.md",
     "scenarios": [
       "当你需要从网页抓取结构化数据时",
@@ -1682,7 +1682,7 @@
       "WebSearch"
     ],
     "category": "CI/CD & Deployment",
-    "categoryCn": "CI/CD 与部署",
+    "categoryCn": "CI/CD 和部署",
     "sourcePath": "/Users/yang/.claude/skills/gstack/ship/SKILL.md",
     "scenarios": [
       "当你完成一个功能准备发布时",
@@ -1752,7 +1752,7 @@
       "AskUserQuestion"
     ],
     "category": "Business Process Automation",
-    "categoryCn": "业务流程自动化",
+    "categoryCn": "业务流程和团队自动化",
     "sourcePath": "/Users/yang/.claude/skills/gstack/spec/SKILL.md",
     "scenarios": [
       "当你有一个模糊的想法想写成可执行方案时",
@@ -1785,7 +1785,7 @@
       "Read"
     ],
     "category": "Infrastructure Operations",
-    "categoryCn": "基础设施操作",
+    "categoryCn": "基础设施运维",
     "sourcePath": "/Users/yang/.claude/skills/gstack/unfreeze/SKILL.md",
     "scenarios": [
       "当你想解除目录编辑限制时"
