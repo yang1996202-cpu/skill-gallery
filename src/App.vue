@@ -189,8 +189,8 @@ function closeDetail() {
         <div class="footer-section">
           <h4>最近更新</h4>
           <ul>
-            <li>默认首页改为原始 7 类分类（52 技能）</li>
-            <li>版本切换改为“原始 7 类 / Anthropic 9 类”分类方式选择</li>
+            <li>v1 改为迭代冲刺流程分类：思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思</li>
+            <li>默认首页改为原始 7 类流程分类（52 技能）</li>
             <li>v2 Anthropic 九类分类映射按原文定义重新校准</li>
           </ul>
         </div>
