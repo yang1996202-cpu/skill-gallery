@@ -17,19 +17,20 @@ type SkillCategory =
   | 'Operations Manual'
   | 'Infrastructure Operations';
 
-// v1 原始 7 类分类法（开发顺序：Planning → Building → Review → Testing → Shipping → Safety → Utilities）
-type V1SkillCategory = 'Planning' | 'Building' | 'Review' | 'Testing' | 'Shipping' | 'Safety' | 'Utilities';
+// v1 原始 7 类分类法：按迭代冲刺流程排列
+// 思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思
+type V1SkillCategory = 'Thinking' | 'Planning' | 'Building' | 'Review' | 'Testing' | 'Shipping' | 'Reflection';
 
-const V1_CATEGORY_ORDER: V1SkillCategory[] = ['Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Safety', 'Utilities'];
+const V1_CATEGORY_ORDER: V1SkillCategory[] = ['Thinking', 'Planning', 'Building', 'Review', 'Testing', 'Shipping', 'Reflection'];
 
 const V1_CATEGORY_NAMES_CN: Record<V1SkillCategory, string> = {
-  Planning: '规划',
+  Thinking: '思考',
+  Planning: '计划',
   Building: '构建',
-  Review: '评审',
+  Review: '审查',
   Testing: '测试',
   Shipping: '发布',
-  Safety: '安全',
-  Utilities: '工具'
+  Reflection: '反思'
 };
 
 const CATEGORY_MAP: Record<string, SkillCategory> = {
@@ -104,34 +105,44 @@ const CATEGORY_MAP: Record<string, SkillCategory> = {
   'gstack-upgrade': 'Infrastructure Operations',
 };
 
-// v1 原始 7 类映射（基于 gstack 历史分类 + SKILL.md 功能归纳）
+// v1 原始 7 类映射：按迭代冲刺流程排列
 const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
-  // 规划 Planning：产品/技术规划、spec、创业咨询
+  // 思考 Thinking：问题定义、战略思考、创业咨询
+  'office-hours': 'Thinking',
+  'plan-ceo-review': 'Thinking',
+
+  // 计划 Planning：方案、架构、设计计划、spec
   'autoplan': 'Planning',
-  'office-hours': 'Planning',
-  'plan-ceo-review': 'Planning',
   'plan-design-review': 'Planning',
   'plan-devex-review': 'Planning',
   'plan-eng-review': 'Planning',
   'spec': 'Planning',
 
-  // 构建 Building：实现、调试、设计落地、数据获取
+  // 构建 Building：实现、脚手架、设计落地、数据获取、浏览器工具、调试修复
   'browse': 'Building',
+  'codex': 'Building',
+  'design-consultation': 'Building',
   'design-html': 'Building',
   'design-shotgun': 'Building',
-  'design-consultation': 'Building',
+  'document-generate': 'Building',
   'investigate': 'Building',
   'ios-fix': 'Building',
+  'make-pdf': 'Building',
+  'open-gstack-browser': 'Building',
+  'pair-agent': 'Building',
   'scrape': 'Building',
+  'setup-browser-cookies': 'Building',
+  'skillify': 'Building',
+  'ios-sync': 'Building',
 
-  // 评审 Review：代码/设计/安全/体验审查
+  // 审查 Review：代码/设计/安全/体验审查
   'review': 'Review',
   'cso': 'Review',
   'devex-review': 'Review',
   'design-review': 'Review',
   'ios-design-review': 'Review',
 
-  // 测试 Testing：QA、性能、模型对比
+  // 测试 Testing：QA、性能、模型对比、健康检查
   'qa': 'Testing',
   'qa-only': 'Testing',
   'benchmark': 'Testing',
@@ -140,40 +151,39 @@ const V1_CATEGORY_MAP: Record<string, V1SkillCategory> = {
   'health': 'Testing',
   'ios-qa': 'Testing',
 
-  // 发布 Shipping：合并、部署、发布后文档/监控
+  // 发布 Shipping：合并、部署、发布文档、发布前清理
   'ship': 'Shipping',
   'land-and-deploy': 'Shipping',
   'document-release': 'Shipping',
   'landing-report': 'Shipping',
+  'setup-deploy': 'Shipping',
+  'ios-clean': 'Shipping',
 
-  // 安全 Safety：危险命令护栏、编辑范围限制
-  'careful': 'Safety',
-  'freeze': 'Safety',
-  'guard': 'Safety',
-  'unfreeze': 'Safety',
-
-  // 工具 Utilities：配置、升级、知识库、上下文、生成 PDF 等通用工具
-  'codex': 'Utilities',
-  'context-restore': 'Utilities',
-  'context-save': 'Utilities',
-  'document-generate': 'Utilities',
-  'gstack-upgrade': 'Utilities',
-  'learn': 'Utilities',
-  'make-pdf': 'Utilities',
-  'open-gstack-browser': 'Utilities',
-  'pair-agent': 'Utilities',
-  'plan-tune': 'Utilities',
-  'retro': 'Utilities',
-  'setup-browser-cookies': 'Utilities',
-  'setup-deploy': 'Utilities',
-  'setup-gbrain': 'Utilities',
-  'skillify': 'Utilities',
-  'sync-gbrain': 'Utilities',
-  'ios-clean': 'Utilities',
-  'ios-sync': 'Utilities',
+  // 反思 Reflection：回顾、学习、上下文管理、知识库维护、安全护栏
+  'careful': 'Reflection',
+  'context-restore': 'Reflection',
+  'context-save': 'Reflection',
+  'freeze': 'Reflection',
+  'guard': 'Reflection',
+  'gstack-upgrade': 'Reflection',
+  'learn': 'Reflection',
+  'plan-tune': 'Reflection',
+  'retro': 'Reflection',
+  'setup-gbrain': 'Reflection',
+  'sync-gbrain': 'Reflection',
+  'unfreeze': 'Reflection',
 };
 
 const CATEGORY_NAMES_CN: Record<SkillCategory, string> = {
+  // v1 流程分类
+  'Thinking': '思考',
+  'Planning': '计划',
+  'Building': '构建',
+  'Review': '审查',
+  'Testing': '测试',
+  'Shipping': '发布',
+  'Reflection': '反思',
+  // v2 Anthropic 九类分类
   'Libraries & API Reference': '库和 API 参考',
   'Product Verification': '产品验证',
   'Data Acquisition & Analysis': '数据获取和分析',

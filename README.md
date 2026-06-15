@@ -13,11 +13,11 @@ GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan
 ## 功能特性
 
 - **双版本视图** —
-  - **原始 7 类（默认首页）**：52 个技能，按 Planning → Building → Review → Testing → Shipping → Safety → Utilities 的开发顺序排列
+  - **原始 7 类流程分类（默认首页）**：52 个技能，按迭代冲刺顺序排列：思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思
   - **Anthropic 九类**：52 个技能 + Anthropic 内部九类分类法，场景 + 标签，快速判断 skill 用途
 - **分类方式切换** — 顶部切换“原始 7 类 / Anthropic 9 类”，不再使用“新版/旧版”按钮
 - **分类浏览** — 当前分类方式对应分类色块快速筛选
-  - 原始 7 类：规划 / 构建 / 评审 / 测试 / 发布 / 安全 / 工具
+  - 原始 7 类：思考 / 计划 / 构建 / 审查 / 测试 / 发布 / 反思
   - Anthropic 9 类：库和 API 参考 / 产品验证 / 数据获取和分析 / 业务流程和团队自动化 / 代码脚手架和模板 / 代码质量和审查 / CI/CD 和部署 / 运维手册 / 基础设施运维
 - **实时搜索** — 支持按技能名称、描述、标签、适用场景搜索
 - **详情弹窗** — 点击卡片查看完整描述、适用场景、适合人群和调用方式
@@ -61,17 +61,19 @@ GStack 技能可视化目录。将 [garrytan/gstack](https://github.com/garrytan
 
 ## v1 原始分类（52 技能）
 
+按迭代冲刺流程排列：
+
 | 分类 | 英文 | 技能数量 | 代表 Skill |
 |---|---|---|---|
-| 规划 | Planning | 7 | `/spec`, `/office-hours`, `/autoplan`, `/plan-ceo-review` |
-| 构建 | Building | 7 | `/browse`, `/design-html`, `/investigate`, `/ios-fix`, `/scrape` |
-| 评审 | Review | 5 | `/review`, `/cso`, `/design-review`, `/ios-design-review` |
+| 思考 | Thinking | 2 | `/office-hours`, `/plan-ceo-review` |
+| 计划 | Planning | 5 | `/spec`, `/autoplan`, `/plan-eng-review`, `/plan-design-review`, `/plan-devex-review` |
+| 构建 | Building | 15 | `/browse`, `/codex`, `/design-html`, `/investigate`, `/scrape`, `/skillify`, `/ios-sync` |
+| 审查 | Review | 5 | `/review`, `/cso`, `/design-review`, `/devex-review`, `/ios-design-review` |
 | 测试 | Testing | 7 | `/qa`, `/benchmark`, `/canary`, `/health`, `/ios-qa` |
-| 发布 | Shipping | 4 | `/ship`, `/land-and-deploy`, `/document-release`, `/landing-report` |
-| 安全 | Safety | 4 | `/guard`, `/careful`, `/freeze`, `/unfreeze` |
-| 工具 | Utilities | 18 | `/learn`, `/codex`, `/retro`, `/setup-deploy`, `/setup-gbrain`, `/make-pdf` |
+| 发布 | Shipping | 6 | `/ship`, `/land-and-deploy`, `/document-release`, `/landing-report`, `/setup-deploy`, `/ios-clean` |
+| 反思 | Reflection | 12 | `/retro`, `/learn`, `/context-save`, `/context-restore`, `/setup-gbrain`, `/sync-gbrain`, `/careful`, `/freeze`, `/guard`, `/unfreeze` |
 
-**注意**：v1 现在与 v2 一样覆盖当前 52 个技能，仅使用 gstack 原始 7 类分类。分类顺序按开发流程排列：Planning → Building → Review → Testing → Shipping → Safety → Utilities。当前 gstack 已移除 `checkpoint`；`/connect-chrome` 是 `/open-gstack-browser` 的符号链接。
+**注意**：v1 现在与 v2 一样覆盖当前 52 个技能。分类顺序按迭代冲刺流程排列：思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思。安全类技能（`careful`、`freeze`、`guard`、`unfreeze`）作为跨流程护栏归入“反思”。
 
 ---
 
@@ -189,9 +191,11 @@ skill-gallery/
 
 ### 2026-06-15
 
-- 默认首页改为原始 7 类分类（52 技能），按 Planning → Building → Review → Testing → Shipping → Safety → Utilities 排列。
+- v1 原始分类改为按迭代冲刺流程排列：思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思。
+- 安全类技能作为跨流程护栏归入“反思”，工具类技能按使用阶段分散到各流程分类。
+- 默认首页改为原始 7 类流程分类（52 技能）。
 - 移除“新版/旧版”切换按钮，改为顶部分类方式选择：“原始 7 类 / Anthropic 9 类”。
-- 按 Anthropic 原文定义重新校准 v2 九类映射：canary、retro、setup-deploy、landing-report、health、learn 调整分类。
+- 按 Anthropic 原文定义重新校准 v2 九类映射。
 
 ### 2026-06-14
 

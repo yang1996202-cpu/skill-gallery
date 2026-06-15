@@ -43,14 +43,14 @@ const lastUpdated = __BUILD_TIME__;
 
 function getCategoryColor(cat: SkillCategory): string {
   const colors: Record<SkillCategory, string> = {
-    // v1 分类颜色
+    // v1 流程分类颜色
+    Thinking: '#8b5cf6',
     Planning: '#3b82f6',
     Building: '#10b981',
-    Review: '#8b5cf6',
-    Testing: '#f59e0b',
+    Review: '#f59e0b',
+    Testing: '#06b6d4',
     Shipping: '#ef4444',
-    Safety: '#dc2626',
-    Utilities: '#6b7280',
+    Reflection: '#64748b',
     // v2 Anthropic 九类颜色
     'Libraries & API Reference': '#6366f1',
     'Product Verification': '#10b981',
@@ -66,16 +66,15 @@ function getCategoryColor(cat: SkillCategory): string {
 }
 
 function getCategoryDisplayName(cat: SkillCategory): string {
-  // v1 原始分类显示纯中文；v2 Anthropic 分类也显示中文
   const names: Record<string, string> = {
-    // v1 原始分类
-    Planning: '规划',
+    // v1 流程分类
+    Thinking: '思考',
+    Planning: '计划',
     Building: '构建',
-    Review: '评审',
+    Review: '审查',
     Testing: '测试',
     Shipping: '发布',
-    Safety: '安全',
-    Utilities: '工具',
+    Reflection: '反思',
     // v2 Anthropic 九类分类（与来源保持一致）
     'Libraries & API Reference': '库和 API 参考',
     'Product Verification': '产品验证',
@@ -141,7 +140,7 @@ function closeDetail() {
     <header class="header">
       <h1>GStack 技能目录 Skill Gallery</h1>
       <p class="subtitle">
-        {{ viewVersion === 1 ? '原始 7 类分类' : 'Anthropic 内部九类分类' }}
+        {{ viewVersion === 1 ? '原始 7 类流程分类' : 'Anthropic 内部九类分类' }}
         · {{ skills.length }} 个技能
         · 点击查看详情
       </p>
@@ -184,7 +183,7 @@ function closeDetail() {
       <div class="footer-grid">
         <div class="footer-section">
           <h4>关于项目</h4>
-          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。默认首页使用原始 7 类分类（Planning → Building → Review → Testing → Shipping → Safety → Utilities），覆盖 52 个技能；可切换至 Anthropic 内部九类分类法查看。支持分类筛选、搜索和详情查看。</p>
+          <p>GStack Skill Gallery 是 <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">garrytan/gstack</a> 技能的可视化目录。默认首页使用原始 7 类流程分类（思考 → 计划 → 构建 → 审查 → 测试 → 发布 → 反思），覆盖 52 个技能；可切换至 Anthropic 内部九类分类法查看。支持分类筛选、搜索和详情查看。</p>
         </div>
 
         <div class="footer-section">

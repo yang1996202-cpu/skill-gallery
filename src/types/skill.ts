@@ -1,12 +1,12 @@
 export type SkillCategory =
-  // v1 原始分类
+  // v1 原始分类：按迭代冲刺流程排列
+  | 'Thinking'
   | 'Planning'
   | 'Building'
   | 'Review'
   | 'Testing'
   | 'Shipping'
-  | 'Safety'
-  | 'Utilities'
+  | 'Reflection'
   // v2 Anthropic 九类分类法
   | 'Libraries & API Reference'
   | 'Product Verification'
